@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طبيبي | الإحصائيات</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚕️</text></svg>">
+
+    <style>
+        .chart-container {
+            background: var(--bg-surface);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            position: relative;
+            height: 400px;
+        }
+        .stats-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .summary-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+        .summary-card h3 { font-size: 2.5rem; margin-bottom: 10px; }
+        .summary-card p { font-size: 1.1rem; opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-stethoscope"></i> طبيبي
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="map.html">الخريطة</a></li>
+                    <li><a href="stats.html" class="active">الإحصائيات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="darkModeToggle" class="btn-icon">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header" style="background: var(--primary-dark); color: white; padding: 40px 0; text-align: center; margin-bottom: 40px;">
+        <div class="container">
+            <h1>إحصائيات المنصة</h1>
+            <p>نظرة عامة على التغطية الطبية في الجزائر عبر منصة طبيبي</p>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <div class="stats-summary">
+            <div class="summary-card">
+                <i class="fa-solid fa-user-doctor" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                <h3 id="totalDoctorsCount">...</h3>
+                <p>طبيب مسجل</p>
+            </div>
+            <div class="summary-card" style="background: linear-gradient(135deg, var(--secondary-color), #48c9b0);">
+                <i class="fa-solid fa-map-location-dot" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                <h3 id="coveredWilayasCount">...</h3>
+                <p>ولاية مغطاة</p>
+            </div>
+            <div class="summary-card" style="background: linear-gradient(135deg, var(--accent-color), #f39c12);">
+                <i class="fa-solid fa-stethoscope" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                <h3 id="specialtiesCount">...</h3>
+                <p>اختصاص طبي</p>
+            </div>
+        </div>
+
+        <!-- Google Ads Container -->
+        <div class="ad-container ad-banner" style="margin-bottom: 40px;">
+            <span class="ad-label">إعلان</span>
+        </div>
+
+        <div class="grid-2-col" style="margin-bottom: 40px;">
+            <div>
+                <h2 class="section-title" style="text-align: right; font-size: 1.5rem;">توزيع الأطباء حسب الاختصاص</h2>
+                <div class="chart-container">
+                    <canvas id="specialtyChart"></canvas>
+                </div>
+            </div>
+            <div>
+                <h2 class="section-title" style="text-align: right; font-size: 1.5rem;">أعلى الولايات تغطية</h2>
+                <div class="chart-container">
+                    <canvas id="wilayaChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-about">
+                <h3><i class="fa-solid fa-stethoscope"></i> طبيبي</h3>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 طبيبي. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/data/meta.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/stats.js"></script>
+</body>
+</html>

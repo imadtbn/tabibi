@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طبيبي | الاختصاصات</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚕️</text></svg>">
+
+    <style>
+        .filters-container {
+            background: var(--bg-surface);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            border: 1px solid var(--border-color);
+        }
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .loading-spinner {
+            text-align: center;
+            padding: 50px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-stethoscope"></i> طبيبي
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="map.html">الخريطة</a></li>
+                    <li><a href="stats.html">الإحصائيات</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="contact.html">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="darkModeToggle" class="btn-icon">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 id="specialtyTitle">تحميل...</h1>
+            <p id="specialtyDesc">ابحث عن أفضل الأطباء في هذا الاختصاص</p>
+        </div>
+    </div>
+
+    <!-- Google Ads Container -->
+    <div class="container ad-container ad-banner">
+        <span class="ad-label">إعلان</span>
+    </div>
+
+    <main class="container">
+        <div class="filters-container">
+            <div class="filter-group">
+                <label>تصفية بالولاية</label>
+                <select id="wilayaFilter">
+                    <option value="all">جميع الولايات</option>
+                    <!-- Will be populated via JS -->
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>بحث بالاسم</label>
+                <input type="text" id="nameFilter" placeholder="اسم الطبيب...">
+            </div>
+            <div class="filter-group" style="display: flex; align-items: flex-end;">
+                <button id="sortByDistanceBtn" class="btn btn-outline" style="width: 100%;">
+                    <i class="fa-solid fa-location-dot"></i> الأقرب إلي
+                </button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading-spinner">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+        </div>
+
+        <div class="doctors-grid" id="doctorsGrid">
+            <!-- Doctors will be loaded here -->
+        </div>
+
+        <div id="noResults" class="text-center hidden" style="padding: 50px;">
+            <i class="fa-solid fa-user-doctor" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 20px;"></i>
+            <h3>عذراً، لا توجد نتائج مطابقة لبحثك.</h3>
+            <p class="text-secondary mt-4">جرب تغيير معايير البحث أو تصفح اختصاصات أخرى.</p>
+        </div>
+    </main>
+
+    <!-- Google Ads Container -->
+    <div class="container ad-container ad-banner" style="margin-top: 50px;">
+        <span class="ad-label">إعلان</span>
+    </div>
+
+    <footer>
+        <!-- Simplified Footer -->
+        <div class="container footer-container">
+            <div class="footer-about">
+                <h3><i class="fa-solid fa-stethoscope"></i> طبيبي</h3>
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 طبيبي. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="js/data/meta.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/specialty.js"></script>
+    <script src="js/ux.js"></script>
+</body>
+</html>
