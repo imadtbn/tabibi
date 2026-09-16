@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأطباء مختلف التخصصات - النجدة DZ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+
+
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="../icons/najda_icon_1.png" alt="icon" type="image/png" loading="lazy" class="welcome-logo">
+
+    <meta name="description"
+        content="منصة النجدة والطوارئ في الجزائر لتحديد أقرب خدمات الإسعاف، الحماية المدنية، الشرطة، مخابر التحاليل البيولوجية، الصيدليات، الأطباء وجرّ السيارات بسرعة ودقة عبر الموقع الجغرافي. وصول فوري لأرقام الطوارئ والخدمات القريبة منك في جميع الولايات.">
+    <!-- لون شريط المتصفح -->
+    <meta name="theme-color" content="#1d3557">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1d3557">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1f33">
+
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../icons/najda_icon_3.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../icons/najda_icon_3.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../icons/najda_icon_3.png">
+
+
+    <link rel="stylesheet" href="../style/doctors.css">
+    <link rel="stylesheet" href="../style/SidebarAnimation.css">
+
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Physician",
+          "name": "اسم الطبيب",
+          "medicalSpecialty": "GeneralPractice",
+          "telephone": "+213XXXXXXXXX",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "البلدية",
+            "addressRegion": "الولاية",
+            "addressCountry": "DZ"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 36.75,
+            "longitude": 3.05
+          }
+        }
+        </script>
+
+
+
+    <link rel="stylesheet" href="../style/ads.css">
+
+
+
+
+
+
+
+
+    <meta name="google-site-verification" content="f5Xi4oFx0v5dN6iPZd9qCw-7vnc3vIbAeYF9jr4vwVM" />
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript): يعمل للمستخدمين الذين عطّلوا JavaScript -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WS74969S"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="../icons/najda_icon_3.png" alt="شعار النجدة Dz">
+                <h1>الأطباء</h1>
+
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+
+            <div class="nav-overlay" id="navOverlay"></div>
+
+            <nav class="nav-links" id="navLinks">
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+                <a href="../index.html">الرئيسية</a>
+                <a href="hospitals.html" >مستشفيات</a>
+                <a href="pharmacies.html">صيدليات</a>
+                <a href="doctors.html" class="active">أطباء</a>
+                <a href="laboratories.html">مخابر التحاليل البيولوجية</a>
+                <a href="about.html">عن الموقع</a>
+                <a href="subscription.html">إشتراك </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>أقرب الأطباء مختلف التخصصات إليك</h2>
+            <p>ابحث عن طبيب حسب الاختصاص واعثر على أقرب عيادة</p>
+            <div class="location-access">
+                <button id="getLocation" class="btn"><i class="fas fa-map-marker-alt"></i> تحديث الموقع</button>
+
+                <a href="subscription.html" class="btn">
+                    <i class="fas fa-id-card"></i>
+                    تسجيل طبيب
+                </a>
+
+            </div>
+            <div id="locationStatus" style="color: #ffdddd;"></div>
+        </div>
+    </section>
+    <!-- موضع إعلان hero-after: تُدار المكتبة والتهيئة مركزياً من ../script/site-tags.js -->
+    <aside class="ad-container ad-container--hero" data-ad-placement="hero-after" aria-label="إعلان">
+        <div class="ad-slot">
+            <ins class="adsbygoogle" style="display:block;" data-ad-format="fluid" data-ad-client="ca-pub-5656416032906373" data-ad-slot="6152718642" data-ad-layout-key="-h6-l+d-jc+qd"></ins>
+        </div>
+    </aside>
+
+
+    <div class="container">
+
+        <!-- قسم البحث الاحترافي -->
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="ابحث عن أطباء من مختلف التخصصات ...">
+            </div>
+        </div>
+
+
+
+        <!-- أزرار التصفية حسب الاختصاص -->
+        <div class="filter-section">
+            <div class="filter-buttons" id="filterButtons"></div>
+        </div>
+
+        <!-- شبكة عرض الأطباء -->
+        <div id="doctorList" class="doctor-grid">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+
+    <!-- موضع إعلان before-footer: تُدار المكتبة والتهيئة مركزياً من ../script/site-tags.js -->
+    <aside class="ad-container ad-container--display" data-ad-placement="before-footer" aria-label="إعلان">
+        <div class="ad-slot">
+            <ins class="adsbygoogle" style="display:block;" data-ad-format="auto" data-ad-client="ca-pub-5656416032906373" data-ad-slot="5508509362" data-full-width-responsive="true"></ins>
+        </div>
+    </aside>
+<footer>
+        <div class="container footer-content">
+            <div class="footer-grid">
+
+                <!-- تعريف -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <h2>النجدة Dz</h2>
+                        <p>منصة وطنية لتحديد أقرب خدمات النجدة والطوارئ في الجزائر بدقة وسرعة.</p>
+                        <img src="../icons/najda_icon_11.png" alt="شعار النجدة Dz" loading="lazy">
+                    </div>
+
+                </div>
+
+                <!-- خدمات الطوارئ -->
+                <div class="footer-col">
+                    <h4><i class="fas fa-ambulance"></i> خدمات النجدة والطوارئ</h4>
+                    <ul>
+                        <li><a href="hospitals.html"><i class="fas fa-hospital"></i> المستشفيات</a></li>
+                        <li><a href="police.html"><i class="fas fa-shield-alt"></i> مراكز الشرطة</a></li>
+                        <li><a href="gendarmerie.html"><i class="fas fa-star"></i> الدرك الوطني</a></li>
+                        <li><a href="protectioncivil.html"><i class="fas fa-fire-extinguisher"></i> الحماية
+                                المدنية</a></li>
+                                <li><a href="depannage.html"><i class="fas fa-truck-pickup"></i> جر ورأب السيارات</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- خدمات صحية -->
+                <div class="footer-col">
+                    <h4><i class="fas fa-heartbeat"></i> خدمات صحية</h4>
+                    <ul>
+                        <ul>
+                            <li><a href="doctors.html"><i class="fas fa-user-md"></i>أطباء مختلف التخصصات</a></li>
+                            <li><a href="laboratories.html"><i class="fas fa-vials"></i> مخابر التحاليل البيولوجية</a>
+                            </li>
+                            <li><a href="pharmacies.html"><i class="fas fa-capsules"></i> الصيدليات</a></li>
+                        </ul>
+                    </ul>
+                </div>
+
+                <!-- روابط مهمة -->
+                <div class="footer-col">
+                    <h4><i class="fas fa-link"></i> روابط مهمة</h4>
+                    <ul>
+                        <li><a href="about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
+                        <li><a href="contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                        <li><a href="privacy.html"><i class="fas fa-user-shield"></i> سياسة الخصوصية</a>
+                        </li>
+                        <li><a href="guide.html"><i class="fas fa-book"></i> الإرشادات</a></li>
+                        <li><a href="subscription.html"><i class="fas fa-id-card"></i>الإشتراك في خدمات النجدة</a></li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2026</p>
+            </div>
+
+        </div>
+
+        <!-- زر الرجوع للأعلى -->
+        <button id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+    </footer>
+
+    <!-- تحميل البيانات من ملف خارجي -->
+    <script src="../script/doctors-data.js"></script>
+    <!--  القائمة الجانبية  script -->
+    <script src="../script/SidebarAnimation.js"></script>
+
+    <!-- السكريبت الرئيسي الموحد -->
+    <script>
+        (function () {
+            // ---------- 1. التحقق من البيانات ----------
+
+
+            // نتأكد أن البيانات محملة (من الملف الخارجي يجب أن تعرّف window.doctorsData أو متغير عام doctorsData)
+            if (typeof window.doctorsData === 'undefined' && typeof doctorsData !== 'undefined') {
+                window.doctorsData = doctorsData; // نجعلها عامة
+            }
+            if (!window.doctorsData || !Array.isArray(window.doctorsData) || window.doctorsData.length === 0) {
+                console.error('بيانات الأطباء غير موجودة أو فارغة!');
+                // يمكن وضع بيانات احتياطية أو إظهار رسالة
+                window.doctorsData = []; // مصفوفة فارغة لتجنب الأخطاء
+            }
+
+            // ---------- 2. المتغيرات العامة ----------
+            let userLat = null;
+            let userLon = null;
+            let currentFilter = 'الكل'; // التصنيف الحالي
+
+            // تحويل البيانات إلى الشكل المطلوب (إضافة fullName)
+            const doctors = window.doctorsData.map(doc => ({
+                ...doc,
+                fullName: doc.firstName && doc.lastName ? `${doc.firstName} ${doc.lastName}` : (doc.name || 'طبيب'),
+                avatarLetter: doc.firstName ? doc.firstName.charAt(0) : 'ط'
+            }));
+
+            // استخراج الاختصاصات الفريدة
+            const specialties = ['الكل', ...new Set(doctors.map(d => d.specialty).filter(s => s))];
+
+            // ---------- 3. الدوال المساعدة ----------
+            function calculateDistance(lat1, lon1, lat2, lon2) {
+                if (!lat1 || !lon1 || !lat2 || !lon2) return Infinity;
+                const R = 6371;
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLon = (lon2 - lon1) * Math.PI / 180;
+                const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                return R * c;
+            }
+
+            // دالة عرض بطاقة طبيب
+            function renderDoctorCard(doctor, distance) {
+                const distText = distance ? `<div class="distance-badge"><i class="fas fa-location-dot"></i> ${distance} كم</div>` : '';
+                const googleMapsLink = `https://www.google.com/maps/dir/?api=1&destination=${doctor.lat},${doctor.lon}`;
+
+                // إنشاء محتوى الصورة الرمزية (أيقونة أو صورة حقيقية)
+                const avatarHtml = doctor.image ?
+                    `<img src="${doctor.image}" alt="${doctor.fullName}">` :
+                    `<i class="fas fa-user-md"></i>`;
+
+                // تنظيف رقم الهاتف من الرموز غير الرقمية مع الاحتفاظ بـ +
+                const cleanPhone = doctor.phone ? doctor.phone.replace(/[^\d+]/g, '') : '';
+                // إنشاء رابط اتصال مع اتجاه LTR للأرقام
+                const phoneLink = doctor.phone ?
+                    `<a href="tel:${cleanPhone}" class="phone-card-link" dir="ltr" style="text-decoration:none; color:inherit;">${doctor.phone}</a>` :
+                    '';
+
+                return `
+        <div class="doctor-card">
+            <div class="doctor-header">
+                <div class="doctor-avatar">${avatarHtml}</div>
+                <div>
+                    <div class="doctor-name">${doctor.fullName}</div>
+                    <div class="doctor-specialty"><i class="fas fa-stethoscope"></i> ${doctor.specialty || 'عام'}</div>
+                </div>
+            </div>
+            <div class="doctor-detail"><i class="fas fa-map-marker-alt"></i> ولاية: ${doctor.wilaya || ''} - بلدية: ${doctor.baladia || ''}</div>
+            <div class="doctor-detail"><i class="fas fa-phone"></i> ${phoneLink}</div>
+            <div class="doctor-detail"><i class="fas fa-address-card"></i> ${doctor.address || ''}</div>
+            <div class="work-days"><i class="fas fa-calendar-alt"></i> ${doctor.workDays || 'غير محدد'}</div>
+            ${distText}
+            <a href="${googleMapsLink}" target="_blank" rel="noopener noreferrer" class="google-route-btn"><i class="fab fa-google"></i> التوجه عبر خرائط Google</a>
+        </div>
+    `;
+            }
+
+            // دالة عرض قائمة الأطباء (مرشحة حسب الفلتر والبحث والموقع)
+            function displayDoctors(filteredDoctors = null) {
+                const container = document.getElementById('doctorList');
+                if (!container) return;
+
+                // إذا تم تمرير قائمة محددة استخدمها، وإلا استخدم الأطباء مع تطبيق الفلتر
+                let listToShow = filteredDoctors !== null ? filteredDoctors : doctors;
+
+                // تطبيق فلتر الاختصاص
+                if (currentFilter !== 'الكل') {
+                    listToShow = listToShow.filter(d => d.specialty === currentFilter);
+                }
+
+                if (listToShow.length === 0) {
+                    container.innerHTML = `
+                        <div class="no-results">
+                            <i class="fas fa-user-md"></i>
+                            <p>لا يوجد أطباء مطابقين لمعايير البحث.</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // إذا كان الموقع متاحاً، نحسب المسافة ونرتب
+                if (userLat && userLon) {
+                    const withDistance = listToShow.map(d => {
+                        const dist = calculateDistance(userLat, userLon, d.lat, d.lon);
+                        return { ...d, distance: dist };
+                    }).sort((a, b) => a.distance - b.distance);
+
+                    let html = '';
+                    withDistance.forEach(d => {
+                        html += renderDoctorCard(d, d.distance.toFixed(1));
+                    });
+                    container.innerHTML = html;
+                } else {
+                    // بدون موقع، عرض بدون مسافة
+                    let html = '';
+                    listToShow.forEach(d => {
+                        html += renderDoctorCard(d, null);
+                    });
+                    container.innerHTML = html;
+                }
+            }
+
+            // دالة إنشاء أزرار التصفية
+            function renderFilterButtons() {
+                const container = document.getElementById('filterButtons');
+                if (!container) return;
+                container.innerHTML = '';
+                specialties.forEach(spec => {
+                    const btn = document.createElement('button');
+                    btn.className = `filter-btn ${spec === currentFilter ? 'active' : ''}`;
+                    btn.innerText = spec;
+                    btn.addEventListener('click', () => {
+                        currentFilter = spec;
+                        // تحديث الحالة النشطة
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        // إعادة العرض مع إعادة تعيين البحث (يمكن الاحتفاظ بنص البحث إذا أردت)
+                        performSearch(false); // false يعني لا نغير نص البحث
+                    });
+                    container.appendChild(btn);
+                });
+            }
+
+            // دالة البحث
+            function performSearch(resetFilter = true) {
+                const searchInput = document.getElementById('searchInput');
+                const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+                if (query === '') {
+                    // إذا كان البحث فارغاً، نعرض كل الأطباء مع الفلتر الحالي
+                    displayDoctors();
+                    return;
+                }
+
+                // تصفية الأطباء حسب الاسم، الولاية، البلدية، التخصص، رقم الهاتف
+                const filtered = doctors.filter(doc => {
+                    return (doc.fullName && doc.fullName.toLowerCase().includes(query)) ||
+                        (doc.firstName && doc.firstName.toLowerCase().includes(query)) ||
+                        (doc.lastName && doc.lastName.toLowerCase().includes(query)) ||
+                        (doc.wilaya && doc.wilaya.toLowerCase().includes(query)) ||
+                        (doc.baladia && doc.baladia.toLowerCase().includes(query)) ||
+                        (doc.specialty && doc.specialty.toLowerCase().includes(query)) ||
+                        (doc.phone && doc.phone.includes(query));
+                });
+
+                if (filtered.length === 0) {
+                    // عرض رابط بحث Google
+                    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}+طبيب+الجزائر`;
+                    const container = document.getElementById('doctorList');
+                    if (container) {
+                        container.innerHTML = `
+                            <div class="no-results">
+                                <i class="fas fa-search"></i>
+                                <p>لم نتمكن من العثور على "${searchInput.value}" في قاعدة بياناتنا.</p>
+                                <p>قد تجد النتائج التي تبحث عنها عبر
+                                    <a href="${googleSearchUrl}" target="_blank" rel="noopener noreferrer" class="google-fallback-link">
+                                        <i class="fab fa-google"></i> بحث Google
+                                    </a>
+                                </p>
+                            </div>
+                        `;
+                    }
+                } else {
+                    displayDoctors(filtered);
+                }
+            }
+
+        // أحداث البحث
+            const searchBtn = document.getElementById('searchBtn');
+            const searchInput = document.getElementById('searchInput');
+            if (searchBtn && searchInput) {
+                searchBtn.addEventListener('click', () => performSearch());
+                searchInput.addEventListener('input', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') performSearch();
+                });
+            }
+
+            // ---------- 5. تهيئة الصفحة ----------
+            // محاولة تحميل الموقع المخزن
+            const locationLoaded = typeof loadStoredLocation === 'function' ? loadStoredLocation() : false;
+
+            // رسم أزرار التصفية
+            renderFilterButtons();
+
+            // عرض الأطباء (إذا كان هناك موقع مخزن سيتم الترتيب، وإلا عرض بدون)
+            displayDoctors();
+        })();
+    </script>
+
+    <script defer src="../script/site-tags.js"></script>
+
+</body>
+
+</html>
