@@ -1,1 +1,1556 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Najda Dz النجدة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+   <!-- أيقونة الموقع -->
+    <link rel="icon" href="icons/najda_icon_1.png" alt="icon" type="image/png" loading="lazy" class="welcome-logo">
+
+    <meta name="description"
+        content="منصة النجدة والطوارئ في الجزائر لتحديد أقرب خدمات الإسعاف، الحماية المدنية، الشرطة، مخابر التحاليل البيولوجية، الصيدليات، الأطباء وجرّ السيارات بسرعة ودقة عبر الموقع الجغرافي. وصول فوري لأرقام الطوارئ والخدمات القريبة منك في جميع الولايات.">
+    <!-- لون شريط المتصفح -->
+    <meta name="theme-color" content="#1d3557">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1d3557">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1f33">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1d3557">
+
+
+    <!-- أيقونة الموقع -->
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/najda_icon_3.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/najda_icon_3.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/najda_icon_3.png">
+
+    <link rel="stylesheet" href="style/css-main.css">
+    <link rel="stylesheet" href="style/SidebarAnimation.css">
+
+    <meta name="google-site-verification" content="f5Xi4oFx0v5dN6iPZd9qCw-7vnc3vIbAeYF9jr4vwVM" />
+
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("./sw.js")
+                .then(() => console.log("Service Worker Registered"));
+        }
+    </script>
+
+    <style>
+        /* ===== Emergency Numbers Section ===== */
+
+        .emergency-numbers {
+            padding: 20px 15px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .section-header h3 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .section-header i {
+            font-size: 1.4rem;
+        }
+
+        /* شبكة مرنة بالكامل */
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px;
+        }
+
+        /* البطاقة */
+        .number-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .number-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* عنوان البطاقة */
+        .number-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .number-card h4 img {
+            border-radius: 6px;
+        }
+
+        /* رابط الاتصال */
+        .call-link-Emergency,
+        .messenger-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            background: #e63946;
+            color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: background 0.2s ease;
+            width: 100%;
+        }
+
+        .call-link-Emergency:hover {
+            background: #c1121f;
+        }
+
+        .messenger-link {
+            background: #1877f2;
+        }
+
+        .messenger-link:hover {
+            background: #0f5ed7;
+        }
+
+        /* تحسين الهواتف الصغيرة جداً */
+        @media (max-width: 480px) {
+
+            .numbers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .number-card {
+                padding: 16px;
+            }
+
+            .call-link-Emergency,
+            .messenger-link {
+                font-size: 1rem;
+                padding: 12px;
+            }
+
+            .number-card h4 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+
+        {
+          "@type": "Organization",
+          "@id": "https://imadtbn.github.io/najda-dz/#organization",
+          "name": "Najda Dz - النجدة",
+          "url": "https://imadtbn.github.io/najda-dz/",
+          "logo": "https://imadtbn.github.io/najda-dz/icons/najda_icon_3.png",
+          "description": "منصة وطنية لتحديد أقرب خدمات النجدة والطوارئ في الجزائر مع أرقام الهاتف وإمكانية تكوين المسارات عبر الخريطة التفاعلية.",
+          "areaServed": {
+            "@type": "Country",
+            "name": "Algeria"
+          }
+        },
+
+        {
+          "@type": "WebSite",
+          "@id": "https://imadtbn.github.io/najda-dz/#website",
+          "url": "https://imadtbn.github.io/najda-dz/",
+          "name": "Najda Dz - خدمات النجدة والطوارئ في الجزائر",
+          "publisher": {
+            "@id": "https://imadtbn.github.io/najda-dz/#organization"
+          },
+          "inLanguage": "ar"
+        },
+
+        {
+          "@type": "WebApplication",
+          "@id": "https://imadtbn.github.io/najda-dz/#webapp",
+          "name": "تطبيق النجدة والطوارئ في الجزائر",
+          "url": "https://imadtbn.github.io/najda-dz/",
+          "applicationCategory": "EmergencyService",
+          "operatingSystem": "All",
+          "browserRequirements": "Requires JavaScript and GPS support",
+          "description": "تطبيق ويب يحدد موقع المستخدم عبر GPS ويعرض أقرب مستشفيات، شرطة، درك وطني، حماية مدنية، صيدليات، مخابر، أطباء وخدمات جر السيارات مع أرقام الهواتف وتكوين المسارات.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "DZD"
+          }
+        },
+
+        {
+          "@type": "SiteNavigationElement",
+          "name": [
+            "المستشفيات",
+            "مراكز الشرطة",
+            "الدرك الوطني",
+            "الحماية المدنية",
+            "الصيدليات",
+            "مخابر التحاليل البيولوجية",
+            "الأطباء",
+            "جر السيارات",
+            "عن الموقع",
+            "اتصل بنا",
+            "سياسة الخصوصية",
+            "الإرشادات"
+          ],
+          "url": [
+            "https://imadtbn.github.io/najda-dz/pages/hospitals.html",
+            "https://imadtbn.github.io/najda-dz/pages/police.html",
+            "https://imadtbn.github.io/najda-dz/pages/gendarmerie.html",
+            "https://imadtbn.github.io/najda-dz/pages/protectioncivil.html",
+            "https://imadtbn.github.io/najda-dz/pages/pharmacies.html",
+            "https://imadtbn.github.io/najda-dz/pages/laboratories.html",
+            "https://imadtbn.github.io/najda-dz/pages/doctors.html",
+            "https://imadtbn.github.io/najda-dz/pages/depannage.html",
+            "https://imadtbn.github.io/najda-dz/pages/about.html",
+            "https://imadtbn.github.io/najda-dz/pages/contact.html",
+            "https://imadtbn.github.io/najda-dz/pages/privacy.html",
+            "https://imadtbn.github.io/najda-dz/pages/guide.html"
+          ]
+        },
+
+        {
+          "@type": "ItemList",
+          "name": "أقسام خدمات النجدة",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "المستشفيات" },
+            { "@type": "ListItem", "position": 2, "name": "مراكز الشرطة" },
+            { "@type": "ListItem", "position": 3, "name": "الدرك الوطني" },
+            { "@type": "ListItem", "position": 4, "name": "الحماية المدنية" },
+            { "@type": "ListItem", "position": 5, "name": "الصيدليات" },
+            { "@type": "ListItem", "position": 6, "name": "مخابر التحاليل البيولوجية" },
+            { "@type": "ListItem", "position": 7, "name": "الأطباء" },
+            { "@type": "ListItem", "position": 8, "name": "جر السيارات والشاحنات" }
+          ]
+        },
+
+        {
+          "@type": "FAQPage",
+          "@id": "https://imadtbn.github.io/najda-dz/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "كيف أحدد أقرب خدمة طوارئ؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "اضغط على زر تحديد الموقع GPS ليتم عرض أقرب الخدمات على الخريطة التفاعلية مع المسافة ورقم الهاتف."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "هل الموقع يعمل في جميع ولايات الجزائر؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم، المنصة تغطي جميع ولايات الجزائر وتعرض أقرب الخدمات حسب موقع المستخدم."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "هل يمكن تكوين مسار إلى مركز الطوارئ؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم، يمكن إنشاء مسار مباشر من موقعك الحالي إلى الخدمة المختارة عبر الخريطة."
+              }
+            }
+          ]
+        },
+
+        {
+          "@type": "ContactPoint",
+          "contactType": "Emergency",
+          "areaServed": "DZ",
+          "availableLanguage": "Arabic"
+        }
+
+      ]
+    }
+    </script>
+
+
+
+    <link rel="stylesheet" href="style/ads.css">
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript): يعمل للمستخدمين الذين عطّلوا JavaScript -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WS74969S"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="icons/najda_icon_3.png" alt="شعار النجدة Dz" width="50" height="50" loading="lazy">
+                <h1>النجدة Dz</h1>
+
+                <button class="menu-toggle" id="menuToggle" type="button" aria-label="فتح القائمة" aria-controls="navLinks" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+            </div>
+
+            <div class="nav-overlay" id="navOverlay"></div>
+
+            <nav class="nav-links" id="navLinks">
+                <button class="close-menu" id="closeMenu" type="button" aria-label="إغلاق القائمة">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <a href="" class="active">الرئيسية</a>
+                <a href="pages/pharmacies.html">صيدليات</a>
+                <a href="pages/police.html">الشرطة</a>
+                <a href="pages/laboratories.html">مخابر التحاليل البيولوجية</a>
+                <a href="pages/gendarmerie.html">الدرك الوطني</a>
+                <a href="pages/depannage.html">جر السيارات</a>
+                <a href="pages/about.html">عن الموقع</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>خدمات النجدة والطوارئ في الجزائر</h2>
+            <p>في حالة الطوارئ، حدد موقعك للحصول على أقرب مستشفى، مركز شرطة، فرقة الدرك الوطني أو وحدة الحماية المدنية
+                وغيرها ...
+                مع أرقام الهاتف
+                وإمكانية تكوين المسارات</p>
+
+            <div class="location-access">
+                <button id="getLocation" class="btn btn-primary">
+                    <i class="fas fa-map-marker-alt"></i>
+                    تحديد الموقع GPS
+                </button>
+
+                <button id="showAllServices" class="btn btn-secondary">
+                    <i class="fas fa-map-marked-alt"></i>
+                    عرض الجميع...
+                </button>
+
+                <a href="pages/subscription.html" class="btn btn-warning subscription-btn">
+                    <i class="fas fa-id-card"></i>
+                    إشتراك في الخدمة
+                </a>
+            </div>
+
+            <div id="locationStatus" style="margin-top: 15px; color: #ffdddd; font-weight: 700;"></div>
+        </div>
+    </section>
+    <!-- موضع إعلان hero-after: تُدار المكتبة والتهيئة مركزياً من script/site-tags.js -->
+    <aside class="ad-container ad-container--hero" data-ad-placement="hero-after" aria-label="إعلان">
+        <div class="ad-slot">
+            <ins class="adsbygoogle" style="display:block;" data-ad-format="fluid" data-ad-client="ca-pub-5656416032906373" data-ad-slot="7867079394" data-ad-layout-key="-fr+56+4k-d4+74"></ins>
+        </div>
+    </aside>
+
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <div class="section-header">
+                    <i class="fas fa-map"></i>
+                    <h3>الخريطة التفاعلية</h3>
+                </div>
+                <div id="map"></div>
+            </div>
+
+            <!-- Services Section -->
+            <div class="services">
+
+                <!-- hospital -->
+                <div class="service-card hospital">
+                    <div class="service-header">
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <i class="fas fa-hospital"></i>
+                            </div>
+                            <h3>المستشفيات</h3>
+                        </div>
+                    </div>
+                    <div class="service-details">
+                        <div id="hospitalsList">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب المستشفيات</p>
+                        </div>
+                    </div>
+                    <!-- زر المزيد -->
+                    <div class="more-btn-wrapper">
+                        <a href="pages/hospitals.html" class="btn btn-secondary more-btn">
+                            <i class="fas fa-list-ul"></i>
+                            عرض الكل
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- laboratory -->
+                <div class="service-card laboratory">
+                    <div class="service-header">
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h3>مخابر التحاليل البيولوجية</h3>
+                        </div>
+                    </div>
+
+                    <div class="service-details">
+                        <div id="laboratoriesList">
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب مخابر التحاليل البيولوجية</p>
+                        </div>
+                    </div>
+                    <!-- زر المزيد -->
+                    <div class="more-btn-wrapper">
+                        <a href="pages/laboratories.html" class="btn btn-secondary more-btn">
+                            <i class="fas fa-list-ul"></i>
+                            عرض الكل
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- doctors -->
+                <div class="service-card doctor">
+                    <div class="service-header">
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h3>أطباء</h3>
+                        </div>
+                    </div>
+
+                    <div class="service-details">
+                        <div id="doctorList">
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب الأطباء </p>
+                        </div>
+                    </div>
+                    <!-- زر المزيد -->
+                    <div class="more-btn-wrapper">
+                        <a href="pages/doctors.html" class="btn btn-secondary more-btn">
+                            <i class="fas fa-list-ul"></i>
+                            عرض الكل
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- pharmacy -->
+                <div class="service-card pharmacy">
+                    <div class="service-header">
+
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <i class="fas fa-capsules"></i>
+                            </div>
+                            <h3>صيدليات</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="service-details">
+                        <div id="pharmacyList">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب الصيدليات</p>
+                        </div>
+                    </div>
+                    <!-- زر المزيد -->
+                    <div class="more-btn-wrapper">
+                        <a href="pages/pharmacies.html" class="btn btn-secondary more-btn">
+                            <i class="fas fa-list-ul"></i>
+                            عرض الكل
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- police -->
+                <div class="service-card police">
+                    <div class="service-header">
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <img src="icons/dgsn.png" alt="شعار الشرطة الجزائرية" width="55" height="55" loading="lazy">
+                            </div>
+                            <h3>مراكز الشرطة</h3>
+                            <p>
+                                <a href="tel:1548" class="call-link-Emergency">
+                                    <span class="phone-number-Emergency">1548</span>
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-details">
+                        <div id="policeList">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب مراكز الشرطة</p>
+                        </div>
+                    </div>
+
+                    <!-- زر المزيد -->
+                    <div class="more-btn-wrapper">
+                        <a href="pages/police.html" class="btn btn-secondary more-btn">
+                            <i class="fas fa-list-ul"></i>
+                            عرض الكل
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- gendarmerie -->
+                <div class="service-card military">
+                    <div class="service-header">
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <img src="icons/cgn.jpg" alt="شعار الدرك الوطني" width="55" height="55" loading="lazy">
+                            </div>
+                            <h3>الدرك الوطني</h3>
+                            <p>
+                                <a href="tel:1055" class="call-link-Emergency">
+                                    <span class="phone-number-Emergency">1055</span>
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-details">
+                        <div id="militaryList">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب فرقة للدرك الوطني</p>
+                        </div>
+                    </div>
+                    <!-- زر المزيد -->
+                    <div class="more-btn-wrapper">
+                        <a href="pages/gendarmerie.html" class="btn btn-secondary more-btn">
+                            <i class="fas fa-list-ul"></i>
+                            عرض الكل
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- protectio civil -->
+                <div class="service-card civil-defense">
+                    <div class="service-header">
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <img src="icons/dgpc.svg" alt="شعار الحماية المدنية" width="55" height="55" loading="lazy">
+                            </div>
+                            <h3>وحدات الحماية المدنية</h3>
+                            <p>
+                                <a href="tel:1021" class="call-link-Emergency">
+                                    <span class="phone-number-Emergency">1021</span>
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="service-details">
+                        <div id="civilDefenseList">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب وحدات الحماية المدنية </p>
+                        </div>
+                    </div>
+                    <!-- زر المزيد -->
+                    <div class="more-btn-wrapper">
+                        <a href="pages/protectioncivil.html" class="btn btn-secondary more-btn">
+                            <i class="fas fa-list-ul"></i>
+                            عرض الكل
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- depannage Auto -->
+                <div class="service-card depannage">
+                    <div class="service-header">
+
+                        <div class="service-title">
+                            <div class="service-icon">
+                                <i class="fas fa-truck-pickup"></i>
+                            </div>
+                            <h3>خدمة جر السيارات والشاحنات</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="service-details">
+                        <div id="depannageList">
+                            <!-- سيتم ملؤها بواسطة JavaScript -->
+                            <p>اضغط على "تحديد موقعي" لعرض أقرب خدمات جر السيارات والشاحنات</p>
+                        </div>
+                    </div>
+                    <!-- زر المزيد -->
+                    <div class="more-btn-wrapper">
+                        <a href="pages/depannage.html" class="btn btn-secondary more-btn">
+                            <i class="fas fa-list-ul"></i>
+                            عرض الكل
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Emergency Numbers -->
+        <div class="emergency-numbers">
+            <div class="section-header">
+                <h3>أرقام الطوارئ الهامة</h3>
+                <i class="fas fa-phone"></i>
+            </div>
+
+            <div class="numbers-grid">
+
+                <!-- الحماية المدنية -->
+                <div class="number-card pulse">
+                    <h4>
+                        <img src="icons/dgpc.svg" alt="logo dgpc" width="31" height="32" loading="lazy">
+                        الحماية المدنية
+                    </h4>
+
+                    <p>
+                        <a href="tel:1021" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">1021</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- الدرك الوطني -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/CGN.jpg" alt="logo CGN" width="31" height="32" loading="lazy">
+                        الدرك الوطني
+                    </h4>
+
+                    <p>
+                        <a href="tel:1055" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">1055</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- الدرك الوطني طريقي-->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/tariki.jpg" alt="logo tariki" width="31" height="32" loading="lazy">
+                        مركز الإعلام والتنسيق المروري
+                    </h4>
+
+                    <p>
+                        <a href="https://m.me/tariki.Gn" target="_blank" rel="noopener noreferrer" class="messenger-link">
+                            <i class="fab fa-facebook-messenger"></i>
+                            <span class="phone-number-Emergency">Tariki.GN.طريقي</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- حرس السواحل -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/CFN.png" alt="logo cfa" width="31" height="32" loading="lazy">
+                        حرس السواحل
+                    </h4>
+
+                    <p>
+                        <a href="tel:1054" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">1054</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- الشرطة الجزائرية -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/dgsn.png" alt="logo dgsn" width="31" height="32" loading="lazy">
+                        الشرطة الجزائرية
+                    </h4>
+
+                    <p>
+                        <a href="tel:1548" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">1548</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- جمهرة العمليات الخاصة للشرطة -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/gosp.jpg" alt="logo gosp" width="31" height="32" loading="lazy">
+                        فرقة جمهرة العمليات الخاصة للشرطة الجزائرية
+                    </h4>
+
+                    <p>
+                        <a href="tel:104" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">104</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- الهلال الأحمر -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/cra.webp" alt="logo gosp" width="31" height="32" loading="lazy">
+                        الهلال الأحمر الجزائري
+                    </h4>
+
+                    <p>
+                        <a href="tel:+21323778232" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">+21323778232</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- سونلغاز للكهرباء والغاز -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/sonelgaz.png" alt="logo sonelgaz" width="31" height="32" loading="lazy">
+                        سونلغاز للكهرباء والغاز
+                    </h4>
+
+                    <p>
+                        <a href="tel:3030" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">3030</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- الجزائرية للمياه -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/ade.png" alt="logo ade" width="31" height="32" loading="lazy">
+                        الجزائرية للمياه
+                    </h4>
+
+                    <p>
+                        <a href="tel:1593" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">1593</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- سيال للتطهير والمياه -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/seaal.webp" alt="logo seaal" width="31" height="32" loading="lazy">
+                        سيال للتطهير والمياه
+                    </h4>
+
+                    <p>
+                        <a href="tel:1594" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">1594</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- نفطال للمحروقات والوقود -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/naftal.webp" alt="logo naftal" width="31" height="32" loading="lazy">
+                        نفطال للمحروقات والوقود
+                    </h4>
+
+                    <p>
+                        <a href="tel:3305" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">3305</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- المديرية العامة للغابات -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/DGF.png" alt="logo DGF" width="31" height="32" loading="lazy">
+                        المديرية العامة للغابات
+                    </h4>
+
+                    <p>
+                        <a href="tel:1070" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">1070</span>
+                        </a>
+                    </p>
+                </div>
+
+                <!-- معهد باستور -->
+                <div class="number-card">
+                    <h4>
+                        <img src="icons/pasteur.jpg" alt="logo naftal" width="31" height="32" loading="lazy">
+                        معهد باستور - الجزائر
+                    </h4>
+
+                    <p>
+                        <a href="tel:+21323367504" class="call-link-Emergency">
+                            <i class="fas fa-phone"></i>
+                            <span class="phone-number-Emergency">+21323367504</span>
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Route Modal -->
+    <div id="routeModal" class="modal">
+        <div class="modal-content modern-modal">
+            <div class="modal-header">
+                <h3 id="routeTitle">تفاصيل المسار</h3>
+                <button class="close-modal" type="button" aria-label="إغلاق تفاصيل المسار">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="mini-map-container">
+                    <div id="miniMap"></div>
+                </div>
+
+                <div id="routeDetails" class="route-info"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <!-- موضع إعلان services-before-emergency: تُدار المكتبة والتهيئة مركزياً من script/site-tags.js -->
+    <aside class="ad-container ad-container--display" data-ad-placement="services-before-emergency" aria-label="إعلان">
+        <div class="ad-slot">
+            <ins class="adsbygoogle" style="display:block;" data-ad-format="auto" data-ad-client="ca-pub-5656416032906373" data-ad-slot="3143411927" data-full-width-responsive="true"></ins>
+        </div>
+    </aside>
+
+    <!-- موضع إعلان before-footer: تُدار المكتبة والتهيئة مركزياً من script/site-tags.js -->
+    <aside class="ad-container ad-container--recommendations" data-ad-placement="before-footer" aria-label="إعلان">
+        <div class="ad-slot">
+            <ins class="adsbygoogle" style="display:block;" data-ad-format="autorelaxed" data-ad-client="ca-pub-5656416032906373" data-ad-slot="6528123169"></ins>
+        </div>
+    </aside>
+<footer>
+        <div class="container footer-content">
+            <div class="footer-grid">
+
+                <!-- تعريف -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <h2>النجدة Dz</h2>
+                        <p>منصة وطنية لتحديد أقرب خدمات النجدة والطوارئ في الجزائر بدقة وسرعة.</p>
+                        <img src="icons/najda_icon_11.png" alt="شعار النجدة Dz" loading="lazy">
+                    </div>
+
+                </div>
+
+                <!-- خدمات الطوارئ -->
+                <div class="footer-col">
+                    <h4><i class="fas fa-ambulance"></i> خدمات النجدة والطوارئ</h4>
+                    <ul>
+                        <li><a href="pages/hospitals.html"><i class="fas fa-hospital"></i> المستشفيات</a></li>
+                        <li><a href="pages/police.html"><i class="fas fa-shield-alt"></i> مراكز الشرطة</a></li>
+                        <li><a href="pages/gendarmerie.html"><i class="fas fa-star"></i>الدرك الوطني</a></li>
+                        <li><a href="pages/protectioncivil.html"><i class="fas fa-fire-extinguisher"></i> الحماية
+                                المدنية</a></li>
+                        <li><a href="pages/depannage.html"><i class="fas fa-truck-pickup"></i> جر ورأب السيارات</a></li>
+
+                    </ul>
+                </div>
+
+                <!-- خدمات صحية -->
+                <div class="footer-col">
+                    <h4><i class="fas fa-heartbeat"></i> خدمات صحية</h4>
+                    <ul>
+                        <li><a href="pages/doctors.html"><i class="fas fa-user-md"></i>أطباء مختلف التخصصات</a></li>
+                        <li><a href="pages/laboratories.html"><i class="fas fa-vials"></i> مخابر التحاليل البيولوجية</a>
+                        </li>
+                        <li><a href="pages/pharmacies.html"><i class="fas fa-capsules"></i> الصيدليات</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- روابط مهمة -->
+                <div class="footer-col">
+                    <h4><i class="fas fa-link"></i> روابط مهمة</h4>
+                    <ul>
+                        <li><a href="pages/about.html"><i class="fas fa-info-circle"></i> عن الموقع</a></li>
+                        <li><a href="pages/contact.html"><i class="fas fa-envelope"></i> اتصل بنا</a></li>
+                        <li><a href="pages/privacy.html"><i class="fas fa-user-shield"></i> سياسة الخصوصية</a>
+                        </li>
+                        <li><a href="pages/guide.html"><i class="fas fa-book"></i> الإرشادات</a></li>
+                        <li><a href="pages/subscription.html"><i class="fas fa-id-card"></i>الإشتراك في خدمات النجدة</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2026</p>
+            </div>
+
+        </div>
+
+        <!-- زر الرجوع للأعلى -->
+        <button id="scrollTopBtn" type="button" aria-label="العودة إلى أعلى الصفحة"><i class="fas fa-arrow-up"></i></button>
+    </footer>
+
+    <!-- زر الطوارئ العائم -->
+    <div class="floating-wrapper">
+
+        <button id="emergencyToggle" class="floating-emergency" type="button" aria-label="فتح أرقام الطوارئ" aria-controls="emergencyMenu" aria-expanded="false">
+            <i class="fas fa-phone"></i>
+        </button>
+
+        <div id="emergencyMenu" class="emergency-menu">
+            <a href="tel:1021"><img src="icons/dgpc.svg" alt="شعار الحماية المدنية" width="22" height="22" loading="lazy">
+                الحماية المدنية</a>
+            <a href="tel:1548"><img src="icons/dgsn.png" alt="شعار الشرطة الجزائرية" width="22" height="22" loading="lazy">
+                الشرطة</a>
+            <a href="tel:1055"><img src="icons/CGN.jpg" alt="شعار الدرك الوطني" width="22" height="22" loading="lazy"> الدرك
+                الوطني</a>
+            <a href="tel:1054"><img src="icons/CFN.png" alt="logo CFN" width="22" height="22" loading="lazy">حرس السواحل</a>
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!--  القائمة الجانبية  script -->
+    <script src="script/SidebarAnimation.js"></script>
+
+    <!--  البيانات  script -->
+    <script src="script/hospitals-data.js"></script>
+    <script src="script/laboratories-data.js"></script>
+    <script src="script/doctors-data.js"></script>
+    <script src="script/pharmacies-data.js"></script>
+    <script src="script/police-data.js"></script>
+    <script src="script/gendarmerie-data.js"></script>
+    <script src="script/units-data.js"></script>
+    <script src="script/depannage-data.js"></script>
+
+    <!-- script -->
+    <script>
+        let userLat = null;
+        let userLon = null;
+
+        const LOCATION_STORAGE_KEY = "najda_user_location";
+        const LOCATION_EXPIRY_MINUTES = 20;
+        const LOCATION_EXPIRY_MS = LOCATION_EXPIRY_MINUTES * 60 * 1000;
+
+        // تهيئة الخريطة
+        let map = L.map('map').setView([36.7525, 3.0418], 7);
+        let userMarker = null;
+        let userLocation = null;
+        try {
+            const savedLocation = JSON.parse(localStorage.getItem(LOCATION_STORAGE_KEY) || 'null');
+            if (savedLocation && Number.isFinite(savedLocation.lat) && Number.isFinite(savedLocation.lng)
+                && Date.now() - savedLocation.savedAt < LOCATION_EXPIRY_MS) {
+                userLocation = { lat: savedLocation.lat, lng: savedLocation.lng };
+            }
+        } catch (error) {
+            localStorage.removeItem(LOCATION_STORAGE_KEY);
+        }
+        let miniMap = null;
+        let miniMarker = null;
+        let miniRouteLine = null;
+
+
+        // إضافة طبقة الخريطة
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // دالة لتوحيد البيانات القادمة من الملفات الخارجية
+        function normalizeService(item) {
+            // توحيد خط الطول: استخدم lng إذا وجد، وإلا استخدم lon
+            const lat = item.lat || 0;
+            const lng = item.lng || item.lon || 0;
+
+            // إنشاء العنوان (address) من wilaya و baladia إذا لم يكن موجوداً
+            let address = item.address || '';
+            if (!address && item.wilaya) {
+                address = `${item.baladia ? item.baladia + '، ' : ''}ولاية ${item.wilaya}`;
+            }
+
+            return {
+                ...item,
+                lat,
+                lng,
+                address
+            };
+        }
+
+        // بيانات الخدمات بعد توحيدها
+        const serviceLocations = {
+            hospitals: (window.hospitalsData || []).map(normalizeService),
+            police: (window.policeData || []).map(normalizeService),
+            military: (window.gendarmerieData || []).map(normalizeService),
+            civilDefense: (window.unitsData || []).map(normalizeService),
+            pharmacy: (window.pharmaciesData || []).map(normalizeService),
+            laboratories: (window.laboratoriesData || []).map(normalizeService),
+            doctor: (window.doctorsData || []).map(normalizeService),
+            depannage: (window.depannageData || []).map(normalizeService)
+        };
+
+        // دالة حساب المسافة (هافرسين)
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371;
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a =
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c;
+        }
+
+        // Reverse Geocoding
+        async function getAddressFromCoordinates(lat, lng) {
+            try {
+                const response = await fetch(
+                    `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=ar`
+                );
+                const data = await response.json();
+                if (data && data.address) {
+                    const city = data.address.city || data.address.town || data.address.village || data.address.municipality || '';
+                    const state = data.address.state || '';
+                    const country = data.address.country || '';
+                    return [city, state, country].filter(Boolean).join('، ');
+                }
+                return '';
+            } catch (error) {
+                console.error('خطأ في جلب اسم الموقع:', error);
+                return '';
+            }
+        }
+
+        // تحديد أقرب الخدمات
+        function findNearestServices(userLat, userLng) {
+            const nearestServices = {
+                hospitals: [],
+                police: [],
+                military: [],
+                civilDefense: [],
+                pharmacy: [],
+                laboratories: [],
+                doctor: [],
+                depannage: []
+            };
+
+            for (const serviceType in serviceLocations) {
+                const services = serviceLocations[serviceType].map(service => {
+                    const distance = calculateDistance(userLat, userLng, service.lat, service.lng);
+                    return { ...service, distance };
+                }).sort((a, b) => a.distance - b.distance);
+                nearestServices[serviceType] = services.slice(0, 4);       // عدد عرض الخدمات في القوائم
+
+            }
+            return nearestServices;
+        }
+
+        // عرض الخدمات في القوائم
+        function displayServices(services) {
+            const hospitalsList = document.getElementById('hospitalsList');
+            const policeList = document.getElementById('policeList');
+            const militaryList = document.getElementById('militaryList');
+            const civilDefenseList = document.getElementById('civilDefenseList');
+            const pharmacyList = document.getElementById('pharmacyList');
+            const laboratoriesList = document.getElementById('laboratoriesList');
+            const doctorList = document.getElementById('doctorList');
+            const depannageList = document.getElementById('depannageList');
+
+
+            [hospitalsList, policeList, militaryList, civilDefenseList, pharmacyList, laboratoriesList, doctorList, depannageList].forEach(list => {
+                if (list) list.innerHTML = '';
+            });
+
+            // المستشفيات
+            services.hospitals.forEach((hospitals, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item' + (index === 0 ? ' nearest' : '');
+                item.innerHTML = `<span>${hospitals.name}</span><span class="distance">${hospitals.distance.toFixed(1)} كم</span>`;
+                item.addEventListener('click', () => showRouteToService(hospitals));
+                hospitalsList.appendChild(item);
+            });
+
+            // الشرطة
+            services.police.forEach((police, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item' + (index === 0 ? ' nearest' : '');
+                item.innerHTML = `<span>${police.name}</span><span class="distance">${police.distance.toFixed(1)} كم</span>`;
+                item.addEventListener('click', () => showRouteToService(police));
+                policeList.appendChild(item);
+            });
+
+            // الدرك
+            services.military.forEach((military, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item' + (index === 0 ? ' nearest' : '');
+                item.innerHTML = `<span>${military.name}</span><span class="distance">${military.distance.toFixed(1)} كم</span>`;
+                item.addEventListener('click', () => showRouteToService(military));
+                militaryList.appendChild(item);
+            });
+
+            // الحماية المدنية
+            services.civilDefense.forEach((civil, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item' + (index === 0 ? ' nearest' : '');
+                item.innerHTML = `<span>${civil.name}</span><span class="distance">${civil.distance.toFixed(1)} كم</span>`;
+                item.addEventListener('click', () => showRouteToService(civil));
+                civilDefenseList.appendChild(item);
+            });
+
+            // صيدليات
+            services.pharmacy.forEach((pharmacy, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item' + (index === 0 ? ' nearest' : '');
+                item.innerHTML = `<span>${pharmacy.name}</span><span class="distance">${pharmacy.distance.toFixed(1)} كم</span>`;
+                item.addEventListener('click', () => showRouteToService(pharmacy));
+                pharmacyList.appendChild(item);
+            });
+
+            // مخابر بيولوجية
+            services.laboratories.forEach((laboratory, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item' + (index === 0 ? ' nearest' : '');
+                item.innerHTML = `
+                <span>${laboratory.name}</span>
+                <span class="distance">${laboratory.distance.toFixed(1)} كم</span>`;
+                item.addEventListener('click', () => showRouteToService(laboratory));
+                laboratoriesList.appendChild(item);
+            });
+
+            // أطباء
+            services.doctor.forEach((doctor, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item' + (index === 0 ? ' nearest' : '');
+
+                item.innerHTML = `
+        <span>${doctor.lastName}</span>
+        <span>${doctor.firstName}</span>
+        <span>${doctor.specialty}</span>
+        <span class="distance">${doctor.distance.toFixed(1)} كم</span>
+    `;
+
+                item.addEventListener('click', () => showRouteToService(doctor));
+                doctorList.appendChild(item);
+            });
+
+            // depannage
+            services.depannage.forEach((depannage, index) => {
+                const item = document.createElement('div');
+                item.className = 'service-item' + (index === 0 ? ' nearest' : '');
+                item.innerHTML = `<span>${depannage.name}</span><span class="distance">${depannage.distance.toFixed(1)} كم</span>`;
+                item.addEventListener('click', () => showRouteToService(depannage));
+                depannageList.appendChild(item);
+            });
+
+        }
+
+        // إضافة العلامات على الخريطة
+        function addMarkersToMap(services) {
+
+            map.eachLayer(layer => {
+                if (layer instanceof L.Marker && layer !== userMarker) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            function buildPopupContent(service, isNearest) {
+
+                const googleUrl = `https://www.google.com/maps/dir/?api=1&destination=${service.lat},${service.lng}`;
+
+                let content = `<div class="map-popup ${isNearest ? 'nearest-popup' : ''}">`;
+
+                if (isNearest) {
+                    content += `<div class="nearest-badge">الأقرب إليك</div>`;
+                }
+
+                if (service.name) {
+                    content += `<div class="popup-title">${service.name}</div>`;
+                }
+
+                if (service.firstName || service.lastName) {
+                    content += `<div class="popup-doctor-name">
+                ${service.firstName || ''} ${service.lastName || ''}
+            </div>`;
+                }
+
+                if (service.specialty) {
+                    content += `<div class="popup-specialty">${service.specialty}</div>`;
+                }
+
+                if (service.address) {
+                    content += `<div class="popup-row">📍 ${service.address}</div>`;
+                }
+
+                if (service.phone) {
+                    content += `<div class="popup-row">📞
+                <a href="tel:${service.phone}">${service.phone}</a>
+            </div>`;
+                }
+
+                if (service.distance !== undefined) {
+                    content += `<div class="popup-distance">
+                🚗 ${service.distance.toFixed(1)} كم
+            </div>`;
+                }
+
+                // زر التوجيه
+                content += `
+            <a href="${googleUrl}" target="_blank" rel="noopener noreferrer" class="popup-route-btn">
+                🧭 توجيه عبر Google Maps
+            </a>
+        `;
+
+                content += `</div>`;
+                return content;
+            }
+
+            function addMarker(service, iconHtml, colorVar, index) {
+
+                if (!service.lat || !service.lng) return;
+
+                const isNearest = index === 0;
+
+                const icon = L.divIcon({
+                    html: `<i class="${iconHtml}"
+                    style="color:${isNearest ? '#e63946' : colorVar};
+                    font-size:${isNearest ? '24px' : '20px'};"></i>`,
+                    iconSize: [25, 25],
+                    iconAnchor: [12, 24],
+                    popupAnchor: [0, -20],
+                    className: isNearest ? 'custom-marker nearest-marker' : 'custom-marker'
+                });
+
+                L.marker([service.lat, service.lng], { icon })
+                    .addTo(map)
+                    .bindPopup(buildPopupContent(service, isNearest), {
+                        maxWidth: 300,
+                        className: 'custom-popup',
+                        autoPan: true
+                    });
+            }
+
+            services.hospitals.forEach((s, i) => addMarker(s, 'fas fa-hospital', 'var(--hospital-color)', i));
+            services.police.forEach((s, i) => addMarker(s, 'fas fa-shield-alt', 'var(--police-color)', i));
+            services.military.forEach((s, i) => addMarker(s, 'fas fa-star', 'var(--military-color)', i));
+            services.civilDefense.forEach((s, i) => addMarker(s, 'fas fa-fire-extinguisher', 'var(--civil-defense-color)', i));
+            services.pharmacy.forEach((s, i) => addMarker(s, 'fas fa-capsules', 'var(--pharmacy-color)', i));
+            services.laboratories.forEach((s, i) => addMarker(s, 'fas fa-vial', 'var(--laboratory-color)', i));
+            services.doctor.forEach((s, i) => addMarker(s, 'fas fa-user-md', 'var(--doctor-color)', i));
+            services.depannage.forEach((s, i) => addMarker(s, 'fas fa-truck-pickup', 'var(--depannage-color)', i));
+
+        }
+
+        // حدث تحديد الموقع
+        document.getElementById('getLocation').addEventListener('click', () => {
+            const status = document.getElementById('locationStatus');
+            const button = document.getElementById('getLocation');
+
+            button.disabled = true;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري تحديد الموقع...';
+            status.textContent = 'جاري تحديد موقعك...';
+            status.style.color = '#ffdddd';
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const userLat = position.coords.latitude;
+                        const userLng = position.coords.longitude;
+                        userLocation = { lat: userLat, lng: userLng };
+                        localStorage.setItem(LOCATION_STORAGE_KEY, JSON.stringify({ lat: userLat, lng: userLng, savedAt: Date.now() }));
+
+                        const coordsText = `تم تحديد موقعك: ${userLat.toFixed(4)}, ${userLng.toFixed(4)}`;
+                        status.textContent = coordsText;
+                        status.style.color = '#aaffaa';
+
+                        const address = await getAddressFromCoordinates(userLat, userLng);
+                        if (address) status.innerHTML = `${coordsText}<br>${address}`;
+
+                        if (userMarker) map.removeLayer(userMarker);
+                        userMarker = L.marker([userLat, userLng], {
+                            icon: L.divIcon({
+                                html: '<i class="fas fa-user" style="color: #6a1b9a; font-size: 24px;"></i>',
+                                iconSize: [24, 24],
+                                className: 'user-marker'
+                            })
+                        }).addTo(map).bindPopup('<b>موقعي الآن</b>');
+
+                        map.setView([userLat, userLng], 13);
+
+                        const nearestServices = findNearestServices(userLat, userLng);
+                        displayServices(nearestServices);
+                        addMarkersToMap(nearestServices);
+
+                        button.disabled = false;
+                        button.innerHTML = '<i class="fas fa-map-marker-alt"></i> تحديد موقعي الحالي';
+                    },
+                    (error) => {
+                        let errorMessage = 'فشل تحديد الموقع. ';
+                        switch (error.code) {
+                            case error.PERMISSION_DENIED: errorMessage += 'تم رفض الإذن.'; break;
+                            case error.POSITION_UNAVAILABLE: errorMessage += 'معلومات الموقع غير متاحة.'; break;
+                            case error.TIMEOUT: errorMessage += 'انتهت المهلة.'; break;
+                            default: errorMessage += 'خطأ غير معروف.';
+                        }
+                        status.textContent = errorMessage;
+                        status.style.color = '#ffaaaa';
+
+                        userLocation = { lat: 36.7525, lng: 3.0418 };
+                        const nearestServices = findNearestServices(userLocation.lat, userLocation.lng);
+                        displayServices(nearestServices);
+                        addMarkersToMap(nearestServices);
+
+                        button.disabled = false;
+                        button.innerHTML = '<i class="fas fa-map-marker-alt"></i> تحديد موقعي الحالي';
+                    }
+                );
+            } else {
+                status.textContent = 'المتصفح لا يدعم تحديد الموقع الجغرافي';
+                status.style.color = '#ffaaaa';
+                button.disabled = false;
+                button.innerHTML = '<i class="fas fa-map-marker-alt"></i> تحديد موقعي الحالي';
+            }
+
+
+        });
+
+        // عرض جميع الخدمات
+        document.getElementById('showAllServices').addEventListener('click', () => {
+
+
+            const origin = userLocation ?? { lat: 36.7525, lng: 3.0418 };
+            const allServices = {};
+            for (const type in serviceLocations) {
+                allServices[type] = serviceLocations[type].map(s => ({
+                    ...s,
+                    distance: calculateDistance(origin.lat, origin.lng, s.lat, s.lng)
+                }));
+            }
+
+            displayServices(allServices);
+            addMarkersToMap(allServices);
+
+            const allPoints = Object.values(allServices).flat().map(s => [s.lat, s.lng]);
+            if (allPoints.length > 0) {
+                const bounds = L.latLngBounds(allPoints);
+                if (userMarker && userLocation) bounds.extend([userLocation.lat, userLocation.lng]);
+                map.fitBounds(bounds);
+            }
+        });
+
+        // عرض المسار
+        function showRouteToService(service) {
+
+            if (!userLocation) {
+                alert('الرجاء تحديد موقعك أولا للحصول على معلومات دقيقة');
+                return;
+            }
+
+            const modal = document.getElementById('routeModal');
+            const routeTitle = document.getElementById('routeTitle');
+            const routeDetails = document.getElementById('routeDetails');
+
+            routeTitle.textContent = service.name;
+
+            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLocation.lat},${userLocation.lng}&destination=${service.lat},${service.lng}&travelmode=driving`;
+            const cleanPhone = service.phone ? service.phone.replace(/[^\d+]/g, '') : '';
+
+            routeDetails.innerHTML = `
+    <p><strong>العنوان:</strong> ${service.address || ''}</p>
+    <p><strong>الهاتف:</strong>
+        <a href="tel:${cleanPhone}" class="phone-link" dir="ltr" style="text-decoration:none; color:inherit;">
+            <span class="phone-number">${service.phone || ''}</span>
+        </a>
+    </p>
+    <a href="${googleMapsUrl}" target="_blank" rel="noopener noreferrer" class="google-route-btn">التنقل عبر Google Maps</a>
+`;
+
+            modal.style.display = 'flex';
+
+            setTimeout(() => {
+                if (!miniMap) {
+                    miniMap = L.map('miniMap', { zoomControl: false, attributionControl: false });
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(miniMap);
+                }
+
+                miniMap.setView([service.lat, service.lng], 14);
+                if (miniMarker) miniMap.removeLayer(miniMarker);
+                miniMarker = L.marker([service.lat, service.lng]).addTo(miniMap);
+
+                if (miniRouteLine) miniMap.removeLayer(miniRouteLine);
+                miniRouteLine = L.polyline([[userLocation.lat, userLocation.lng], [service.lat, service.lng]], {
+                    color: '#1a73e8', weight: 4, opacity: 0.8
+                }).addTo(miniMap);
+
+                miniMap.fitBounds([[userLocation.lat, userLocation.lng], [service.lat, service.lng]], { padding: [30, 30] });
+                miniMap.invalidateSize();
+            }, 200);
+        }
+
+        // إغلاق النافذة المنبثقة
+        document.addEventListener('click', function (e) {
+            const modal = document.getElementById('routeModal');
+            if (e.target.closest('.close-modal') || e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // تهيئة أولية للخريطة
+        document.addEventListener('DOMContentLoaded', () => {
+            const defaultLocation = userLocation ?? { lat: 36.7525, lng: 3.0418 };
+            const nearestServices = findNearestServices(defaultLocation.lat, defaultLocation.lng);
+            addMarkersToMap(nearestServices);
+            displayServices(nearestServices);
+
+        });
+
+
+    </script>
+
+
+    <script>
+        /*
+          يتوقع أن تكون المصفوفة بالشكل التالي:
+          {
+            name: "",
+            wilaya: "",
+            baladia: "",
+            phone: "",
+            lat: 36.75,
+            lon: 3.05
+          }
+        */
+
+        /* === خريطة ربط نوع الصفحة بنوع Schema === */
+        const schemaTypes = {
+            hospitalsData: "Hospital",
+            policeData: "PoliceStation",
+            gendarmerieData: "PoliceStation",
+            protectioncivilData: "FireStation",
+            pharmaciesData: "Pharmacy",
+            laboratoriesData: "MedicalLaboratory",
+            doctorsData: "Physician",
+            depannageData: "AutoRepair"
+        };
+
+        /* === حدد اسم المصفوفة الخاصة بالصفحة الحالية === */
+        // مثال:
+        // const currentData = hospitalsData;
+        const currentData = typeof hospitalsData !== "undefined" ? hospitalsData :
+            typeof policeData !== "undefined" ? policeData :
+                typeof gendarmerieData !== "undefined" ? gendarmerieData :
+                    typeof protectioncivilData !== "undefined" ? protectioncivilData :
+                        typeof pharmaciesData !== "undefined" ? pharmaciesData :
+                            typeof laboratoriesData !== "undefined" ? laboratoriesData :
+                                typeof doctorsData !== "undefined" ? doctorsData :
+                                    typeof depannageData !== "undefined" ? depannageData : [];
+
+        /* === معرفة نوع الـ Schema === */
+        const currentType = Object.keys(schemaTypes).find(key => typeof window[key] !== "undefined");
+        const schemaType = schemaTypes[currentType] || "LocalBusiness";
+
+        /* === بناء JSON-LD === */
+        function generateStructuredData(dataArray, type) {
+
+            const itemList = dataArray.map((item, index) => ({
+                "@type": type,
+                "position": index + 1,
+                "name": item.name,
+                "telephone": item.phone ? "+213" + item.phone.replace(/\D/g, "") : "",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": item.baladia || "",
+                    "addressRegion": item.wilaya || "",
+                    "addressCountry": "DZ"
+                },
+                "geo": item.lat && item.lon ? {
+                    "@type": "GeoCoordinates",
+                    "latitude": item.lat,
+                    "longitude": item.lon
+                } : undefined,
+                "hasMap": item.lat && item.lon
+                    ? `https://www.google.com/maps?q=${item.lat},${item.lon}`
+                    : undefined
+            }));
+
+            return {
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "name": document.title,
+                "itemListElement": itemList
+            };
+        }
+
+        /* === إدراج السكربت في الصفحة === */
+        if (currentData.length > 0) {
+            const structuredData = generateStructuredData(currentData, schemaType);
+
+            const script = document.createElement("script");
+            script.type = "application/ld+json";
+            script.text = JSON.stringify(structuredData, null, 2);
+            document.head.appendChild(script);
+        }
+
+    </script>
+
+    <script defer src="script/site-tags.js"></script>
+
+</body>
+
+</html>
