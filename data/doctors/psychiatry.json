@@ -1,0 +1,122 @@
+[
+  {
+    "id": "demo-psychiatry-1",
+    "slug": "demo-psychiatry-1",
+    "name": "د. نموذج طب نفسي 01",
+    "specialtyIds": [
+      "psychiatry"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 23 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000023"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  },
+  {
+    "id": "demo-psychiatry-2",
+    "slug": "demo-psychiatry-2",
+    "name": "د. نموذج طب نفسي 02",
+    "specialtyIds": [
+      "psychiatry"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 24 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000024"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  }
+]

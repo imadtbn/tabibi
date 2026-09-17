@@ -1,0 +1,122 @@
+[
+  {
+    "id": "demo-derma-1",
+    "slug": "demo-dermatology-1",
+    "name": "د. نموذج أمراض جلدية 01",
+    "specialtyIds": [
+      "derma"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 07 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000007"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  },
+  {
+    "id": "demo-derma-2",
+    "slug": "demo-dermatology-2",
+    "name": "د. نموذج أمراض جلدية 02",
+    "specialtyIds": [
+      "derma"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 08 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000008"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  }
+]

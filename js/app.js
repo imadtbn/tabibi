@@ -21,3 +21,5 @@ import('./pwa.js').catch(()=>{});
 
 import {initMetrics} from './metrics.js';
 initMetrics();
+
+if(document.getElementById('doctor-editor'))import('./editor.js').then(m=>m.initEditor()).catch(()=>toast('تعذر تشغيل محرر البيانات. أعد المحاولة.'));

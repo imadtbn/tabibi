@@ -1,0 +1,122 @@
+[
+  {
+    "id": "demo-uro-1",
+    "slug": "demo-urology-1",
+    "name": "د. نموذج جراحة المسالك البولية 01",
+    "specialtyIds": [
+      "uro"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 29 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000029"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  },
+  {
+    "id": "demo-uro-2",
+    "slug": "demo-urology-2",
+    "name": "د. نموذج جراحة المسالك البولية 02",
+    "specialtyIds": [
+      "uro"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 30 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000030"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  }
+]

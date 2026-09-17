@@ -1,0 +1,122 @@
+[
+  {
+    "id": "demo-ortho-1",
+    "slug": "demo-orthopedics-1",
+    "name": "د. نموذج جراحة العظام 01",
+    "specialtyIds": [
+      "ortho"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 15 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000015"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  },
+  {
+    "id": "demo-ortho-2",
+    "slug": "demo-orthopedics-2",
+    "name": "د. نموذج جراحة العظام 02",
+    "specialtyIds": [
+      "ortho"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 16 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000016"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  }
+]

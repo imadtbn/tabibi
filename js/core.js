@@ -22,14 +22,27 @@ export const storage = {
 export function favorites() { const value = storage.get('favorites', []); return new Set(Array.isArray(value) ? value.filter(x => typeof x === 'string') : []); }
 export function el(tag, text, className) { const node = document.createElement(tag); if (text !== undefined) node.textContent = text; if (className) node.className = className; return node; }
 export function toast(message) { const target=document.getElementById('toast'); if(!target) return; target.textContent=message;target.hidden=false; clearTimeout(toast.timer);toast.timer=setTimeout(()=>{target.hidden=true;},4500); }
-let dataPromise;
-export function loadData() {
-  if (!dataPromise) dataPromise = Promise.all(['doctors','specialties','wilayas','communes','search-index','demo-doctors'].map(async name => {
-    const response=await fetch(url(`data/${name}.json`));
-    if (!response.ok) throw new Error(`Data unavailable: ${name}`);
-    const data=await response.json();if(!Array.isArray(data)) throw new Error('Invalid data');return data;
-  })).then(([doctors,specialties,wilayas,communes,index,demos]) => ({doctors:[...doctors,...demos],specialties,wilayas,communes,index})).catch(error => {dataPromise=null;throw error;});
-  return dataPromise;
+const requests=new Map();
+export async function getJSON(path, fresh=false){
+  if(fresh)requests.delete(path);
+  if(!requests.has(path))requests.set(path,fetch(url(path),{cache:fresh?'no-cache':'default'}).then(async response=>{if(!response.ok)throw new Error(`تعذر تحميل ${path}`);return response.json();}).catch(error=>{requests.delete(path);throw error;}));
+  return requests.get(path);
+}
+export async function loadSpecialty(id,fresh=false){
+  if(!/^[a-z]+$/.test(id))throw new Error('تخصص غير صالح');
+  const rows=await getJSON(`data/doctors/${id}.json`,fresh);
+  if(!Array.isArray(rows))throw new Error('صيغة ملف التخصص غير صالحة');
+  return rows;
+}
+export async function loadData(specialty=''){
+  const [specialties,wilayas,communes,index]=await Promise.all(['specialties','wilayas','locations','search-index'].map(name=>getJSON(`data/${name}.json`)));
+  const doctors=specialty?await loadSpecialty(specialty):index;
+  return {doctors,specialties,wilayas,communes,index};
+}
+export async function hydrateRows(rows){
+  const ids=[...new Set(rows.map(row=>row.doctor.specialtyIds[0]))];
+  const full=new Map((await Promise.all(ids.map(id=>loadSpecialty(id)))).flat().map(d=>[d.id,d]));
+  return rows.map(row=>{const doctor=full.get(row.doctor.id);if(!doctor)throw new Error('تغيرت البيانات. أعد تحميل الصفحة.');const n=row.doctor.practices.indexOf(row.practice);return {...row,doctor,practice:doctor.practices[n]||doctor.practices[0]};});
 }
 export function locate() {
   return new Promise((resolve,reject) => {
@@ -62,9 +75,9 @@ export function availability(hours, now = new Date(), online = true) {
   return {state:'unknown',text:online?'المواعيد غير متوفرة':'التوفر غير مؤكد دون اتصال'};
 }
 export function summarize(data,now=new Date(),online=true){
-  const bySpecialty=Object.fromEntries(data.specialties.map(s=>[s.id,0]));const wilayas=new Set();let open=0,demo=0;
-  for(const d of data.doctors){for(const id of new Set(d.specialtyIds))bySpecialty[id]=(bySpecialty[id]||0)+1;for(const p of d.practices)wilayas.add(p.wilayaCode);if(d.practices.some(p=>availability(p.openingHours,now,online).state==='open'))open++;if(d.isDemo)demo++;}
-  return {total:data.doctors.length,specialties:Object.values(bySpecialty).filter(n=>n>0).length,wilayas:wilayas.size,open:online?open:'—',demo,verified:data.doctors.filter(d=>!d.isDemo&&d.verificationStatus==='verified').length,bySpecialty};
+  const bySpecialty=Object.fromEntries(data.specialties.map(s=>[s.id,0]));const wilayas=new Set();let open=0,initial=0;
+  for(const d of data.doctors){for(const id of new Set(d.specialtyIds))bySpecialty[id]=(bySpecialty[id]||0)+1;for(const p of d.practices)wilayas.add(p.wilayaCode);if(d.practices.some(p=>availability(p.openingHours,now,online).state==='open'))open++;if(d.verificationStatus!=='verified')initial++;}
+  return {total:data.doctors.length,specialties:Object.values(bySpecialty).filter(n=>n>0).length,wilayas:wilayas.size,open:online?open:'—',initial,verified:data.doctors.filter(d=>d.verificationStatus==='verified').length,bySpecialty};
 }
 export function scheduleText(hours){
   const names={sun:'الأحد',mon:'الإثنين',tue:'الثلاثاء',wed:'الأربعاء',thu:'الخميس',fri:'الجمعة',sat:'السبت'};

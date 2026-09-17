@@ -2,7 +2,7 @@
   "doctors": 40,
   "coveredWilayas": 4,
   "specialties": 20,
-  "demoDoctors": 40,
+  "initialDoctors": 40,
   "verifiedDoctors": 0,
   "bySpecialty": {
     "general": 2,
@@ -25,5 +25,46 @@
     "rhemato": 2,
     "nephro": 2,
     "radio": 2
-  }
+  },
+  "schedules": [
+    {
+      "hours": [
+        {
+          "fri": [],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ]
+        }
+      ],
+      "count": 40
+    }
+  ]
 }

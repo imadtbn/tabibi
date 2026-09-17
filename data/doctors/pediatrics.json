@@ -1,0 +1,122 @@
+[
+  {
+    "id": "demo-pediatrics-1",
+    "slug": "demo-pediatrics-1",
+    "name": "د. نموذج طب الأطفال 01",
+    "specialtyIds": [
+      "pediatrics"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 05 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000005"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  },
+  {
+    "id": "demo-pediatrics-2",
+    "slug": "demo-pediatrics-2",
+    "name": "د. نموذج طب الأطفال 02",
+    "specialtyIds": [
+      "pediatrics"
+    ],
+    "verificationStatus": "unverified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 06 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000006"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  }
+]

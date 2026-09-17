@@ -4,7 +4,7 @@ const PREFIX='tabibi:'+new URL(self.registration.scope).pathname+':';
 const CACHE=PREFIX+VERSION;
 const FILES=__PRECACHE__;
 const absolute=path=>new URL(path,self.registration.scope).href;
-const ALLOWED=new Set(FILES.map(absolute));
+const ALLOWED=new Set(__ALL_FILES__.map(absolute));
 self.addEventListener('install',event=>event.waitUntil((async()=>{
   const cache=await caches.open(CACHE);
   try{await cache.addAll(FILES.map(path=>new Request(absolute(path),{cache:'reload'})));}

@@ -1,0 +1,37 @@
+<section class="editor-intro notice"><strong>كيف تظهر الإضافة للجميع؟</strong><p>الحفظ هنا على جهازك فقط. بعد مراجعة البيانات، صدّر ملف التخصص واستبدله في المستودع داخل <bdi dir="ltr">data/doctors/</bdi>، ثم أعد بناء الموقع. لا تُرسل الصفحة بياناتك إلى أي خادم، ولا تحتاج كلمة مرور GitHub.</p></section>
+<div id="editor" class="editor-layout section">
+<aside class="editor-sidebar">
+<h2>ملف التخصص</h2><label class="field">اختر تخصصًا<select id="edit-specialty"><option value="">اختر التخصص</option>__SPECIALTIES__</select></label>
+<p id="editor-load-status" role="status">اختر التخصص لتحميل ملفه فقط.</p><button id="reload-specialty" class="btn secondary" type="button" disabled>إعادة تحميل الملف</button>
+<div id="editor-records" class="editor-records"></div>
+<button id="new-doctor" class="btn primary" type="button" disabled>+ إضافة طبيب لهذا التخصص</button>
+<button id="export-specialty" class="btn secondary" type="button" disabled>تنزيل ملف التخصص JSON</button>
+<label class="field">استيراد ملف تخصص<input id="import-specialty" type="file" accept="application/json,.json" disabled></label>
+<p class="muted">الاستيراد يدمج السجلات حسب المعرّف، ولا يحذف بقية الأطباء. تبقى المسودات محفوظة على هذا المتصفح.</p>
+</aside>
+<div>
+<form id="doctor-editor" class="editor-form" hidden>
+<div class="section-head"><h2 id="editor-title">إضافة طبيب</h2><span id="draft-label" class="badge">مسودة محلية</span></div>
+<input id="doctor-id" type="hidden"><input id="doctor-slug" type="hidden">
+<fieldset><legend>الهوية</legend><label class="field">اسم الطبيب<input id="doctor-name" required maxlength="120" autocomplete="off" placeholder="الاسم الكامل للطبيب"></label><p class="muted">التخصص هو المحدد في قائمة الملفات. لا تضع معلومات مرضى أو بيانات شخصية غير مخصصة للنشر.</p></fieldset>
+<fieldset><legend>العنوان والاتصال</legend><div class="editor-fields">
+<label class="field">الولاية<select id="doctor-wilaya" required><option value="">اختر الولاية</option>__WILAYAS__</select></label>
+<label class="field">البلدية<input id="doctor-commune" required maxlength="100" placeholder="اسم البلدية"></label>
+<label class="field wide">الشارع والعنوان<input id="doctor-address" required maxlength="240" placeholder="الشارع، الحي، رقم المبنى"></label>
+<label class="field">الهاتف الأساسي<input id="doctor-phone" type="tel" dir="ltr" required maxlength="24" placeholder="0550 00 00 00"></label>
+<label class="field">هاتف إضافي (اختياري)<input id="doctor-phone2" type="tel" dir="ltr" maxlength="24" placeholder="+213 ..."></label>
+<label class="field">خط العرض (اختياري)<input id="doctor-lat" type="number" dir="ltr" min="-90" max="90" step="any" placeholder="36.7538"></label>
+<label class="field">خط الطول (اختياري)<input id="doctor-lng" type="number" dir="ltr" min="-180" max="180" step="any" placeholder="3.0588"></label>
+</div><p class="muted">اترك الإحداثيات فارغة إن لم تكن معروفة. أدخل خط العرض والطول معًا لعرض زر المسار.</p></fieldset>
+<fieldset><legend>أيام وساعات العمل</legend><p class="muted">يمكن تحديد فترتين في اليوم. اليوم غير المحدد مغلق. للساعات الليلية قسّم الدوام على يومين.</p><div id="hours-editor"></div></fieldset>
+<fieldset><legend>المصدر وحالة البيانات</legend>
+<label class="field">رابط مصدر علني (اختياري)<input id="doctor-source" type="url" dir="ltr" placeholder="https://..."></label>
+<label class="checkbox-field"><input id="confirm-real" type="checkbox"> استبدلت معلومات النموذج ببيانات طبيب فعلي، وأقر بأن بيانات الاتصال مخصصة للنشر.</label>
+<p class="muted">الإقرار لا يمنح شارة «موثق». تبقى الإضافات والتعديلات «غير متحقق منها» حتى مراجعتها. اتركه غير محدد إذا كان السجل نموذجًا أوليًا.</p>
+</fieldset>
+<p id="editor-message" role="status" aria-live="polite"></p>
+<div class="card-actions"><button type="submit" class="btn primary">حفظ المسودة على هذا الجهاز</button><button id="discard-local" class="btn secondary" type="button">إلغاء التعديل المحلي</button></div>
+</form>
+<section id="editor-preview" class="prose" hidden><h2>معاينة البيانات المحفوظة</h2><div id="preview-content" class="doctor-card"></div></section>
+<details class="publish-help"><summary>خطوات النشر بعد التصدير</summary><ol><li>راجع الاسم والعنوان والهاتف والجدول.</li><li>نزّل ملف التخصص واستبدله في <bdi dir="ltr">data/doctors/</bdi> مع الحفاظ على اسم الملف.</li><li>شغّل <code dir="ltr">python3 tools/build.py</code> ثم <code dir="ltr">npm test</code> في المشروع.</li><li>ارفع ملف البيانات والملفات المولدة إلى GitHub. عند اكتمال النشر تظهر المعلومات لكل الزوار.</li></ol><p>تنزيل الملف أو حفظ المسودة وحده لا يحدّث الموقع المنشور.</p></details>
+</div></div>
