@@ -1,8 +1,11 @@
 import {getJSON,loadSpecialty,storage,el,toast,normalize} from './core.js';
 import {DAYS,normalizePhone,validateRecord,validateCollection,mergeRecords,conflictingDrafts} from './editor-model.js';
+import {SUBMISSION_ENDPOINT,SUBMISSION_VERSION} from './submission-config.js';
 export async function initEditor(){
   const $=id=>document.getElementById(id);let spec='',base=[],drafts=[],current=null,dirty=false,sequence=0;
   const [wilayas,communes]=await Promise.all([getJSON('data/wilayas.json'),getJSON('data/locations.json')]);const codes=wilayas.map(w=>w.code);
+  const submitButton=$('submit-review');const submissionState=$('submission-state');
+  if(!SUBMISSION_ENDPOINT){submitButton.disabled=true;submissionState.classList.add('pending');submissionState.lastElementChild.textContent='قناة Google Sheets بانتظار نشر رابط Apps Script من إعدادات المشروع.';}
   const names={sun:'الأحد',mon:'الإثنين',tue:'الثلاثاء',wed:'الأربعاء',thu:'الخميس',fri:'الجمعة',sat:'السبت'};
   for(const day of DAYS){
     const row=el('div',undefined,'hours-row');const label=el('label',undefined,'checkbox-field');const enabled=el('input');enabled.type='checkbox';enabled.id=`day-${day}`;label.append(enabled,document.createTextNode(names[day]));row.append(label);
@@ -55,9 +58,23 @@ export async function initEditor(){
       delete record.verifiedAt;delete record.sourceUrl;if($('doctor-source').value.trim())record.sourceUrl=$('doctor-source').value.trim();
       validateRecord(record,spec,codes);
       const existing=drafts.find(d=>d.record.id===id);const baseline=base.find(d=>d.id===id);const next=drafts.filter(d=>d.record.id!==id);next.push({record,base:existing?.base??(baseline?JSON.stringify(baseline):null)});
-      persist(next);fill(record);renderList();status('حُفظت المسودة على هذا الجهاز فقط. نزّل ملف التخصص لنقله إلى المستودع.');
+      persist(next);fill(record);renderList();status('حُفظت المسودة على هذا الجهاز. يمكنك الآن إرسالها للمراجعة.');
       const preview=$('preview-content');preview.replaceChildren(el('h3',record.name),el('span','غير متحقق منها','badge'),el('p',[wilayas.find(w=>w.code===wilaya)?.nameAr,commune,practice.address].join('، ')),el('p',practice.phones.join(' / ')));$('editor-preview').hidden=false;
     }catch(error){status(error.message,true);}
+  });
+  submitButton.addEventListener('click',async()=>{
+    if(!SUBMISSION_ENDPOINT){status('قناة الإرسال غير مفعلة بعد. يجب نشر Google Apps Script وإضافة رابطه في js/submission-config.js.',true);return;}
+    if(dirty){status('احفظ المسودة الحالية قبل إرسالها للمراجعة.',true);return;}
+    if(!current||!drafts.some(x=>x.record.id===current.id)){status('أنشئ أو عدّل سجلًا واحفظه أولًا.',true);return;}
+    if(!$('confirm-real').checked||current.isPlaceholder){status('يجب تأكيد أن البيانات حقيقية ومخصصة للنشر قبل الإرسال.',true);return;}
+    submitButton.disabled=true;submissionState.className='submission-state sending';submissionState.lastElementChild.textContent='جاري إرسال الطلب إلى لوحة المراجعة…';
+    try{
+      validateRecord(current,spec,codes);const requestId=crypto.randomUUID();const specialtyName=$('edit-specialty').selectedOptions[0]?.textContent?.trim()||spec;
+      const response=await fetch(SUBMISSION_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({version:SUBMISSION_VERSION,requestId,specialtyId:spec,specialtyName,record:current,website:$('doctor-website').value})});
+      if(!response.ok)throw new Error('تعذر الوصول إلى خدمة المراجعة.');const result=await response.json();if(!result.ok)throw new Error(result.error||'لم تقبل خدمة المراجعة الطلب.');
+      submissionState.className='submission-state success';submissionState.lastElementChild.textContent=`تم استلام الطلب رقم ${result.requestId||requestId}. سيُراجع قبل النشر.`;status('أُرسل الطلب بنجاح إلى Google Sheets للمراجعة.');
+    }catch(error){submissionState.className='submission-state error';submissionState.lastElementChild.textContent='لم يُرسل الطلب. المسودة ما زالت محفوظة على جهازك.';status(error.message,true);}
+    finally{submitButton.disabled=!SUBMISSION_ENDPOINT;}
   });
   $('discard-local').addEventListener('click',()=>{if(!current)return;try{const id=current.id;persist(drafts.filter(d=>d.record.id!==id));const original=base.find(d=>d.id===id);fill(original);renderList();status(original?'أُلغي التعديل المحلي وعاد السجل المنشور.':'حُذفت المسودة المحلية. لم يتغير الموقع المنشور.');}catch(error){status(error.message,true);}});
   $('import-specialty').addEventListener('change',async event=>{
