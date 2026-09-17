@@ -1,203 +1,23 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="طبيبي - منصة جزائرية تساعدك على إيجاد أقرب طبيب مختص إليك بسهولة.">
-    <meta name="keywords" content="طبيب, أطباء, الجزائر, طبيبي, إيجاد طبيب, طبيب مختص, عيادة">
-    <title>طبيبي | الرئيسية</title>
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="طبيبي | الرئيسية">
-    <meta property="og:description" content="المنصة الجزائرية الأولى لإيجاد أقرب طبيب مختص إليك.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tabibi.dz">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Leaflet CSS for Map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
-    <!-- Favicon (SVG Inline) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚕️</text></svg>">
-</head>
-<body>
-    <header>
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <i class="fa-solid fa-stethoscope"></i> طبيبي
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active">الرئيسية</a></li>
-                    <li><a href="map.html">الخريطة</a></li>
-                    <li><a href="stats.html">الإحصائيات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button id="darkModeToggle" class="btn-icon" aria-label="تبديل الوضع الليلي">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-                <button class="mobile-menu-btn" aria-label="القائمة">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container hero-content">
-                <h1>ابحث عن طبيبك بكل سهولة</h1>
-                <p>حدد موقعك وسنجد لك أقرب طبيب مختص في ثوانٍ</p>
-
-                <div class="search-container">
-                    <div class="search-box">
-                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                        <input type="text" id="globalSearch" placeholder="ابحث عن اختصاص، طبيب، أو ولاية...">
-                        <button id="getLocationBtn" class="btn btn-primary" title="حدد موقعي">
-                            <i class="fa-solid fa-location-dot"></i> حدد موقعي
-                        </button>
-                    </div>
-                    <div id="searchResults" class="search-results-dropdown hidden"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Google Ads Container Top -->
-        <div class="container ad-container ad-banner">
-            <span class="ad-label">إعلان</span>
-            <!-- Google Ads code will go here -->
-        </div>
-
-        <!-- Specialties Section -->
-        <section class="specialties-section section-padding">
-            <div class="container">
-                <h2 class="section-title">الاختصاصات الطبية</h2>
-                <div class="specialties-grid" id="specialtiesGrid">
-                    <!-- Specialties will be loaded here via JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Doctors Sample (Homepage) -->
-        <section class="featured-doctors section-padding bg-light">
-            <div class="container">
-                <h2 class="section-title">أطباء متاحون الآن</h2>
-                <div class="doctors-grid" id="featuredDoctorsGrid">
-                    <!-- Sample doctors will be loaded here via JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Google Ads Container Middle -->
-        <div class="container ad-container ad-banner">
-            <span class="ad-label">إعلان</span>
-            <!-- Google Ads code will go here -->
-        </div>
-
-        <!-- How it works & Stats -->
-        <section class="how-it-works section-padding">
-            <div class="container">
-                <div class="grid-2-col">
-                    <div class="how-steps">
-                        <h2 class="section-title">كيف يعمل الموقع؟</h2>
-                        <ul class="steps-list">
-                            <li>
-                                <div class="step-icon"><i class="fa-solid fa-location-crosshairs"></i></div>
-                                <div>
-                                    <h3>حدد موقعك</h3>
-                                    <p>اسمح لنا بالوصول إلى موقعك الجغرافي لتقديم أفضل النتائج.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="step-icon"><i class="fa-solid fa-user-doctor"></i></div>
-                                <div>
-                                    <h3>اختر الاختصاص</h3>
-                                    <p>ابحث عن الاختصاص المطلوب أو اسم الطبيب.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="step-icon"><i class="fa-solid fa-calendar-check"></i></div>
-                                <div>
-                                    <h3>احصل على المعلومات</h3>
-                                    <p>اعرف أوقات العمل، رقم الهاتف، والمسار للوصول للعيادة.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="quick-stats">
-                        <h2 class="section-title">إحصائيات سريعة</h2>
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <i class="fa-solid fa-user-md"></i>
-                                <h3 id="statTotalDoctors">40+</h3>
-                                <p>طبيب مسجل</p>
-                            </div>
-                            <div class="stat-card">
-                                <i class="fa-solid fa-stethoscope"></i>
-                                <h3 id="statSpecialties">20</h3>
-                                <p>اختصاص طبي</p>
-                            </div>
-                            <div class="stat-card">
-                                <i class="fa-solid fa-map-location-dot"></i>
-                                <h3 id="statWilayas">58</h3>
-                                <p>ولاية مغطاة</p>
-                            </div>
-                        </div>
-                        <div class="mt-4 text-center">
-                            <a href="stats.html" class="btn btn-outline">عرض الإحصائيات التفصيلية</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container footer-container">
-            <div class="footer-about">
-                <h3><i class="fa-solid fa-stethoscope"></i> طبيبي</h3>
-                <p>منصة جزائرية تهدف لتسهيل وصول المرضى للأطباء المختصين في جميع ولايات الوطن.</p>
-            </div>
-            <div class="footer-links">
-                <h4>روابط هامة</h4>
-                <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="map.html">الخريطة</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </div>
-            <div class="footer-legal">
-                <h4>قانوني</h4>
-                <ul>
-                    <li><a href="privacy.html">سياسة الخصوصية</a></li>
-                    <li><a href="terms.html">شروط الاستخدام</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 طبيبي. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/data/meta.js"></script>
-    <script src="js/data/homepage.js"></script>
-    <script src="js/data/search_index.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/ux.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>دليل الأطباء في الجزائر | طبيبي</title>
+<meta name="description" content="ابحث في دليل طبيبي حسب التخصص والولاية. معلومات اتصال وعناوين موثقة المصدر، بحث بالقرب منك، ومفضلة على جهازك دون إنشاء حساب."><meta name="robots" content="index,follow"><link rel="canonical" href="https://imadtbn.github.io/tabibi/">
+<meta name="theme-color" content="#103f3a"><meta name="color-scheme" content="light dark"><meta name="application-name" content="طبيبي"><meta name="apple-mobile-web-app-title" content="طبيبي"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta property="og:type" content="website"><meta property="og:locale" content="ar_DZ"><meta property="og:site_name" content="طبيبي"><meta property="og:title" content="دليل الأطباء في الجزائر | طبيبي"><meta property="og:description" content="ابحث في دليل طبيبي حسب التخصص والولاية. معلومات اتصال وعناوين موثقة المصدر، بحث بالقرب منك، ومفضلة على جهازك دون إنشاء حساب."><meta property="og:url" content="https://imadtbn.github.io/tabibi/"><meta property="og:image" content="https://imadtbn.github.io/tabibi/assets/social-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="طبيبي — دليل الأطباء في الجزائر"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script><script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebSite", "name": "طبيبي", "url": "https://imadtbn.github.io/tabibi/", "inLanguage": "ar-DZ"}]</script><script type="module" src="js/app.js"></script></head>
+<body><a class="skip-link" href="#main">تجاوز إلى المحتوى</a><div class="topline">دليل الأطباء في الجزائر <span>بحث أوضح. وصول أسهل.</span></div>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="طبيبي — الرئيسية"><span class="brand-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><span>طبيبي<small>TABIBI</small></span></a>
+<button id="menu-toggle" class="icon-btn menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="main-nav">☰</button><nav id="main-nav" class="nav" aria-label="التنقل الرئيسي"><a href="index.html" aria-current="page">الرئيسية</a><a href="specialties/index.html" >التخصصات</a><a href="doctors.html" >الأطباء</a><a href="map.html" >الخريطة</a><a href="favorites.html" >المفضلة</a></nav><div class="header-actions"><button class="icon-btn" id="theme-toggle" aria-label="تبديل المظهر" aria-pressed="false">◐</button><a class="btn small secondary desktop-install" href="install.html">تثبيت التطبيق</a></div></div></header>
+<div id="offline-banner" class="connection-banner" role="status" hidden>أنت دون اتصال. تُعرض النسخة المحفوظة وقد لا تعكس أحدث البيانات.</div>
+<main id="main" class="container"><section class="hero"><div class="hero-copy"><span class="eyebrow"><span class="live-dot"></span> دليلك الطبي في الجزائر</span><h1>خطوتك الأولى<br>إلى <em>طبيبك المناسب.</em></h1><p>ابحث حسب التخصص والولاية، واطّلع على معلومات العيادة قبل الاتصال أو الزيارة.</p><div class="hero-points"><span>✓ بحث حسب التخصص</span><span>✓ وصول مباشر للمعلومات</span><span>✓ خصوصية موقعك</span></div></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="medical-tile"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></div><div class="art-label label-one">صحتك تستحق الاهتمام <span>+</span></div><div class="art-label label-two"><span>⌖</span> ابحث في ولايتك</div><div class="art-dot"></div></div></section><form class="search-panel home-search" action="doctors.html" method="get" role="search">
+<label class="field"><span>اسم الطبيب أو البلدية</span><input name="q" id="query" type="search" placeholder="عمّن تبحث؟" autocomplete="off" maxlength="120"></label>
+<label class="field"><span>التخصص الطبي</span><select name="spec" id="spec" ><option value="">جميع التخصصات</option><option value="general">طب عام</option><option value="cardio">أمراض القلب</option><option value="pediatrics">طب الأطفال</option><option value="derma">أمراض جلدية</option><option value="ophtalmo">طب العيون</option><option value="dental">طب الأسنان</option><option value="gyneco">نساء وتوليد</option><option value="ortho">جراحة العظام</option><option value="ent">أنف وأذن وحنجرة</option><option value="neuro">طب الأعصاب</option><option value="internal">طب باطني</option><option value="psychiatry">طب نفسي</option><option value="gastro">أمراض الجهاز الهضمي</option><option value="pneumo">أمراض تنفسية</option><option value="uro">جراحة المسالك البولية</option><option value="onco">طب الأورام</option><option value="endo">غدد صماء وسكري</option><option value="rhemato">روماتيزم</option><option value="nephro">طب الكلى</option><option value="radio">أشعة طبية</option></select></label>
+<label class="field"><span>الولاية</span><select name="wilaya" id="wilaya"><option value="">كل الولايات المتاحة</option><option value="01">أدرار</option><option value="02">الشلف</option><option value="03">الأغواط</option><option value="04">أم البواقي</option><option value="05">باتنة</option><option value="06">بجاية</option><option value="07">بسكرة</option><option value="08">بشار</option><option value="09">البليدة</option><option value="10">البويرة</option><option value="11">تمنراست</option><option value="12">تبسة</option><option value="13">تلمسان</option><option value="14">تيارت</option><option value="15">تيزي وزو</option><option value="16">الجزائر</option><option value="17">الجلفة</option><option value="18">جيجل</option><option value="19">سطيف</option><option value="20">سعيدة</option><option value="21">سكيكدة</option><option value="22">سيدي بلعباس</option><option value="23">عنابة</option><option value="24">قالمة</option><option value="25">قسنطينة</option><option value="26">المدية</option><option value="27">مستغانم</option><option value="28">المسيلة</option><option value="29">معسكر</option><option value="30">ورقلة</option><option value="31">وهران</option><option value="32">البيض</option><option value="33">إليزي</option><option value="34">برج بوعريريج</option><option value="35">بومرداس</option><option value="36">الطارف</option><option value="37">تندوف</option><option value="38">تيسمسيلت</option><option value="39">الوادي</option><option value="40">خنشلة</option><option value="41">سوق أهراس</option><option value="42">تيبازة</option><option value="43">ميلة</option><option value="44">عين الدفلى</option><option value="45">النعامة</option><option value="46">عين تموشنت</option><option value="47">غرداية</option><option value="48">غليزان</option><option value="49">تيميمون</option><option value="50">برج باجي مختار</option><option value="51">أولاد جلال</option><option value="52">بني عباس</option><option value="53">عين صالح</option><option value="54">عين قزام</option><option value="55">تقرت</option><option value="56">جانت</option><option value="57">المغير</option><option value="58">المنيعة</option></select></label>
+<button class="btn primary" type="submit">ابحث عن طبيب <span aria-hidden="true">←</span></button></form>
+<div class="trust-line"><span>معلومة من مصدر واضح</span><span>تاريخ تحقق معلن</span><span>لا حاجة إلى إنشاء حساب</span></div>
+<section class="section"><div class="section-head"><div><span class="eyebrow">ابدأ من هنا</span><h2>لكل احتياج، تخصص</h2></div><a class="text-link" href="specialties/index.html">جميع التخصصات ←</a></div><div class="specialties-grid"><a class="specialty-card" href="specialties/general.html"><span class="spec-symbol"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><h3>طب عام</h3><span class="latin" lang="fr">Médecine générale</span><span class="card-arrow" aria-hidden="true">↖</span></a><a class="specialty-card" href="specialties/cardiology.html"><span class="spec-symbol"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><h3>أمراض القلب</h3><span class="latin" lang="fr">Cardiologie</span><span class="card-arrow" aria-hidden="true">↖</span></a><a class="specialty-card" href="specialties/pediatrics.html"><span class="spec-symbol"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><h3>طب الأطفال</h3><span class="latin" lang="fr">Pédiatrie</span><span class="card-arrow" aria-hidden="true">↖</span></a><a class="specialty-card" href="specialties/dermatology.html"><span class="spec-symbol"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><h3>أمراض جلدية</h3><span class="latin" lang="fr">Dermatologie</span><span class="card-arrow" aria-hidden="true">↖</span></a><a class="specialty-card" href="specialties/ophthalmology.html"><span class="spec-symbol"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><h3>طب العيون</h3><span class="latin" lang="fr">Ophtalmologie</span><span class="card-arrow" aria-hidden="true">↖</span></a><a class="specialty-card" href="specialties/dentistry.html"><span class="spec-symbol"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><h3>طب الأسنان</h3><span class="latin" lang="fr">Dentiste</span><span class="card-arrow" aria-hidden="true">↖</span></a><a class="specialty-card" href="specialties/gynecology.html"><span class="spec-symbol"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><h3>نساء وتوليد</h3><span class="latin" lang="fr">Gynécologie obstétrique</span><span class="card-arrow" aria-hidden="true">↖</span></a><a class="specialty-card" href="specialties/orthopedics.html"><span class="spec-symbol"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><h3>جراحة العظام</h3><span class="latin" lang="fr">Orthopédie</span><span class="card-arrow" aria-hidden="true">↖</span></a></div></section>
+<section class="how-section section"><div><span class="eyebrow">رحلة أبسط</span><h2>من البحث إلى العيادة<br>في ثلاث خطوات</h2><p class="muted">خذ وقتك في الاختيار، وتأكد من الموعد مباشرة مع العيادة.</p></div><ol class="steps"><li><span>01</span><div><h3>اختر التخصص والمكان</h3><p>ابدأ بالولاية، أو استخدم موقعك للبحث عن الأقرب.</p></div></li><li><span>02</span><div><h3>راجع معلومات الطبيب</h3><p>اطّلع على العنوان ووسائل الاتصال وتاريخ التحقق.</p></div></li><li><span>03</span><div><h3>اتصل قبل الزيارة</h3><p>أكد المواعيد والتوفر، ثم افتح الاتجاهات.</p></div></li></ol></section>
+<section class="notice editorial"><h2>نبني دليلًا يستحق ثقتك</h2><p>الدليل في مرحلة جمع البيانات والتحقق منها. لا ننشر أسماء أو أرقام أطباء تجريبية. ستظهر السجلات عند توفر مصادر موثوقة.</p><a class="text-link" href="about.html">كيف نتحقق من المعلومات؟ ←</a></section></main>
+<section class="app-strip container"><div><span class="eyebrow">طبيبي أقرب إليك</span><h2>احتفظ بالدليل على هاتفك</h2><p>ثبّت التطبيق وافتح الصفحات المحفوظة حتى عند انقطاع الإنترنت.</p></div><a class="btn primary" href="install.html">طريقة التثبيت <span aria-hidden="true">←</span></a></section>
+<footer><div class="container footer-grid"><div><a class="brand" href="index.html">طبيبي</a><p>دليل للعثور على معلومات الأطباء والتواصل معهم.<br>اتصل بالعيادة لتأكيد المواعيد قبل الزيارة.</p></div><div><h2>اكتشف</h2><a href="specialties/index.html">التخصصات الطبية</a><a href="map.html">الخريطة</a><a href="stats.html">إحصائيات الدليل</a></div><div><h2>عن طبيبي</h2><a href="about.html">عن المنصة والتحقق</a><a href="contact.html">التواصل وتصحيح البيانات</a><a href="privacy.html">الخصوصية</a><a href="terms.html">شروط الاستخدام</a></div></div><div class="container footer-bottom"><span>© طبيبي — دليل الأطباء في الجزائر</span><span>المعلومات للاستدلال، وليست تشخيصًا أو خدمة طوارئ.</span></div></footer>
+<div class="update-banner" id="update-banner" role="status" hidden><span>نسخة جديدة من طبيبي جاهزة.</span><button class="btn primary small" id="update-app">تحديث الآن</button><button class="text-button" id="dismiss-update">لاحقًا</button></div><div id="toast" class="toast" role="status" aria-live="polite" hidden></div></body></html>

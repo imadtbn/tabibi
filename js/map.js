@@ -1,118 +1,35 @@
-// js/map.js
-
-document.addEventListener('DOMContentLoaded', () => {
-    initMapFilters();
-    initMap();
-});
-
-let map;
-let markers;
-let allMapDoctors = []; // We will fetch all files to show on map (for demo purposes)
-
-function initMapFilters() {
-    const specSelect = document.getElementById('mapSpecFilter');
-    const wilayaSelect = document.getElementById('mapWilayaFilter');
-
-    SPECIALTIES.forEach(s => {
-        const option = document.createElement('option');
-        option.value = s.id;
-        option.textContent = s.name;
-        specSelect.appendChild(option);
-    });
-
-    WILAYAS.forEach(w => {
-        const option = document.createElement('option');
-        option.value = w;
-        option.textContent = w;
-        wilayaSelect.appendChild(option);
-    });
-
-    specSelect.addEventListener('change', updateMapMarkers);
-    wilayaSelect.addEventListener('change', updateMapMarkers);
-
-    document.getElementById('locateMeMapBtn').addEventListener('click', () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(position => {
-                map.setView([position.coords.latitude, position.coords.longitude], 12);
-            });
-        }
-    });
-}
-
-function initMap() {
-    // Center of Algeria
-    map = L.map('map').setView([28.0339, 1.6596], 5);
-
-    // Check if dark mode is active to load a dark map tileset
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const tileUrl = isDark ?
-        'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png' :
-        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-
-    L.tileLayer(tileUrl, {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    markers = L.markerClusterGroup({
-        showCoverageOnHover: false
-    });
-    map.addLayer(markers);
-
-    loadAllDoctorsData();
-}
-
-async function loadAllDoctorsData() {
-    // For a real app with thousands of records, we would fetch via API based on bounds
-    // Here we load the dummy JSONs directly
-    let fetchPromises = SPECIALTIES.map(spec =>
-        fetch(`js/data/specialties/${spec.id}.json`)
-        .then(res => res.json())
-        .then(data => {
-            // Attach specialty ID to each doctor for filtering
-            return data.map(d => ({...d, _specId: spec.id}));
-        })
-        .catch(() => [])
-    );
-
-    const results = await Promise.all(fetchPromises);
-    allMapDoctors = results.flat();
-
-    updateMapMarkers();
-}
-
-function updateMapMarkers() {
-    markers.clearLayers();
-
-    const specFilter = document.getElementById('mapSpecFilter').value;
-    const wilayaFilter = document.getElementById('mapWilayaFilter').value;
-
-    const filtered = allMapDoctors.filter(doc => {
-        const matchSpec = specFilter === 'all' || doc._specId === specFilter;
-        const matchWilaya = wilayaFilter === 'all' || doc.wilaya === wilayaFilter;
-        return matchSpec && matchWilaya;
-    });
-
-    const customIcon = L.divIcon({
-        className: 'custom-map-marker',
-        html: `<div style="background-color: var(--primary-color); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"><i class="fa-solid fa-user-doctor"></i></div>`,
-        iconSize: [30, 30],
-        iconAnchor: [15, 30],
-        popupAnchor: [0, -30]
-    });
-
-    filtered.forEach(doc => {
-        if(doc.lat && doc.lng) {
-            const popupContent = `
-                <div class="map-popup-card">
-                    <h3>${doc.name}</h3>
-                    <p><span class="specialty-chip">${doc.specialties[0]}</span></p>
-                    <p><i class="fa-solid fa-location-dot"></i> ${doc.wilaya} - ${doc.city}</p>
-                    <a href="geo:${doc.lat},${doc.lng}?q=${doc.lat},${doc.lng}(${doc.name})" class="btn btn-primary btn-sm" style="padding: 5px 10px; font-size:0.8rem; margin-top:5px;"><i class="fa-solid fa-route"></i> مسار</a>
-                </div>
-            `;
-            const marker = L.marker([doc.lat, doc.lng], {icon: customIcon})
-                            .bindPopup(popupContent);
-            markers.addLayer(marker);
-        }
-    });
+import {url,loadData,el,locate,toast} from './core.js';
+export function initMap(){
+  let map=null,layer=null,data=null;const button=document.getElementById('load-map');const status=document.getElementById('map-status');const spec=document.getElementById('spec');const wilaya=document.getElementById('wilaya');const query=document.getElementById('query');
+  const form=document.getElementById('filters');const params=new URLSearchParams(location.search);spec.value=params.get('spec')||'';wilaya.value=params.get('wilaya')||'';query.value=params.get('q')||'';
+  async function leaflet(){
+    if(window.L)return;
+    if(!document.getElementById('leaflet-css')){const css=document.createElement('link');css.id='leaflet-css';css.rel='stylesheet';css.href=url('assets/vendor/leaflet/leaflet.css');document.head.append(css);}
+    await new Promise((resolve,reject)=>{const script=document.createElement('script');script.src=url('assets/vendor/leaflet/leaflet.js');script.onload=resolve;script.onerror=()=>{script.remove();reject(new Error('Map library failed'));};document.head.append(script);});
+  }
+  async function render(){
+    if(!map||!data)return;layer.clearLayers();let count=0;const bounds=[];
+    const {selectDoctors}=await import('./core.js');
+    const rows=selectDoctors(data,{q:query.value,spec:spec.value,wilaya:wilaya.value});
+    for(const {doctor} of rows)for(const practice of doctor.practices){
+      if(wilaya.value&&practice.wilayaCode!==wilaya.value)continue;
+      const geo=practice.coordinates;if(!geo)continue;
+      const popup=el('div',undefined,'map-popup');popup.append(el('strong',doctor.name),el('p',practice.address));const link=el('a','تفاصيل الطبيب');link.href=url(`doctors/${doctor.slug}.html`);popup.append(link);
+      window.L.circleMarker([geo.lat,geo.lng],{radius:8,color:'#fff',weight:2,fillColor:'#176954',fillOpacity:1}).bindPopup(popup).addTo(layer);bounds.push([geo.lat,geo.lng]);count++;
+    }
+    status.textContent=count?`${count} موقع عيادة`:'لا توجد مواقع عيادات موثقة مطابقة حاليًا.';
+    if(bounds.length)map.fitBounds(bounds,{padding:[35,35],maxZoom:13});
+  }
+  button.addEventListener('click',async()=>{
+    if(map){render();return;}
+    if(!navigator.onLine){toast('تحتاج خلفية الخريطة إلى الإنترنت. استخدم قائمة الأطباء المحفوظة.');return;}
+    button.disabled=true;status.textContent='جاري تحميل الخريطة…';
+    try{
+      const results=await Promise.all([leaflet(),loadData()]);data=results[1];document.getElementById('map').replaceChildren();map=window.L.map('map').setView([28.2,2.6],5);
+      window.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map).on('tileerror',()=>{status.textContent='تعذر تحميل بعض أجزاء الخريطة. يمكنك استخدام عرض القائمة.';});
+      layer=window.L.layerGroup().addTo(map);button.hidden=true;document.getElementById('map-locate').disabled=false;await render();
+    }catch{status.textContent='تعذر تحميل الخريطة. تحقق من الاتصال وأعد المحاولة.';button.disabled=false;}
+  });
+  form.addEventListener('submit',e=>{e.preventDefault();render();});for(const node of [spec,wilaya])node.addEventListener('change',render);
+  document.getElementById('map-locate').addEventListener('click',async()=>{try{const p=await locate();map.setView([p.lat,p.lng],12);}catch(error){toast(error.message);}});
 }

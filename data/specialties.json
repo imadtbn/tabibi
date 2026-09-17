@@ -1,0 +1,242 @@
+[
+  {
+    "id": "general",
+    "slug": "general",
+    "nameAr": "طب عام",
+    "nameFr": "Médecine générale",
+    "aliases": [
+      "general",
+      "general",
+      "Médecine générale"
+    ],
+    "description": "دليل أطباء طب عام في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "cardio",
+    "slug": "cardiology",
+    "nameAr": "أمراض القلب",
+    "nameFr": "Cardiologie",
+    "aliases": [
+      "cardio",
+      "cardiology",
+      "Cardiologie"
+    ],
+    "description": "دليل أطباء أمراض القلب في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "pediatrics",
+    "slug": "pediatrics",
+    "nameAr": "طب الأطفال",
+    "nameFr": "Pédiatrie",
+    "aliases": [
+      "pediatrics",
+      "pediatrics",
+      "Pédiatrie"
+    ],
+    "description": "دليل أطباء طب الأطفال في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "derma",
+    "slug": "dermatology",
+    "nameAr": "أمراض جلدية",
+    "nameFr": "Dermatologie",
+    "aliases": [
+      "derma",
+      "dermatology",
+      "Dermatologie"
+    ],
+    "description": "دليل أطباء أمراض جلدية في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "ophtalmo",
+    "slug": "ophthalmology",
+    "nameAr": "طب العيون",
+    "nameFr": "Ophtalmologie",
+    "aliases": [
+      "ophtalmo",
+      "ophthalmology",
+      "Ophtalmologie"
+    ],
+    "description": "دليل أطباء طب العيون في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "dental",
+    "slug": "dentistry",
+    "nameAr": "طب الأسنان",
+    "nameFr": "Dentiste",
+    "aliases": [
+      "dental",
+      "dentistry",
+      "Dentiste"
+    ],
+    "description": "دليل أطباء طب الأسنان في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "gyneco",
+    "slug": "gynecology",
+    "nameAr": "نساء وتوليد",
+    "nameFr": "Gynécologie obstétrique",
+    "aliases": [
+      "gyneco",
+      "gynecology",
+      "Gynécologie obstétrique"
+    ],
+    "description": "دليل أطباء نساء وتوليد في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "ortho",
+    "slug": "orthopedics",
+    "nameAr": "جراحة العظام",
+    "nameFr": "Orthopédie",
+    "aliases": [
+      "ortho",
+      "orthopedics",
+      "Orthopédie"
+    ],
+    "description": "دليل أطباء جراحة العظام في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "ent",
+    "slug": "ent",
+    "nameAr": "أنف وأذن وحنجرة",
+    "nameFr": "ORL",
+    "aliases": [
+      "ent",
+      "ent",
+      "ORL"
+    ],
+    "description": "دليل أطباء أنف وأذن وحنجرة في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "neuro",
+    "slug": "neurology",
+    "nameAr": "طب الأعصاب",
+    "nameFr": "Neurologie",
+    "aliases": [
+      "neuro",
+      "neurology",
+      "Neurologie"
+    ],
+    "description": "دليل أطباء طب الأعصاب في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "internal",
+    "slug": "internal-medicine",
+    "nameAr": "طب باطني",
+    "nameFr": "Médecine interne",
+    "aliases": [
+      "internal",
+      "internal-medicine",
+      "Médecine interne"
+    ],
+    "description": "دليل أطباء طب باطني في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "psychiatry",
+    "slug": "psychiatry",
+    "nameAr": "طب نفسي",
+    "nameFr": "Psychiatrie",
+    "aliases": [
+      "psychiatry",
+      "psychiatry",
+      "Psychiatrie"
+    ],
+    "description": "دليل أطباء طب نفسي في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "gastro",
+    "slug": "gastroenterology",
+    "nameAr": "أمراض الجهاز الهضمي",
+    "nameFr": "Gastro-entérologie",
+    "aliases": [
+      "gastro",
+      "gastroenterology",
+      "Gastro-entérologie"
+    ],
+    "description": "دليل أطباء أمراض الجهاز الهضمي في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "pneumo",
+    "slug": "pulmonology",
+    "nameAr": "أمراض تنفسية",
+    "nameFr": "Pneumologie",
+    "aliases": [
+      "pneumo",
+      "pulmonology",
+      "Pneumologie"
+    ],
+    "description": "دليل أطباء أمراض تنفسية في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "uro",
+    "slug": "urology",
+    "nameAr": "جراحة المسالك البولية",
+    "nameFr": "Urologie",
+    "aliases": [
+      "uro",
+      "urology",
+      "Urologie"
+    ],
+    "description": "دليل أطباء جراحة المسالك البولية في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "onco",
+    "slug": "oncology",
+    "nameAr": "طب الأورام",
+    "nameFr": "Oncologie",
+    "aliases": [
+      "onco",
+      "oncology",
+      "Oncologie"
+    ],
+    "description": "دليل أطباء طب الأورام في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "endo",
+    "slug": "endocrinology",
+    "nameAr": "غدد صماء وسكري",
+    "nameFr": "Endocrinologie diabétologie",
+    "aliases": [
+      "endo",
+      "endocrinology",
+      "Endocrinologie diabétologie"
+    ],
+    "description": "دليل أطباء غدد صماء وسكري في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "rhemato",
+    "slug": "rheumatology",
+    "nameAr": "روماتيزم",
+    "nameFr": "Rhumatologie",
+    "aliases": [
+      "rhemato",
+      "rheumatology",
+      "Rhumatologie"
+    ],
+    "description": "دليل أطباء روماتيزم في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "nephro",
+    "slug": "nephrology",
+    "nameAr": "طب الكلى",
+    "nameFr": "Néphrologie",
+    "aliases": [
+      "nephro",
+      "nephrology",
+      "Néphrologie"
+    ],
+    "description": "دليل أطباء طب الكلى في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  },
+  {
+    "id": "radio",
+    "slug": "radiology",
+    "nameAr": "أشعة طبية",
+    "nameFr": "Radiologie",
+    "aliases": [
+      "radio",
+      "radiology",
+      "Radiologie"
+    ],
+    "description": "دليل أطباء أشعة طبية في الجزائر. ابحث حسب الولاية والبلدية، واطّلع على بيانات الاتصال والعنوان ومصدر المعلومات عند توفرها."
+  }
+]

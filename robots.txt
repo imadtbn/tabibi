@@ -1,0 +1,6 @@
+# For crawlers this file must also be placed at the ORIGIN root.
+# GitHub project path /tabibi/robots.txt is not the origin robots file.
+User-agent: *
+Allow: /tabibi/
+
+Sitemap: https://imadtbn.github.io/tabibi/sitemap.xml

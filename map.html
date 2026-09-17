@@ -1,142 +1,19 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>طبيبي | الخريطة الطبية</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚕️</text></svg>">
-
-    <style>
-        .map-layout {
-            display: flex;
-            height: calc(100vh - 70px);
-        }
-        .map-sidebar {
-            width: 350px;
-            background: var(--bg-surface);
-            box-shadow: var(--shadow-md);
-            z-index: 10;
-            overflow-y: auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-        .map-container {
-            flex: 1;
-            position: relative;
-        }
-        #map {
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        .filter-section {
-            margin-bottom: 20px;
-        }
-        .filter-section label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .filter-section select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            background: var(--bg-color);
-            color: var(--text-primary);
-        }
-        .leaflet-popup-content {
-            text-align: right;
-            direction: rtl;
-        }
-        .map-popup-card h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
-        .map-popup-card p { margin: 5px 0; font-size: 0.9rem; color: var(--text-secondary); }
-        .map-popup-card .btn { margin-top: 10px; display: block; text-align: center; }
-
-        @media (max-width: 768px) {
-            .map-layout {
-                flex-direction: column-reverse;
-            }
-            .map-sidebar {
-                width: 100%;
-                height: 40%;
-            }
-            .map-container {
-                height: 60%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <i class="fa-solid fa-stethoscope"></i> طبيبي
-            </a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="map.html" class="active">الخريطة</a></li>
-                    <li><a href="stats.html">الإحصائيات</a></li>
-                    <li><a href="about.html">من نحن</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button id="darkModeToggle" class="btn-icon">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-                <button class="mobile-menu-btn">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <div class="map-layout">
-        <aside class="map-sidebar">
-            <h2 style="margin-bottom: 20px; color: var(--primary-color);">تصفية الخريطة</h2>
-
-            <div class="filter-section">
-                <label>الاختصاص</label>
-                <select id="mapSpecFilter">
-                    <option value="all">جميع الاختصاصات</option>
-                </select>
-            </div>
-
-            <div class="filter-section">
-                <label>الولاية</label>
-                <select id="mapWilayaFilter">
-                    <option value="all">جميع الولايات</option>
-                </select>
-            </div>
-
-            <button id="locateMeMapBtn" class="btn btn-outline" style="width: 100%; margin-bottom: 20px;">
-                <i class="fa-solid fa-location-crosshairs"></i> الذهاب لموقعي
-            </button>
-
-            <!-- Google Ads Container Sidebar -->
-            <div class="ad-container ad-sidebar" style="margin-top: auto;">
-                <span class="ad-label">إعلان</span>
-            </div>
-        </aside>
-
-        <main class="map-container">
-            <div id="map"></div>
-        </main>
-    </div>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-    <script src="js/data/meta.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/map.js"></script>
-</body>
-</html>
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>خريطة الأطباء | طبيبي</title>
+<meta name="description" content="استعرض مواقع عيادات الأطباء الموثقة على الخريطة، وصفّها حسب التخصص والولاية."><meta name="robots" content="index,follow"><link rel="canonical" href="https://imadtbn.github.io/tabibi/map.html">
+<meta name="theme-color" content="#103f3a"><meta name="color-scheme" content="light dark"><meta name="application-name" content="طبيبي"><meta name="apple-mobile-web-app-title" content="طبيبي"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta property="og:type" content="website"><meta property="og:locale" content="ar_DZ"><meta property="og:site_name" content="طبيبي"><meta property="og:title" content="خريطة الأطباء | طبيبي"><meta property="og:description" content="استعرض مواقع عيادات الأطباء الموثقة على الخريطة، وصفّها حسب التخصص والولاية."><meta property="og:url" content="https://imadtbn.github.io/tabibi/map.html"><meta property="og:image" content="https://imadtbn.github.io/tabibi/assets/social-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="طبيبي — دليل الأطباء في الجزائر"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="css/style.css">
+<script src="js/theme.js"></script><script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://imadtbn.github.io/tabibi/"}, {"@type": "ListItem", "position": 2, "name": "خريطة الأطباء", "item": "https://imadtbn.github.io/tabibi/map.html"}]}]</script><script type="module" src="js/app.js"></script></head>
+<body><a class="skip-link" href="#main">تجاوز إلى المحتوى</a><div class="topline">دليل الأطباء في الجزائر <span>بحث أوضح. وصول أسهل.</span></div>
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="طبيبي — الرئيسية"><span class="brand-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><span>طبيبي<small>TABIBI</small></span></a>
+<button id="menu-toggle" class="icon-btn menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="main-nav">☰</button><nav id="main-nav" class="nav" aria-label="التنقل الرئيسي"><a href="index.html" >الرئيسية</a><a href="specialties/index.html" >التخصصات</a><a href="doctors.html" >الأطباء</a><a href="map.html" aria-current="page">الخريطة</a><a href="favorites.html" >المفضلة</a></nav><div class="header-actions"><button class="icon-btn" id="theme-toggle" aria-label="تبديل المظهر" aria-pressed="false">◐</button><a class="btn small secondary desktop-install" href="install.html">تثبيت التطبيق</a></div></div></header>
+<div id="offline-banner" class="connection-banner" role="status" hidden>أنت دون اتصال. تُعرض النسخة المحفوظة وقد لا تعكس أحدث البيانات.</div>
+<main id="main" class="container"><section class="page-heading"><span class="eyebrow">دليل طبيبي</span><h1>ابحث على الخريطة</h1><p>اختر تخصصًا وولاية لاستعراض مواقع العيادات المنشورة.</p></section><form class="search-panel " id="filters" method="get" role="search">
+<label class="field"><span>اسم الطبيب أو البلدية</span><input name="q" id="query" type="search" placeholder="عمّن تبحث؟" autocomplete="off" maxlength="120"></label>
+<label class="field"><span>التخصص الطبي</span><select name="spec" id="spec" ><option value="">جميع التخصصات</option><option value="general">طب عام</option><option value="cardio">أمراض القلب</option><option value="pediatrics">طب الأطفال</option><option value="derma">أمراض جلدية</option><option value="ophtalmo">طب العيون</option><option value="dental">طب الأسنان</option><option value="gyneco">نساء وتوليد</option><option value="ortho">جراحة العظام</option><option value="ent">أنف وأذن وحنجرة</option><option value="neuro">طب الأعصاب</option><option value="internal">طب باطني</option><option value="psychiatry">طب نفسي</option><option value="gastro">أمراض الجهاز الهضمي</option><option value="pneumo">أمراض تنفسية</option><option value="uro">جراحة المسالك البولية</option><option value="onco">طب الأورام</option><option value="endo">غدد صماء وسكري</option><option value="rhemato">روماتيزم</option><option value="nephro">طب الكلى</option><option value="radio">أشعة طبية</option></select></label>
+<label class="field"><span>الولاية</span><select name="wilaya" id="wilaya"><option value="">كل الولايات المتاحة</option><option value="01">أدرار</option><option value="02">الشلف</option><option value="03">الأغواط</option><option value="04">أم البواقي</option><option value="05">باتنة</option><option value="06">بجاية</option><option value="07">بسكرة</option><option value="08">بشار</option><option value="09">البليدة</option><option value="10">البويرة</option><option value="11">تمنراست</option><option value="12">تبسة</option><option value="13">تلمسان</option><option value="14">تيارت</option><option value="15">تيزي وزو</option><option value="16">الجزائر</option><option value="17">الجلفة</option><option value="18">جيجل</option><option value="19">سطيف</option><option value="20">سعيدة</option><option value="21">سكيكدة</option><option value="22">سيدي بلعباس</option><option value="23">عنابة</option><option value="24">قالمة</option><option value="25">قسنطينة</option><option value="26">المدية</option><option value="27">مستغانم</option><option value="28">المسيلة</option><option value="29">معسكر</option><option value="30">ورقلة</option><option value="31">وهران</option><option value="32">البيض</option><option value="33">إليزي</option><option value="34">برج بوعريريج</option><option value="35">بومرداس</option><option value="36">الطارف</option><option value="37">تندوف</option><option value="38">تيسمسيلت</option><option value="39">الوادي</option><option value="40">خنشلة</option><option value="41">سوق أهراس</option><option value="42">تيبازة</option><option value="43">ميلة</option><option value="44">عين الدفلى</option><option value="45">النعامة</option><option value="46">عين تموشنت</option><option value="47">غرداية</option><option value="48">غليزان</option><option value="49">تيميمون</option><option value="50">برج باجي مختار</option><option value="51">أولاد جلال</option><option value="52">بني عباس</option><option value="53">عين صالح</option><option value="54">عين قزام</option><option value="55">تقرت</option><option value="56">جانت</option><option value="57">المغير</option><option value="58">المنيعة</option></select></label>
+<button class="btn primary" type="submit">بحث</button></form><section class="section"><div class="map-toolbar"><button class="btn primary" id="load-map">عرض الخريطة</button><button class="btn secondary" id="map-locate" disabled>⌖ موقعي</button><span class="muted" id="map-status" role="status">تُحمّل الخريطة عند الطلب لتوفير البيانات.</span></div><div id="map" class="map-panel" aria-label="خريطة العيادات"><div class="empty-state"><span class="empty-icon">⌖</span><h2>نظرة أقرب على أماكن الرعاية</h2><p>اضغط «عرض الخريطة» للاتصال بخدمة الخرائط.</p></div></div><p class="muted">تحتاج خلفية الخريطة إلى الإنترنت. لا تُرسل إحداثياتك إلى خادم طبيبي؛ قد يستنتج مزود الخرائط المنطقة المعروضة من طلبات البلاطات.</p><a class="text-link" href="doctors.html">استخدم عرض القائمة بدل الخريطة ←</a></section></main>
+<section class="app-strip container"><div><span class="eyebrow">طبيبي أقرب إليك</span><h2>احتفظ بالدليل على هاتفك</h2><p>ثبّت التطبيق وافتح الصفحات المحفوظة حتى عند انقطاع الإنترنت.</p></div><a class="btn primary" href="install.html">طريقة التثبيت <span aria-hidden="true">←</span></a></section>
+<footer><div class="container footer-grid"><div><a class="brand" href="index.html">طبيبي</a><p>دليل للعثور على معلومات الأطباء والتواصل معهم.<br>اتصل بالعيادة لتأكيد المواعيد قبل الزيارة.</p></div><div><h2>اكتشف</h2><a href="specialties/index.html">التخصصات الطبية</a><a href="map.html">الخريطة</a><a href="stats.html">إحصائيات الدليل</a></div><div><h2>عن طبيبي</h2><a href="about.html">عن المنصة والتحقق</a><a href="contact.html">التواصل وتصحيح البيانات</a><a href="privacy.html">الخصوصية</a><a href="terms.html">شروط الاستخدام</a></div></div><div class="container footer-bottom"><span>© طبيبي — دليل الأطباء في الجزائر</span><span>المعلومات للاستدلال، وليست تشخيصًا أو خدمة طوارئ.</span></div></footer>
+<div class="update-banner" id="update-banner" role="status" hidden><span>نسخة جديدة من طبيبي جاهزة.</span><button class="btn primary small" id="update-app">تحديث الآن</button><button class="text-button" id="dismiss-update">لاحقًا</button></div><div id="toast" class="toast" role="status" aria-live="polite" hidden></div></body></html>
