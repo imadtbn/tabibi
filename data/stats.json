@@ -1,5 +1,29 @@
 {
-  "doctors": 0,
-  "coveredWilayas": 0,
-  "specialties": 20
+  "doctors": 40,
+  "coveredWilayas": 4,
+  "specialties": 20,
+  "demoDoctors": 40,
+  "verifiedDoctors": 0,
+  "bySpecialty": {
+    "general": 2,
+    "cardio": 2,
+    "pediatrics": 2,
+    "derma": 2,
+    "ophtalmo": 2,
+    "dental": 2,
+    "gyneco": 2,
+    "ortho": 2,
+    "ent": 2,
+    "neuro": 2,
+    "internal": 2,
+    "psychiatry": 2,
+    "gastro": 2,
+    "pneumo": 2,
+    "uro": 2,
+    "onco": 2,
+    "endo": 2,
+    "rhemato": 2,
+    "nephro": 2,
+    "radio": 2
+  }
 }

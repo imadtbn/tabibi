@@ -24,11 +24,11 @@ export function el(tag, text, className) { const node = document.createElement(t
 export function toast(message) { const target=document.getElementById('toast'); if(!target) return; target.textContent=message;target.hidden=false; clearTimeout(toast.timer);toast.timer=setTimeout(()=>{target.hidden=true;},4500); }
 let dataPromise;
 export function loadData() {
-  if (!dataPromise) dataPromise = Promise.all(['doctors','specialties','wilayas','communes','search-index'].map(async name => {
+  if (!dataPromise) dataPromise = Promise.all(['doctors','specialties','wilayas','communes','search-index','demo-doctors'].map(async name => {
     const response=await fetch(url(`data/${name}.json`));
     if (!response.ok) throw new Error(`Data unavailable: ${name}`);
     const data=await response.json();if(!Array.isArray(data)) throw new Error('Invalid data');return data;
-  })).then(([doctors,specialties,wilayas,communes,index]) => ({doctors,specialties,wilayas,communes,index})).catch(error => {dataPromise=null;throw error;});
+  })).then(([doctors,specialties,wilayas,communes,index,demos]) => ({doctors:[...doctors,...demos],specialties,wilayas,communes,index})).catch(error => {dataPromise=null;throw error;});
   return dataPromise;
 }
 export function locate() {
@@ -52,5 +52,23 @@ export function selectDoctors(data, filters, location = null, saved = null) {
     const matches=practices.map(practice=>({practice,km:distance(location,practice.coordinates)})).sort((a,b)=>(a.km??Infinity)-(b.km??Infinity));
     result.push({doctor,...matches[0]});
   }
-  return result.sort((a,b)=>filters.sort==='distance' ? ((a.km??Infinity)-(b.km??Infinity)||a.doctor.name.localeCompare(b.doctor.name,'ar')) : filters.sort==='recent' ? b.doctor.verifiedAt.localeCompare(a.doctor.verifiedAt) : a.doctor.name.localeCompare(b.doctor.name,'ar'));
+  return result.sort((a,b)=>filters.sort==='distance' ? ((a.km??Infinity)-(b.km??Infinity)||a.doctor.name.localeCompare(b.doctor.name,'ar')) : filters.sort==='recent' ? (b.doctor.verifiedAt||b.doctor.updatedAt||'').localeCompare(a.doctor.verifiedAt||a.doctor.updatedAt||'') : a.doctor.name.localeCompare(b.doctor.name,'ar'));
+}
+
+export function availability(hours, now = new Date(), online = true) {
+  const text=openStatus(hours,now,online);
+  if(text.startsWith('مفتوح'))return {state:'open',text:'متوفر الآن'};
+  if(text.startsWith('مغلق'))return {state:'closed',text:'غير متوفر الآن'};
+  return {state:'unknown',text:online?'المواعيد غير متوفرة':'التوفر غير مؤكد دون اتصال'};
+}
+export function summarize(data,now=new Date(),online=true){
+  const bySpecialty=Object.fromEntries(data.specialties.map(s=>[s.id,0]));const wilayas=new Set();let open=0,demo=0;
+  for(const d of data.doctors){for(const id of new Set(d.specialtyIds))bySpecialty[id]=(bySpecialty[id]||0)+1;for(const p of d.practices)wilayas.add(p.wilayaCode);if(d.practices.some(p=>availability(p.openingHours,now,online).state==='open'))open++;if(d.isDemo)demo++;}
+  return {total:data.doctors.length,specialties:Object.values(bySpecialty).filter(n=>n>0).length,wilayas:wilayas.size,open:online?open:'—',demo,verified:data.doctors.filter(d=>!d.isDemo&&d.verificationStatus==='verified').length,bySpecialty};
+}
+export function scheduleText(hours){
+  const names={sun:'الأحد',mon:'الإثنين',tue:'الثلاثاء',wed:'الأربعاء',thu:'الخميس',fri:'الجمعة',sat:'السبت'};
+  const days=Object.keys(names).filter(k=>hours?.[k]?.length);
+  const ranges=[...new Set(Object.values(hours||{}).flat().map(span=>span.join(' – ')))];
+  return {days:days.join(',')==='sun,mon,tue,wed,thu'?'الأحد – الخميس':days.map(d=>names[d]).join('، ')||'غير محدد',hours:ranges.join(' / ')||'غير محدد'};
 }

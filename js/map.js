@@ -14,7 +14,7 @@ export function initMap(){
     for(const {doctor} of rows)for(const practice of doctor.practices){
       if(wilaya.value&&practice.wilayaCode!==wilaya.value)continue;
       const geo=practice.coordinates;if(!geo)continue;
-      const popup=el('div',undefined,'map-popup');popup.append(el('strong',doctor.name),el('p',practice.address));const link=el('a','تفاصيل الطبيب');link.href=url(`doctors/${doctor.slug}.html`);popup.append(link);
+      const popup=el('div',undefined,'map-popup');popup.append(el('strong',doctor.name),el('p',practice.address));if(doctor.isDemo)popup.append(el('p','نموذج وهمي — نقطة بمركز المدينة وليست عيادة')); const link=el('a','تفاصيل الطبيب');link.href=url(`doctors/${doctor.slug}.html`);popup.append(link);
       window.L.circleMarker([geo.lat,geo.lng],{radius:8,color:'#fff',weight:2,fillColor:'#176954',fillOpacity:1}).bindPopup(popup).addTo(layer);bounds.push([geo.lat,geo.lng]);count++;
     }
     status.textContent=count?`${count} موقع عيادة`:'لا توجد مواقع عيادات موثقة مطابقة حاليًا.';

@@ -1,0 +1,2402 @@
+[
+  {
+    "id": "demo-general-1",
+    "slug": "demo-general-1",
+    "name": "د. نموذج طب عام 01",
+    "specialtyIds": [
+      "general"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 01 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000001"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-general-2",
+    "slug": "demo-general-2",
+    "name": "د. نموذج طب عام 02",
+    "specialtyIds": [
+      "general"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 02 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000002"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-cardio-1",
+    "slug": "demo-cardiology-1",
+    "name": "د. نموذج أمراض القلب 01",
+    "specialtyIds": [
+      "cardio"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 03 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000003"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-cardio-2",
+    "slug": "demo-cardiology-2",
+    "name": "د. نموذج أمراض القلب 02",
+    "specialtyIds": [
+      "cardio"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 04 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000004"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-pediatrics-1",
+    "slug": "demo-pediatrics-1",
+    "name": "د. نموذج طب الأطفال 01",
+    "specialtyIds": [
+      "pediatrics"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 05 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000005"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-pediatrics-2",
+    "slug": "demo-pediatrics-2",
+    "name": "د. نموذج طب الأطفال 02",
+    "specialtyIds": [
+      "pediatrics"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 06 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000006"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-derma-1",
+    "slug": "demo-dermatology-1",
+    "name": "د. نموذج أمراض جلدية 01",
+    "specialtyIds": [
+      "derma"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 07 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000007"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-derma-2",
+    "slug": "demo-dermatology-2",
+    "name": "د. نموذج أمراض جلدية 02",
+    "specialtyIds": [
+      "derma"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 08 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000008"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-ophtalmo-1",
+    "slug": "demo-ophthalmology-1",
+    "name": "د. نموذج طب العيون 01",
+    "specialtyIds": [
+      "ophtalmo"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 09 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000009"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-ophtalmo-2",
+    "slug": "demo-ophthalmology-2",
+    "name": "د. نموذج طب العيون 02",
+    "specialtyIds": [
+      "ophtalmo"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 10 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000010"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-dental-1",
+    "slug": "demo-dentistry-1",
+    "name": "د. نموذج طب الأسنان 01",
+    "specialtyIds": [
+      "dental"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 11 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000011"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-dental-2",
+    "slug": "demo-dentistry-2",
+    "name": "د. نموذج طب الأسنان 02",
+    "specialtyIds": [
+      "dental"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 12 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000012"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-gyneco-1",
+    "slug": "demo-gynecology-1",
+    "name": "د. نموذج نساء وتوليد 01",
+    "specialtyIds": [
+      "gyneco"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 13 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000013"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-gyneco-2",
+    "slug": "demo-gynecology-2",
+    "name": "د. نموذج نساء وتوليد 02",
+    "specialtyIds": [
+      "gyneco"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 14 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000014"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-ortho-1",
+    "slug": "demo-orthopedics-1",
+    "name": "د. نموذج جراحة العظام 01",
+    "specialtyIds": [
+      "ortho"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 15 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000015"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-ortho-2",
+    "slug": "demo-orthopedics-2",
+    "name": "د. نموذج جراحة العظام 02",
+    "specialtyIds": [
+      "ortho"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 16 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000016"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-ent-1",
+    "slug": "demo-ent-1",
+    "name": "د. نموذج أنف وأذن وحنجرة 01",
+    "specialtyIds": [
+      "ent"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 17 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000017"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-ent-2",
+    "slug": "demo-ent-2",
+    "name": "د. نموذج أنف وأذن وحنجرة 02",
+    "specialtyIds": [
+      "ent"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 18 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000018"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-neuro-1",
+    "slug": "demo-neurology-1",
+    "name": "د. نموذج طب الأعصاب 01",
+    "specialtyIds": [
+      "neuro"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 19 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000019"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-neuro-2",
+    "slug": "demo-neurology-2",
+    "name": "د. نموذج طب الأعصاب 02",
+    "specialtyIds": [
+      "neuro"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 20 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000020"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-internal-1",
+    "slug": "demo-internal-medicine-1",
+    "name": "د. نموذج طب باطني 01",
+    "specialtyIds": [
+      "internal"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 21 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000021"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-internal-2",
+    "slug": "demo-internal-medicine-2",
+    "name": "د. نموذج طب باطني 02",
+    "specialtyIds": [
+      "internal"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 22 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000022"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-psychiatry-1",
+    "slug": "demo-psychiatry-1",
+    "name": "د. نموذج طب نفسي 01",
+    "specialtyIds": [
+      "psychiatry"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 23 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000023"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-psychiatry-2",
+    "slug": "demo-psychiatry-2",
+    "name": "د. نموذج طب نفسي 02",
+    "specialtyIds": [
+      "psychiatry"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 24 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000024"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-gastro-1",
+    "slug": "demo-gastroenterology-1",
+    "name": "د. نموذج أمراض الجهاز الهضمي 01",
+    "specialtyIds": [
+      "gastro"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 25 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000025"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-gastro-2",
+    "slug": "demo-gastroenterology-2",
+    "name": "د. نموذج أمراض الجهاز الهضمي 02",
+    "specialtyIds": [
+      "gastro"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 26 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000026"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-pneumo-1",
+    "slug": "demo-pulmonology-1",
+    "name": "د. نموذج أمراض تنفسية 01",
+    "specialtyIds": [
+      "pneumo"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 27 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000027"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-pneumo-2",
+    "slug": "demo-pulmonology-2",
+    "name": "د. نموذج أمراض تنفسية 02",
+    "specialtyIds": [
+      "pneumo"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 28 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000028"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-uro-1",
+    "slug": "demo-urology-1",
+    "name": "د. نموذج جراحة المسالك البولية 01",
+    "specialtyIds": [
+      "uro"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 29 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000029"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-uro-2",
+    "slug": "demo-urology-2",
+    "name": "د. نموذج جراحة المسالك البولية 02",
+    "specialtyIds": [
+      "uro"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 30 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000030"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-onco-1",
+    "slug": "demo-oncology-1",
+    "name": "د. نموذج طب الأورام 01",
+    "specialtyIds": [
+      "onco"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 31 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000031"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-onco-2",
+    "slug": "demo-oncology-2",
+    "name": "د. نموذج طب الأورام 02",
+    "specialtyIds": [
+      "onco"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 32 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000032"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-endo-1",
+    "slug": "demo-endocrinology-1",
+    "name": "د. نموذج غدد صماء وسكري 01",
+    "specialtyIds": [
+      "endo"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 33 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000033"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-endo-2",
+    "slug": "demo-endocrinology-2",
+    "name": "د. نموذج غدد صماء وسكري 02",
+    "specialtyIds": [
+      "endo"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 34 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000034"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-rhemato-1",
+    "slug": "demo-rheumatology-1",
+    "name": "د. نموذج روماتيزم 01",
+    "specialtyIds": [
+      "rhemato"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "demo-oran",
+        "address": "شارع المثال 35 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000035"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-rhemato-2",
+    "slug": "demo-rheumatology-2",
+    "name": "د. نموذج روماتيزم 02",
+    "specialtyIds": [
+      "rhemato"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 36 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000036"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-nephro-1",
+    "slug": "demo-nephrology-1",
+    "name": "د. نموذج طب الكلى 01",
+    "specialtyIds": [
+      "nephro"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "25",
+        "communeId": "demo-constantine",
+        "address": "شارع المثال 37 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.365,
+          "lng": 6.6147
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000037"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-nephro-2",
+    "slug": "demo-nephrology-2",
+    "name": "د. نموذج طب الكلى 02",
+    "specialtyIds": [
+      "nephro"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 38 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000038"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-radio-1",
+    "slug": "demo-radiology-1",
+    "name": "د. نموذج أشعة طبية 01",
+    "specialtyIds": [
+      "radio"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "23",
+        "communeId": "demo-annaba",
+        "address": "شارع المثال 39 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.9,
+          "lng": 7.7667
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000039"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  },
+  {
+    "id": "demo-radio-2",
+    "slug": "demo-radiology-2",
+    "name": "د. نموذج أشعة طبية 02",
+    "specialtyIds": [
+      "radio"
+    ],
+    "isDemo": true,
+    "verificationStatus": "demo",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "16",
+        "communeId": "demo-algiers",
+        "address": "شارع المثال 40 — عنوان وهمي",
+        "coordinates": {
+          "lat": 36.7538,
+          "lng": 3.0588
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000040"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ]
+  }
+]

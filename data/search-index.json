@@ -1,1 +1,162 @@
-[]
+[
+  {
+    "id": "demo-general-1",
+    "text": "د. نموذج طب عام 01 طب عام médecine générale general general médecine générale شارع المثال 01 — عنوان وهمي الجزائر الجزائر الوسطي"
+  },
+  {
+    "id": "demo-general-2",
+    "text": "د. نموذج طب عام 02 طب عام médecine générale general general médecine générale شارع المثال 02 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-cardio-1",
+    "text": "د. نموذج امراض القلب 01 امراض القلب cardiologie cardio cardiology cardiologie شارع المثال 03 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-cardio-2",
+    "text": "د. نموذج امراض القلب 02 امراض القلب cardiologie cardio cardiology cardiologie شارع المثال 04 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-pediatrics-1",
+    "text": "د. نموذج طب الاطفال 01 طب الاطفال pédiatrie pediatrics pediatrics pédiatrie شارع المثال 05 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-pediatrics-2",
+    "text": "د. نموذج طب الاطفال 02 طب الاطفال pédiatrie pediatrics pediatrics pédiatrie شارع المثال 06 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-derma-1",
+    "text": "د. نموذج امراض جلدية 01 امراض جلدية dermatologie derma dermatology dermatologie شارع المثال 07 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-derma-2",
+    "text": "د. نموذج امراض جلدية 02 امراض جلدية dermatologie derma dermatology dermatologie شارع المثال 08 — عنوان وهمي الجزائر الجزائر الوسطي"
+  },
+  {
+    "id": "demo-ophtalmo-1",
+    "text": "د. نموذج طب العيون 01 طب العيون ophtalmologie ophtalmo ophthalmology ophtalmologie شارع المثال 09 — عنوان وهمي الجزائر الجزائر الوسطي"
+  },
+  {
+    "id": "demo-ophtalmo-2",
+    "text": "د. نموذج طب العيون 02 طب العيون ophtalmologie ophtalmo ophthalmology ophtalmologie شارع المثال 10 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-dental-1",
+    "text": "د. نموذج طب الاسنان 01 طب الاسنان dentiste dental dentistry dentiste شارع المثال 11 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-dental-2",
+    "text": "د. نموذج طب الاسنان 02 طب الاسنان dentiste dental dentistry dentiste شارع المثال 12 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-gyneco-1",
+    "text": "د. نموذج نساء وتوليد 01 نساء وتوليد gynécologie obstétrique gyneco gynecology gynécologie obstétrique شارع المثال 13 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-gyneco-2",
+    "text": "د. نموذج نساء وتوليد 02 نساء وتوليد gynécologie obstétrique gyneco gynecology gynécologie obstétrique شارع المثال 14 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-ortho-1",
+    "text": "د. نموذج جراحة العظام 01 جراحة العظام orthopédie ortho orthopedics orthopédie شارع المثال 15 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-ortho-2",
+    "text": "د. نموذج جراحة العظام 02 جراحة العظام orthopédie ortho orthopedics orthopédie شارع المثال 16 — عنوان وهمي الجزائر الجزائر الوسطي"
+  },
+  {
+    "id": "demo-ent-1",
+    "text": "د. نموذج انف واذن وحنجرة 01 انف واذن وحنجرة orl ent ent orl شارع المثال 17 — عنوان وهمي الجزائر الجزائر الوسطي"
+  },
+  {
+    "id": "demo-ent-2",
+    "text": "د. نموذج انف واذن وحنجرة 02 انف واذن وحنجرة orl ent ent orl شارع المثال 18 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-neuro-1",
+    "text": "د. نموذج طب الاعصاب 01 طب الاعصاب neurologie neuro neurology neurologie شارع المثال 19 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-neuro-2",
+    "text": "د. نموذج طب الاعصاب 02 طب الاعصاب neurologie neuro neurology neurologie شارع المثال 20 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-internal-1",
+    "text": "د. نموذج طب باطني 01 طب باطني médecine interne internal internal-medicine médecine interne شارع المثال 21 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-internal-2",
+    "text": "د. نموذج طب باطني 02 طب باطني médecine interne internal internal-medicine médecine interne شارع المثال 22 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-psychiatry-1",
+    "text": "د. نموذج طب نفسي 01 طب نفسي psychiatrie psychiatry psychiatry psychiatrie شارع المثال 23 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-psychiatry-2",
+    "text": "د. نموذج طب نفسي 02 طب نفسي psychiatrie psychiatry psychiatry psychiatrie شارع المثال 24 — عنوان وهمي الجزائر الجزائر الوسطي"
+  },
+  {
+    "id": "demo-gastro-1",
+    "text": "د. نموذج امراض الجهاز الهضمي 01 امراض الجهاز الهضمي gastro-entérologie gastro gastroenterology gastro-entérologie شارع المثال 25 — عنوان وهمي الجزائر الجزائر الوسطي"
+  },
+  {
+    "id": "demo-gastro-2",
+    "text": "د. نموذج امراض الجهاز الهضمي 02 امراض الجهاز الهضمي gastro-entérologie gastro gastroenterology gastro-entérologie شارع المثال 26 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-pneumo-1",
+    "text": "د. نموذج امراض تنفسية 01 امراض تنفسية pneumologie pneumo pulmonology pneumologie شارع المثال 27 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-pneumo-2",
+    "text": "د. نموذج امراض تنفسية 02 امراض تنفسية pneumologie pneumo pulmonology pneumologie شارع المثال 28 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-uro-1",
+    "text": "د. نموذج جراحة المسالك البولية 01 جراحة المسالك البولية urologie uro urology urologie شارع المثال 29 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-uro-2",
+    "text": "د. نموذج جراحة المسالك البولية 02 جراحة المسالك البولية urologie uro urology urologie شارع المثال 30 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-onco-1",
+    "text": "د. نموذج طب الاورام 01 طب الاورام oncologie onco oncology oncologie شارع المثال 31 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-onco-2",
+    "text": "د. نموذج طب الاورام 02 طب الاورام oncologie onco oncology oncologie شارع المثال 32 — عنوان وهمي الجزائر الجزائر الوسطي"
+  },
+  {
+    "id": "demo-endo-1",
+    "text": "د. نموذج غدد صماء وسكري 01 غدد صماء وسكري endocrinologie diabétologie endo endocrinology endocrinologie diabétologie شارع المثال 33 — عنوان وهمي الجزائر الجزائر الوسطي"
+  },
+  {
+    "id": "demo-endo-2",
+    "text": "د. نموذج غدد صماء وسكري 02 غدد صماء وسكري endocrinologie diabétologie endo endocrinology endocrinologie diabétologie شارع المثال 34 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-rhemato-1",
+    "text": "د. نموذج روماتيزم 01 روماتيزم rhumatologie rhemato rheumatology rhumatologie شارع المثال 35 — عنوان وهمي وهران وهران"
+  },
+  {
+    "id": "demo-rhemato-2",
+    "text": "د. نموذج روماتيزم 02 روماتيزم rhumatologie rhemato rheumatology rhumatologie شارع المثال 36 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-nephro-1",
+    "text": "د. نموذج طب الكلي 01 طب الكلي néphrologie nephro nephrology néphrologie شارع المثال 37 — عنوان وهمي قسنطينة قسنطينة"
+  },
+  {
+    "id": "demo-nephro-2",
+    "text": "د. نموذج طب الكلي 02 طب الكلي néphrologie nephro nephrology néphrologie شارع المثال 38 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-radio-1",
+    "text": "د. نموذج اشعة طبية 01 اشعة طبية radiologie radio radiology radiologie شارع المثال 39 — عنوان وهمي عنابة عنابة"
+  },
+  {
+    "id": "demo-radio-2",
+    "text": "د. نموذج اشعة طبية 02 اشعة طبية radiologie radio radiology radiologie شارع المثال 40 — عنوان وهمي الجزائر الجزائر الوسطي"
+  }
+]

@@ -18,3 +18,6 @@ if(location.pathname.endsWith('/specialty.html')){
   if(legacy)fetch(url('data/specialties.json')).then(r=>{if(!r.ok)throw Error();return r.json();}).then(specs=>{const spec=specs.find(s=>s.id===legacy);if(spec){const params=new URLSearchParams(location.search);params.delete('spec');location.replace(url(`specialties/${spec.slug}.html`)+(params.size?'?'+params:''));}}).catch(()=>toast('اختر التخصص من القائمة.'));
 }
 import('./pwa.js').catch(()=>{});
+
+import {initMetrics} from './metrics.js';
+initMetrics();
