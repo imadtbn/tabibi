@@ -28,8 +28,11 @@ test('contact page posts a message through the shared intake endpoint',async()=>
   const client=await readFile(new URL('../js/contact.js',import.meta.url),'utf8');
   assert.match(html,/id="contact-form"/);
   assert.match(html,/js\/contact\.js/);
-  assert.match(client,/type:'contact'/);
-  assert.match(client,/name, email, subject, message/);
+  assert.match(client,/'contact'/);
+  assert.match(client,/contact-submit-frame/);
+  assert.match(client,/data\.get\('name'\)/);
+  assert.match(client,/data\.get\('subject'\)/);
+  assert.match(client,/data\.get\('message'\)/);
 });
 
 test('submission endpoint is isolated in a deploy-time configuration module',async()=>{

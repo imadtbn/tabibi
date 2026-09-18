@@ -14,7 +14,9 @@ function doPost(e) {
   try {
     if (!e || !e.postData || !e.postData.contents) throw new Error('طلب فارغ');
     if (e.postData.contents.length > 20000) throw new Error('حجم الطلب أكبر من المسموح');
-    const body = JSON.parse(e.postData.contents);
+    const body = e.parameter && e.parameter.type === 'contact'
+      ? e.parameter
+      : JSON.parse(e.postData.contents);
     if (body.website) throw new Error('طلب غير صالح');
     if (body.version !== VERSION) throw new Error('إصدار النموذج غير مدعوم');
     if (!/^[0-9a-f-]{20,50}$/i.test(body.requestId || '')) throw new Error('معرّف الطلب غير صالح');
