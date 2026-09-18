@@ -1,60 +1,350 @@
 <!doctype html>
-<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>إضافة أو تصحيح بيانات طبيب | طبيبي</title>
-<meta name="description" content="أرسل بيانات طبيب أو تصحيح معلومات عيادة إلى لوحة مراجعة دليل طبيبي قبل اعتمادها ونشرها حسب الاختصاص."><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://imadtbn.github.io/tabibi/add-doctor.html">
-<meta name="theme-color" content="#103f3a"><meta name="color-scheme" content="light dark"><meta name="application-name" content="طبيبي"><meta name="apple-mobile-web-app-title" content="طبيبي"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
-<meta property="og:type" content="website"><meta property="og:locale" content="ar_DZ"><meta property="og:site_name" content="طبيبي"><meta property="og:title" content="إضافة أو تصحيح بيانات طبيب | طبيبي"><meta property="og:description" content="أرسل بيانات طبيب أو تصحيح معلومات عيادة إلى لوحة مراجعة دليل طبيبي قبل اعتمادها ونشرها حسب الاختصاص."><meta property="og:url" content="https://imadtbn.github.io/tabibi/add-doctor.html"><meta property="og:image" content="https://imadtbn.github.io/tabibi/assets/social-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="طبيبي — دليل الأطباء في الجزائر"><meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="css/style.css">
-<script src="js/theme.js"></script><script type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://imadtbn.github.io/tabibi/"}, {"@type": "ListItem", "position": 2, "name": "إضافة أو تصحيح بيانات طبيب", "item": "https://imadtbn.github.io/tabibi/add-doctor.html"}]}]</script><script type="module" src="js/app.js"></script></head>
-<body><a class="skip-link" href="#main">تجاوز إلى المحتوى</a><div class="topline">دليل الأطباء في الجزائر <span>بحث أوضح. وصول أسهل.</span></div>
-<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="طبيبي — الرئيسية"><span class="brand-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg></span><span>طبيبي<small>TABIBI</small></span></a>
-<button id="menu-toggle" class="icon-btn menu-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="main-nav">☰</button><nav id="main-nav" class="nav" aria-label="التنقل الرئيسي"><a href="index.html" >الرئيسية</a><a href="specialties/index.html" >التخصصات</a><a href="doctors.html" >الأطباء</a><a href="map.html" >الخريطة</a><a href="favorites.html" >المفضلة</a><a href="add-doctor.html" aria-current="page">إضافة طبيب</a></nav><div class="header-actions"><button class="icon-btn" id="theme-toggle" aria-label="تبديل المظهر" aria-pressed="false">◐</button><a class="btn small secondary desktop-install" href="install.html">تثبيت التطبيق</a></div></div></header>
-<div id="offline-banner" class="connection-banner" role="status" hidden>أنت دون اتصال. تُعرض النسخة المحفوظة وقد لا تعكس أحدث البيانات.</div>
-<main id="main" class="container"><aside class="notice-banner" role="note"><span class="notice-banner-icon" aria-hidden="true">i</span><div><strong>بيانات الدليل قيد المراجعة المستمرة</strong><p>تُعرض بعض السجلات بوصفها «بيانات أولية» ولم تُتحقق معلوماتها بعد. راجع حالة السجل واتصل بالعيادة لتأكيد العنوان والمواعيد قبل الزيارة.</p></div><a href="about.html">منهجية التحقق ←</a></aside><section class="page-heading"><span class="eyebrow">دليل طبيبي</span><h1>أضف طبيبًا أو اقترح تصحيحًا</h1><p>مساهمتك تمر بمراجعة بشرية قبل أن تصبح جزءًا من الدليل المنشور.</p></section><section class="editor-intro contribution-panel" aria-labelledby="contribution-title"><div><span class="eyebrow">مساهمة مجتمعية خاضعة للمراجعة</span><h2 id="contribution-title">ساعدنا في بناء دليل طبي أكثر دقة</h2><p>أدخل معلومات العيادة المنشورة للعامة. يصل الطلب إلى لوحة مراجعة Google Sheets الخاصة بفريق الدليل، ولا يظهر للزوار إلا بعد التحقق منه واعتماده ثم نشر ملف الاختصاص.</p></div><ol class="workflow-steps" aria-label="مراحل معالجة الطلب"><li><b>1</b><span><strong>إدخال</strong><small>بيانات الطبيب والعيادة</small></span></li><li><b>2</b><span><strong>مراجعة</strong><small>تدقيق المصدر والاتصال</small></span></li><li><b>3</b><span><strong>اعتماد</strong><small>قبول أو طلب تصحيح</small></span></li><li><b>4</b><span><strong>نشر</strong><small>تحديث ملف الاختصاص</small></span></li></ol></section>
-<section class="contribution-progress" aria-labelledby="progress-title">
-<div class="progress-heading"><div><span class="eyebrow">خطوتك التالية</span><h2 id="progress-title">اختر الاختصاص للبدء</h2></div><span id="connection-badge" class="connection-badge">الإرسال غير مفعّل</span></div>
-<p id="progress-detail">يمكنك تجهيز بيانات الطبيب وحفظها على هذا الجهاز. إرسال الطلبات للمراجعة غير متاح حاليًا.</p>
-<ol class="contribution-track" aria-label="تقدم المساهمة الحالية"><li id="step-draft" aria-current="step"><span aria-hidden="true">01</span><strong>حفظ المسودة</strong><small>على هذا الجهاز فقط</small></li><li id="step-review"><span aria-hidden="true">02</span><strong>استلام الطلب</strong><small>بعد تأكيد خدمة المراجعة</small></li><li id="step-publish"><span aria-hidden="true">03</span><strong>النشر بعد الاعتماد</strong><small>يتم يدويًا بواسطة المشرف</small></li></ol>
-<p class="progress-note">هذه البطاقة تعرض تقدمك في الصفحة، ولا تتتبع قرار المشرف أو حالة النشر.</p>
-<noscript><p>فعّل JavaScript لاستخدام نموذج المساهمة وحفظ بياناتك.</p></noscript>
-</section>
-<div id="editor" class="editor-layout section">
-<aside class="editor-sidebar">
-<div class="sidebar-heading"><span aria-hidden="true">✚</span><div><h2>بيانات الاختصاص</h2><p>اختر الاختصاص لإضافة طبيب أو اقتراح تصحيح.</p></div></div><label class="field">اختر تخصصًا<select id="edit-specialty"><option value="">اختر التخصص</option><option value="general">طب عام</option><option value="cardio">أمراض القلب</option><option value="pediatrics">طب الأطفال</option><option value="derma">أمراض جلدية</option><option value="ophtalmo">طب العيون</option><option value="dental">طب الأسنان</option><option value="gyneco">نساء وتوليد</option><option value="ortho">جراحة العظام</option><option value="ent">أنف وأذن وحنجرة</option><option value="neuro">طب الأعصاب</option><option value="internal">طب باطني</option><option value="psychiatry">طب نفسي</option><option value="gastro">أمراض الجهاز الهضمي</option><option value="pneumo">أمراض تنفسية</option><option value="uro">جراحة المسالك البولية</option><option value="onco">طب الأورام</option><option value="endo">غدد صماء وسكري</option><option value="rhemato">روماتيزم</option><option value="nephro">طب الكلى</option><option value="radio">أشعة طبية</option></select></label>
-<p id="editor-load-status" role="status">اختر التخصص لتحميل ملفه فقط.</p><button id="reload-specialty" class="btn secondary" type="button" disabled>إعادة تحميل الملف</button>
-<div id="editor-records" class="editor-records"></div>
-<button id="new-doctor" class="btn primary" type="button" disabled>+ إضافة طبيب لهذا التخصص</button>
-<button id="export-specialty" class="btn secondary" type="button" disabled>تنزيل ملف التخصص JSON</button>
-<label class="field">استيراد ملف تخصص<input id="import-specialty" type="file" accept="application/json,.json" disabled></label>
-<p class="muted admin-note"><strong>أدوات المشرف:</strong> الاستيراد يدمج السجلات حسب المعرّف. تبقى المسودات محفوظة على هذا المتصفح حتى إرسالها أو تصديرها.</p>
-</aside>
-<div>
-<form id="doctor-editor" class="editor-form" hidden>
-<div class="section-head"><h2 id="editor-title">إضافة طبيب</h2><span id="draft-label" class="badge">مسودة محلية</span></div>
-<input id="doctor-id" type="hidden"><input id="doctor-slug" type="hidden">
-<fieldset><legend>الهوية</legend><label class="field">اسم الطبيب<input id="doctor-name" required maxlength="120" autocomplete="off" placeholder="الاسم الكامل للطبيب"></label><p class="muted">التخصص هو المحدد في قائمة الملفات. لا تضع معلومات مرضى أو بيانات شخصية غير مخصصة للنشر.</p></fieldset>
-<fieldset><legend>العنوان والاتصال</legend><div class="editor-fields">
-<label class="field">الولاية<select id="doctor-wilaya" required><option value="">اختر الولاية</option><option value="01">أدرار</option><option value="02">الشلف</option><option value="03">الأغواط</option><option value="04">أم البواقي</option><option value="05">باتنة</option><option value="06">بجاية</option><option value="07">بسكرة</option><option value="08">بشار</option><option value="09">البليدة</option><option value="10">البويرة</option><option value="11">تمنراست</option><option value="12">تبسة</option><option value="13">تلمسان</option><option value="14">تيارت</option><option value="15">تيزي وزو</option><option value="16">الجزائر</option><option value="17">الجلفة</option><option value="18">جيجل</option><option value="19">سطيف</option><option value="20">سعيدة</option><option value="21">سكيكدة</option><option value="22">سيدي بلعباس</option><option value="23">عنابة</option><option value="24">قالمة</option><option value="25">قسنطينة</option><option value="26">المدية</option><option value="27">مستغانم</option><option value="28">المسيلة</option><option value="29">معسكر</option><option value="30">ورقلة</option><option value="31">وهران</option><option value="32">البيض</option><option value="33">إليزي</option><option value="34">برج بوعريريج</option><option value="35">بومرداس</option><option value="36">الطارف</option><option value="37">تندوف</option><option value="38">تيسمسيلت</option><option value="39">الوادي</option><option value="40">خنشلة</option><option value="41">سوق أهراس</option><option value="42">تيبازة</option><option value="43">ميلة</option><option value="44">عين الدفلى</option><option value="45">النعامة</option><option value="46">عين تموشنت</option><option value="47">غرداية</option><option value="48">غليزان</option><option value="49">تيميمون</option><option value="50">برج باجي مختار</option><option value="51">أولاد جلال</option><option value="52">بني عباس</option><option value="53">عين صالح</option><option value="54">عين قزام</option><option value="55">تقرت</option><option value="56">جانت</option><option value="57">المغير</option><option value="58">المنيعة</option></select></label>
-<label class="field">البلدية<input id="doctor-commune" required maxlength="100" placeholder="اسم البلدية"></label>
-<label class="field wide">الشارع والعنوان<input id="doctor-address" required maxlength="240" placeholder="الشارع، الحي، رقم المبنى"></label>
-<label class="field">الهاتف الأساسي<input id="doctor-phone" type="tel" dir="ltr" required maxlength="24" placeholder="0550 00 00 00"></label>
-<label class="field">هاتف إضافي (اختياري)<input id="doctor-phone2" type="tel" dir="ltr" maxlength="24" placeholder="+213 ..."></label>
-<label class="field">خط العرض (اختياري)<input id="doctor-lat" type="number" dir="ltr" min="-90" max="90" step="any" placeholder="36.7538"></label>
-<label class="field">خط الطول (اختياري)<input id="doctor-lng" type="number" dir="ltr" min="-180" max="180" step="any" placeholder="3.0588"></label>
-</div><p class="muted">اترك الإحداثيات فارغة إن لم تكن معروفة. أدخل خط العرض والطول معًا لعرض زر المسار.</p></fieldset>
-<fieldset><legend>أيام وساعات العمل</legend><p class="muted">يمكن تحديد فترتين في اليوم. اليوم غير المحدد مغلق. للساعات الليلية قسّم الدوام على يومين.</p><div id="hours-editor"></div></fieldset>
-<fieldset><legend>المصدر وحالة البيانات</legend>
-<label class="field">رابط مصدر علني (اختياري)<input id="doctor-source" type="url" dir="ltr" placeholder="https://..."></label>
-<label class="checkbox-field consent-field"><input id="confirm-real" type="checkbox"> أؤكد أن البيانات تخص طبيبًا فعليًا، وأن معلومات العيادة مخصصة للنشر، وأنني راجعتها قبل الإرسال.</label>
-<label class="field hp-field" aria-hidden="true">اترك هذا الحقل فارغًا<input id="doctor-website" type="text" tabindex="-1" autocomplete="off"></label>
-<p class="muted">لا يمنح الإرسال شارة «موثق». يبقى الطلب غير منشور إلى أن يراجعه فريق الدليل ويتأكد من مصدره.</p>
-</fieldset>
-<p id="editor-message" role="status" aria-live="polite"></p>
-<div class="card-actions editor-actions"><button type="submit" class="btn secondary">حفظ المسودة</button><button id="submit-review" class="btn primary" type="button">إرسال للمراجعة</button><button id="discard-local" class="btn secondary" type="button">إلغاء التعديل المحلي</button></div><div id="submission-state" class="submission-state" role="status"><span class="status-dot"></span><span>يُحفظ الطلب محليًا أولًا، ثم يُرسل إلى لوحة المراجعة عند الضغط على «إرسال للمراجعة».</span></div>
-</form><iframe name="doctor-submit-frame" title="استقبال طلب إضافة الطبيب" hidden></iframe>
-<section id="editor-preview" class="prose" hidden><h2>معاينة البيانات المحفوظة</h2><div id="preview-content" class="doctor-card"></div></section>
-<section class="publish-help" aria-labelledby="publish-title"><div class="publish-heading"><span aria-hidden="true">✓</span><div><span class="eyebrow">مسار المشرف</span><h2 id="publish-title">من المراجعة إلى النشر</h2></div></div><div class="publish-grid"><article><b>01</b><h3>راجع الطلب</h3><p>افتح تبويب الاختصاص في Google Sheets، ودقّق الاسم والعنوان والهاتف والمصدر.</p></article><article><b>02</b><h3>اعتمد السجل</h3><p>غيّر الحالة إلى «مقبول»، أو «مرفوض» مع تدوين سبب واضح في ملاحظات المراجع.</p></article><article><b>03</b><h3>صدّر حسب الاختصاص</h3><p>استخدم أمر التصدير في Apps Script لإنشاء ملف <code dir="ltr">{specialty}.json</code> كاملًا.</p></article><article><b>04</b><h3>انشر التحديث</h3><p>استبدل الملف داخل <bdi dir="ltr">data/doctors/</bdi>، ثم شغّل البناء والاختبارات وارفع الناتج إلى GitHub.</p></article></div><p class="publish-warning"><strong>تنبيه:</strong> المراجعة في Google Sheets لا تنشر البيانات تلقائيًا؛ النشر يبقى خطوة يدوية مقصودة لحماية جودة الدليل.</p></section>
-</div></div>
-</main>
-<section class="app-strip container"><div><span class="eyebrow">طبيبي أقرب إليك</span><h2>احتفظ بالدليل على هاتفك</h2><p>ثبّت التطبيق وافتح الصفحات المحفوظة حتى عند انقطاع الإنترنت.</p></div><a class="btn primary" href="install.html">طريقة التثبيت <span aria-hidden="true">←</span></a></section>
-<footer><div class="container footer-grid"><div><a class="brand" href="index.html">طبيبي</a><p>دليل للعثور على معلومات الأطباء والتواصل معهم.<br>اتصل بالعيادة لتأكيد المواعيد قبل الزيارة.</p></div><div><h2>اكتشف</h2><a href="specialties/index.html">التخصصات الطبية</a><a href="map.html">الخريطة</a><a href="stats.html">إحصائيات الدليل</a></div><div><h2>عن طبيبي</h2><a href="about.html">عن المنصة والتحقق</a><a href="contact.html">التواصل وتصحيح البيانات</a><a href="privacy.html">الخصوصية</a><a href="terms.html">شروط الاستخدام</a></div></div><div class="container footer-bottom"><span>© طبيبي — دليل الأطباء في الجزائر</span><span>المعلومات للاستدلال، وليست تشخيصًا أو خدمة طوارئ.</span></div></footer>
-<div class="update-banner" id="update-banner" role="status" hidden><span>نسخة جديدة من طبيبي جاهزة.</span><button class="btn primary small" id="update-app">تحديث الآن</button><button class="text-button" id="dismiss-update">لاحقًا</button></div><div id="toast" class="toast" role="status" aria-live="polite" hidden></div></body></html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>إضافة أو تصحيح بيانات طبيب | طبيبي</title>
+    <meta name="description"
+        content="أرسل بيانات طبيب أو تصحيح معلومات عيادة إلى لوحة مراجعة دليل طبيبي قبل اعتمادها ونشرها حسب الاختصاص.">
+    <meta name="robots" content="noindex,follow">
+    <link rel="canonical" href="https://imadtbn.github.io/tabibi/add-doctor.html">
+    <meta name="theme-color" content="#103f3a">
+    <meta name="color-scheme" content="light dark">
+    <meta name="application-name" content="طبيبي">
+    <meta name="apple-mobile-web-app-title" content="طبيبي">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_DZ">
+    <meta property="og:site_name" content="طبيبي">
+    <meta property="og:title" content="إضافة أو تصحيح بيانات طبيب | طبيبي">
+    <meta property="og:description"
+        content="أرسل بيانات طبيب أو تصحيح معلومات عيادة إلى لوحة مراجعة دليل طبيبي قبل اعتمادها ونشرها حسب الاختصاص.">
+    <meta property="og:url" content="https://imadtbn.github.io/tabibi/add-doctor.html">
+    <meta property="og:image" content="https://imadtbn.github.io/tabibi/assets/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="طبيبي — دليل الأطباء في الجزائر">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/theme.js"></script>
+    <script
+        type="application/ld+json">[{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "الرئيسية", "item": "https://imadtbn.github.io/tabibi/"}, {"@type": "ListItem", "position": 2, "name": "إضافة أو تصحيح بيانات طبيب", "item": "https://imadtbn.github.io/tabibi/add-doctor.html"}]}]</script>
+    <script type="module" src="js/app.js"></script>
+</head>
+
+<body><a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
+    <div class="topline">دليل الأطباء في الجزائر <span>بحث أوضح. وصول أسهل.</span></div>
+
+    <header class="site-header">
+        <div class="container header-inner"><a class="brand" href="index.html" aria-label="طبيبي — الرئيسية"><span
+                    class="brand-icon"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                        <path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" />
+                        <circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3" />
+                    </svg></span><span>طبيبي<small>TABIBI</small></span></a>
+            <button id="menu-toggle" class="icon-btn menu-toggle" aria-label="فتح القائمة" aria-expanded="false"
+                aria-controls="main-nav">☰</button>
+            <nav id="main-nav" class="nav" aria-label="التنقل الرئيسي"><a href="index.html">الرئيسية</a><a
+                    href="specialties/index.html">التخصصات</a><a href="doctors.html">الأطباء</a><a
+                    href="map.html">الخريطة</a><a href="favorites.html">المفضلة</a><a href="add-doctor.html"
+                    aria-current="page">إضافة طبيب</a></nav>
+            <div class="header-actions"><button class="icon-btn" id="theme-toggle" aria-label="تبديل المظهر"
+                    aria-pressed="false">◐</button><a class="btn small secondary desktop-install"
+                    href="install.html">تثبيت التطبيق</a></div>
+        </div>
+    </header>
+
+    <div id="offline-banner" class="connection-banner" role="status" hidden>أنت دون اتصال. تُعرض النسخة المحفوظة وقد لا
+        تعكس أحدث البيانات.</div>
+    <main id="main" class="container">
+        <aside class="notice-banner" role="note"><span class="notice-banner-icon" aria-hidden="true">i</span>
+            <div><strong>بيانات الدليل قيد المراجعة المستمرة</strong>
+                <p>تُعرض بعض السجلات بوصفها «بيانات أولية» ولم تُتحقق معلوماتها بعد. راجع حالة السجل واتصل بالعيادة
+                    لتأكيد العنوان والمواعيد قبل الزيارة.</p>
+            </div><a href="about.html">منهجية التحقق ←</a>
+        </aside>
+        <section class="page-heading"><span class="eyebrow">دليل طبيبي</span>
+            <h1>أضف طبيبًا أو اقترح تصحيحًا</h1>
+            <p>مساهمتك تمر بمراجعة بشرية قبل أن تصبح جزءًا من الدليل المنشور.</p>
+        </section>
+        <section class="editor-intro contribution-panel" aria-labelledby="contribution-title">
+            <div><span class="eyebrow">مساهمة مجتمعية خاضعة للمراجعة</span>
+                <h2 id="contribution-title">ساعدنا في بناء دليل طبي أكثر دقة</h2>
+                <p>أدخل معلومات العيادة المنشورة للعامة. يصل الطلب إلى لوحة مراجعة Google Sheets الخاصة بفريق الدليل،
+                    ولا يظهر للزوار إلا بعد التحقق منه واعتماده ثم نشر ملف الاختصاص.</p>
+            </div>
+            <ol class="workflow-steps" aria-label="مراحل معالجة الطلب">
+                <li><b>1</b><span><strong>إدخال</strong><small>بيانات الطبيب والعيادة</small></span></li>
+                <li><b>2</b><span><strong>مراجعة</strong><small>تدقيق المصدر والاتصال</small></span></li>
+                <li><b>3</b><span><strong>اعتماد</strong><small>قبول أو طلب تصحيح</small></span></li>
+                <li><b>4</b><span><strong>نشر</strong><small>تحديث ملف الاختصاص</small></span></li>
+            </ol>
+        </section>
+        <section class="contribution-progress" aria-labelledby="progress-title">
+            <div class="progress-heading">
+                <div><span class="eyebrow">خطوتك التالية</span>
+                    <h2 id="progress-title">اختر الاختصاص للبدء</h2>
+                </div><span id="connection-badge" class="connection-badge">الإرسال غير مفعّل</span>
+            </div>
+            <p id="progress-detail">يمكنك تجهيز بيانات الطبيب وحفظها على هذا الجهاز. إرسال الطلبات للمراجعة غير متاح
+                حاليًا.</p>
+            <ol class="contribution-track" aria-label="تقدم المساهمة الحالية">
+                <li id="step-draft" aria-current="step"><span aria-hidden="true">01</span><strong>حفظ
+                        المسودة</strong><small>على هذا الجهاز فقط</small></li>
+                <li id="step-review"><span aria-hidden="true">02</span><strong>استلام الطلب</strong><small>بعد تأكيد
+                        خدمة المراجعة</small></li>
+                <li id="step-publish"><span aria-hidden="true">03</span><strong>النشر بعد الاعتماد</strong><small>يتم
+                        يدويًا بواسطة المشرف</small></li>
+            </ol>
+            <p class="progress-note">هذه البطاقة تعرض تقدمك في الصفحة، ولا تتتبع قرار المشرف أو حالة النشر.</p>
+            <noscript>
+                <p>فعّل JavaScript لاستخدام نموذج المساهمة وحفظ بياناتك.</p>
+            </noscript>
+        </section>
+        <div id="editor" class="editor-layout section">
+            <aside class="editor-sidebar">
+                <div class="sidebar-heading"><span aria-hidden="true">✚</span>
+                    <div>
+                        <h2>بيانات الاختصاص</h2>
+                        <p>اختر الاختصاص لإضافة طبيب أو اقتراح تصحيح.</p>
+                    </div>
+                </div><label class="field">اختر تخصصًا<select id="edit-specialty">
+                        <option value="">اختر التخصص</option>
+                        <option value="general">طب عام</option>
+                        <option value="cardio">أمراض القلب</option>
+                        <option value="pediatrics">طب الأطفال</option>
+                        <option value="derma">أمراض جلدية</option>
+                        <option value="ophtalmo">طب العيون</option>
+                        <option value="dental">طب الأسنان</option>
+                        <option value="gyneco">نساء وتوليد</option>
+                        <option value="ortho">جراحة العظام</option>
+                        <option value="ent">أنف وأذن وحنجرة</option>
+                        <option value="neuro">طب الأعصاب</option>
+                        <option value="internal">طب باطني</option>
+                        <option value="psychiatry">طب نفسي</option>
+                        <option value="gastro">أمراض الجهاز الهضمي</option>
+                        <option value="pneumo">أمراض تنفسية</option>
+                        <option value="uro">جراحة المسالك البولية</option>
+                        <option value="onco">طب الأورام</option>
+                        <option value="endo">غدد صماء وسكري</option>
+                        <option value="rhemato">روماتيزم</option>
+                        <option value="nephro">طب الكلى</option>
+                        <option value="radio">أشعة طبية</option>
+                    </select></label>
+                <p id="editor-load-status" role="status">اختر التخصص لتحميل ملفه فقط.</p><button id="reload-specialty"
+                    class="btn secondary" type="button" disabled>إعادة تحميل الملف</button>
+                <div id="editor-records" class="editor-records"></div>
+                <button id="new-doctor" class="btn primary" type="button" disabled>+ إضافة طبيب لهذا التخصص</button>
+
+                <!-- تنزيل ملف التخصص -->
+
+                <!--
+                  <button id="export-specialty" class="btn secondary" type="button" disabled>تنزيل ملف التخصص
+                    JSON</button>
+
+                <label class="field">استيراد ملف تخصص<input id="import-specialty" type="file"
+                        accept="application/json,.json" disabled></label>
+                        -->
+
+
+
+                <p class="muted admin-note"><strong>أدوات المشرف:</strong> الاستيراد يدمج السجلات حسب المعرّف. تبقى
+                    المسودات محفوظة على هذا المتصفح حتى إرسالها أو تصديرها.</p>
+            </aside>
+            <div>
+                <form id="doctor-editor" class="editor-form" hidden>
+                    <div class="section-head">
+                        <h2 id="editor-title">إضافة طبيب</h2><span id="draft-label" class="badge">مسودة محلية</span>
+                    </div>
+                    <input id="doctor-id" type="hidden"><input id="doctor-slug" type="hidden">
+                    <fieldset>
+                        <legend>الهوية</legend><label class="field">اسم الطبيب<input id="doctor-name" required
+                                maxlength="120" autocomplete="off" placeholder="الاسم الكامل للطبيب"></label>
+                        <p class="muted">التخصص هو المحدد في قائمة الملفات. لا تضع معلومات مرضى أو بيانات شخصية غير
+                            مخصصة للنشر.</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>العنوان والاتصال</legend>
+                        <div class="editor-fields">
+                            <label class="field">الولاية<select id="doctor-wilaya" required>
+                                    <option value="">اختر الولاية</option>
+                                    <option value="01">أدرار</option>
+                                    <option value="02">الشلف</option>
+                                    <option value="03">الأغواط</option>
+                                    <option value="04">أم البواقي</option>
+                                    <option value="05">باتنة</option>
+                                    <option value="06">بجاية</option>
+                                    <option value="07">بسكرة</option>
+                                    <option value="08">بشار</option>
+                                    <option value="09">البليدة</option>
+                                    <option value="10">البويرة</option>
+                                    <option value="11">تمنراست</option>
+                                    <option value="12">تبسة</option>
+                                    <option value="13">تلمسان</option>
+                                    <option value="14">تيارت</option>
+                                    <option value="15">تيزي وزو</option>
+                                    <option value="16">الجزائر</option>
+                                    <option value="17">الجلفة</option>
+                                    <option value="18">جيجل</option>
+                                    <option value="19">سطيف</option>
+                                    <option value="20">سعيدة</option>
+                                    <option value="21">سكيكدة</option>
+                                    <option value="22">سيدي بلعباس</option>
+                                    <option value="23">عنابة</option>
+                                    <option value="24">قالمة</option>
+                                    <option value="25">قسنطينة</option>
+                                    <option value="26">المدية</option>
+                                    <option value="27">مستغانم</option>
+                                    <option value="28">المسيلة</option>
+                                    <option value="29">معسكر</option>
+                                    <option value="30">ورقلة</option>
+                                    <option value="31">وهران</option>
+                                    <option value="32">البيض</option>
+                                    <option value="33">إليزي</option>
+                                    <option value="34">برج بوعريريج</option>
+                                    <option value="35">بومرداس</option>
+                                    <option value="36">الطارف</option>
+                                    <option value="37">تندوف</option>
+                                    <option value="38">تيسمسيلت</option>
+                                    <option value="39">الوادي</option>
+                                    <option value="40">خنشلة</option>
+                                    <option value="41">سوق أهراس</option>
+                                    <option value="42">تيبازة</option>
+                                    <option value="43">ميلة</option>
+                                    <option value="44">عين الدفلى</option>
+                                    <option value="45">النعامة</option>
+                                    <option value="46">عين تموشنت</option>
+                                    <option value="47">غرداية</option>
+                                    <option value="48">غليزان</option>
+                                    <option value="49">تيميمون</option>
+                                    <option value="50">برج باجي مختار</option>
+                                    <option value="51">أولاد جلال</option>
+                                    <option value="52">بني عباس</option>
+                                    <option value="53">عين صالح</option>
+                                    <option value="54">عين قزام</option>
+                                    <option value="55">تقرت</option>
+                                    <option value="56">جانت</option>
+                                    <option value="57">المغير</option>
+                                    <option value="58">المنيعة</option>
+                                </select></label>
+                            <label class="field">البلدية<input id="doctor-commune" required maxlength="100"
+                                    placeholder="اسم البلدية"></label>
+                            <label class="field wide">الشارع والعنوان<input id="doctor-address" required maxlength="240"
+                                    placeholder="الشارع، الحي، رقم المبنى"></label>
+                            <label class="field">الهاتف الأساسي<input id="doctor-phone" type="tel" dir="ltr" required
+                                    maxlength="24" placeholder="0550 00 00 00"></label>
+                            <label class="field">هاتف إضافي (اختياري)<input id="doctor-phone2" type="tel" dir="ltr"
+                                    maxlength="24" placeholder="+213 ..."></label>
+                            <label class="field">خط العرض (اختياري)<input id="doctor-lat" type="number" dir="ltr"
+                                    min="-90" max="90" step="any" placeholder="36.7538"></label>
+                            <label class="field">خط الطول (اختياري)<input id="doctor-lng" type="number" dir="ltr"
+                                    min="-180" max="180" step="any" placeholder="3.0588"></label>
+                        </div>
+                        <p class="muted">اترك الإحداثيات فارغة إن لم تكن معروفة. أدخل خط العرض والطول معًا لعرض زر
+                            المسار.</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>أيام وساعات العمل</legend>
+                        <p class="muted">يمكن تحديد فترتين في اليوم. اليوم غير المحدد مغلق. للساعات الليلية قسّم الدوام
+                            على يومين.</p>
+                        <div id="hours-editor"></div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>المصدر وحالة البيانات</legend>
+                        <label class="field">رابط مصدر علني (اختياري)<input id="doctor-source" type="url" dir="ltr"
+                                placeholder="https://..."></label>
+                        <label class="checkbox-field consent-field"><input id="confirm-real" type="checkbox"> أؤكد أن
+                            البيانات تخص طبيبًا فعليًا، وأن معلومات العيادة مخصصة للنشر، وأنني راجعتها قبل
+                            الإرسال.</label>
+                        <label class="field hp-field" aria-hidden="true">اترك هذا الحقل فارغًا<input id="doctor-website"
+                                type="text" tabindex="-1" autocomplete="off"></label>
+                        <p class="muted">لا يمنح الإرسال شارة «موثق». يبقى الطلب غير منشور إلى أن يراجعه فريق الدليل
+                            ويتأكد من مصدره.</p>
+                    </fieldset>
+                    <p id="editor-message" role="status" aria-live="polite"></p>
+                    <div class="card-actions editor-actions"><button type="submit" class="btn secondary">حفظ
+                            المسودة</button><button id="submit-review" class="btn primary" type="button">إرسال
+                            للمراجعة</button><button id="discard-local" class="btn secondary" type="button">إلغاء
+                            التعديل المحلي</button></div>
+                    <div id="submission-state" class="submission-state" role="status"><span
+                            class="status-dot"></span><span>يُحفظ الطلب محليًا أولًا، ثم يُرسل إلى لوحة المراجعة عند
+                            الضغط على «إرسال للمراجعة».</span></div>
+                </form><iframe name="doctor-submit-frame" title="استقبال طلب إضافة الطبيب" hidden></iframe>
+                <section id="editor-preview" class="prose" hidden>
+                    <h2>معاينة البيانات المحفوظة</h2>
+                    <div id="preview-content" class="doctor-card"></div>
+                </section>
+
+
+                <!--من المراجعة إلى النشر-->
+                <!--   
+                                <section class="publish-help" aria-labelledby="publish-title">
+                    <div class="publish-heading"><span aria-hidden="true">✓</span>
+                        <div><span class="eyebrow">مسار المشرف</span>
+                            <h2 id="publish-title">من المراجعة إلى النشر</h2>
+                        </div>
+                    </div>
+                    <div class="publish-grid">
+                        <article><b>01</b>
+                            <h3>راجع الطلب</h3>
+                            <p>افتح تبويب الاختصاص في Google Sheets، ودقّق الاسم والعنوان والهاتف والمصدر.</p>
+                        </article>
+                        <article><b>02</b>
+                            <h3>اعتمد السجل</h3>
+                            <p>غيّر الحالة إلى «مقبول»، أو «مرفوض» مع تدوين سبب واضح في ملاحظات المراجع.</p>
+                        </article>
+                        <article><b>03</b>
+                            <h3>صدّر حسب الاختصاص</h3>
+                            <p>استخدم أمر التصدير في Apps Script لإنشاء ملف <code dir="ltr">{specialty}.json</code>
+                                كاملًا.</p>
+                        </article>
+                        <article><b>04</b>
+                            <h3>انشر التحديث</h3>
+                            <p>استبدل الملف داخل <bdi dir="ltr">data/doctors/</bdi>، ثم شغّل البناء والاختبارات وارفع
+                                الناتج إلى GitHub.</p>
+                        </article>
+                    </div>
+                    <p class="publish-warning"><strong>تنبيه:</strong> المراجعة في Google Sheets لا تنشر البيانات
+                        تلقائيًا؛ النشر يبقى خطوة يدوية مقصودة لحماية جودة الدليل.</p>
+                </section>
+                
+                -->
+
+            </div>
+        </div>
+    </main>
+    <section class="app-strip container">
+        <div><span class="eyebrow">طبيبي أقرب إليك</span>
+            <h2>احتفظ بالدليل على هاتفك</h2>
+            <p>ثبّت التطبيق وافتح الصفحات المحفوظة حتى عند انقطاع الإنترنت.</p>
+        </div><a class="btn primary" href="install.html">طريقة التثبيت <span aria-hidden="true">←</span></a>
+    </section>
+    <footer>
+        <div class="container footer-grid">
+            <div><a class="brand" href="index.html">طبيبي</a>
+                <p>دليل للعثور على معلومات الأطباء والتواصل معهم.<br>اتصل بالعيادة لتأكيد المواعيد قبل الزيارة.</p>
+            </div>
+            <div>
+                <h2>اكتشف</h2><a href="specialties/index.html">التخصصات الطبية</a><a href="map.html">الخريطة</a><a
+                    href="stats.html">إحصائيات الدليل</a>
+            </div>
+            <div>
+                <h2>عن طبيبي</h2><a href="about.html">عن المنصة والتحقق</a><a href="contact.html">التواصل وتصحيح
+                    البيانات</a><a href="privacy.html">الخصوصية</a><a href="terms.html">شروط الاستخدام</a>
+            </div>
+        </div>
+        <div class="container footer-bottom"><span>© طبيبي — دليل الأطباء في الجزائر</span><span>المعلومات للاستدلال،
+                وليست تشخيصًا أو خدمة طوارئ.</span></div>
+    </footer>
+    <div class="update-banner" id="update-banner" role="status" hidden><span>نسخة جديدة من طبيبي جاهزة.</span><button
+            class="btn primary small" id="update-app">تحديث الآن</button><button class="text-button"
+            id="dismiss-update">لاحقًا</button></div>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+
+</html>
