@@ -1,4 +1,5 @@
 const VERSION = 'tabibi-v1';
+const SPREADSHEET_ID = '1FXerDOnLHokGICOeRt2RKfTdQZNMcfhOE5YiN_5CT_c';
 const SPECIALTIES = ['general','cardio','pediatrics','derma','ophtalmo','dental','gyneco','ortho','ent','neuro','internal','psychiatry','gastro','pneumo','uro','onco','endo','rhemato','nephro','radio'];
 const DAYS = ['sun','mon','tue','wed','thu','fri','sat'];
 
@@ -12,6 +13,7 @@ function doPost(e) {
   const lock = LockService.getScriptLock();
   try {
     if (!e || !e.postData || !e.postData.contents) throw new Error('طلب فارغ');
+    if (e.postData.contents.length > 20000) throw new Error('حجم الطلب أكبر من المسموح');
     const body = JSON.parse(e.postData.contents);
     if (body.website) throw new Error('طلب غير صالح');
     if (body.version !== VERSION) throw new Error('إصدار النموذج غير مدعوم');
@@ -21,8 +23,11 @@ function doPost(e) {
     lock.waitLock(15000);
     const cache = CacheService.getScriptCache();
     if (cache.get(body.requestId)) return json_({ok:true, requestId:body.requestId, duplicate:true});
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(body.specialtyId);
+    const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(body.specialtyId);
     if (!sheet) throw new Error('تبويب الاختصاص غير موجود');
+    if (sheet.getLastRow() > 1 && sheet.getRange(2, 3, sheet.getLastRow() - 1, 1).createTextFinder(body.requestId).matchEntireCell(true).findNext()) {
+      return json_({ok:true, requestId:body.requestId, duplicate:true});
+    }
     sheet.appendRow(rowFromRecord_('قيد المراجعة', body.requestId, body.specialtyName, body.record));
     cache.put(body.requestId, '1', 21600);
     return json_({ok:true, requestId:body.requestId});
@@ -37,11 +42,16 @@ function validateRecord_(record, specialtyId) {
   if (!record || typeof record !== 'object') throw new Error('سجل الطبيب غير صالح');
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.id || '')) throw new Error('معرّف الطبيب غير صالح');
   if (String(record.name || '').trim().length < 3) throw new Error('اسم الطبيب غير صالح');
+  if (typeof record.name !== 'string' || record.name.length > 160 || record.id.length > 100) throw new Error('بيانات الطبيب طويلة جدًا');
   if (!Array.isArray(record.specialtyIds) || record.specialtyIds.length !== 1 || record.specialtyIds[0] !== specialtyId) throw new Error('الاختصاص لا يطابق السجل');
-  if (record.verificationStatus !== 'unverified' || record.isPlaceholder) throw new Error('يجب إرسال بيانات فعلية غير موثقة');
+  if (record.verificationStatus !== 'unverified' || record.isPlaceholder !== false) throw new Error('يجب إرسال بيانات فعلية غير موثقة');
   const practice = record.practices && record.practices[0];
   if (!practice || !/^\d{2}$/.test(practice.wilayaCode || '') || !practice.address || !practice.phones || !practice.phones[0]) throw new Error('بيانات العيادة ناقصة');
   if (record.sourceUrl && !/^https:\/\//i.test(record.sourceUrl)) throw new Error('رابط المصدر يجب أن يستخدم HTTPS');
+  DAYS.forEach(day => {
+    const periods = (practice.openingHours || {})[day] || [];
+    if (!Array.isArray(periods) || periods.length > 4 || periods.some(period => !Array.isArray(period) || period.length !== 2 || period.some(time => !/^([01]\d|2[0-3]):[0-5]\d$/.test(time)) || period[0] >= period[1])) throw new Error('أوقات العمل غير صالحة');
+  });
 }
 
 function rowFromRecord_(status, requestId, specialtyName, record) {

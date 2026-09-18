@@ -5,6 +5,16 @@ export async function initEditor(){
   const $=id=>document.getElementById(id);let spec='',base=[],drafts=[],current=null,dirty=false,sequence=0;
   const [wilayas,communes]=await Promise.all([getJSON('data/wilayas.json'),getJSON('data/locations.json')]);const codes=wilayas.map(w=>w.code);
   const submitButton=$('submit-review');const submissionState=$('submission-state');
+  function progress(stage='start'){
+    const saved=stage==='saved'||stage==='received';
+    $('progress-title').textContent=stage==='received'?'وصل طلبك إلى المراجعة':saved?'مسودتك محفوظة':stage==='editing'?'أكمل البيانات ثم احفظ المسودة':'اختر الاختصاص للبدء';
+    $('progress-detail').textContent=stage==='received'?'استلام الطلب لا يعني اعتماده أو نشره. يراجع المشرف البيانات قبل تحديث الدليل.':!SUBMISSION_ENDPOINT?'الإرسال غير مفعّل حاليًا. يمكنك تجهيز البيانات وحفظ مسودتك على هذا الجهاز.':saved?'راجع المعاينة وأكّد صحة البيانات، ثم اضغط «إرسال للمراجعة».':'أدخل اسم الطبيب والعنوان والهاتف وأوقات العمل. الحفظ المحلي لا يرسل البيانات.';
+    $('connection-badge').textContent=SUBMISSION_ENDPOINT?'قناة الإرسال مُعدّة':'الإرسال غير مفعّل';
+    for(const id of ['step-draft','step-review','step-publish'])$(id).removeAttribute('aria-current');
+    $(stage==='received'?'step-publish':saved?'step-review':'step-draft').setAttribute('aria-current','step');
+    $('step-draft').classList.toggle('is-complete',saved);$('step-review').classList.toggle('is-complete',stage==='received');
+  }
+  progress();
   if(!SUBMISSION_ENDPOINT){submitButton.disabled=true;submissionState.classList.add('pending');submissionState.lastElementChild.textContent='قناة Google Sheets بانتظار نشر رابط Apps Script من إعدادات المشروع.';}
   const names={sun:'الأحد',mon:'الإثنين',tue:'الثلاثاء',wed:'الأربعاء',thu:'الخميس',fri:'الجمعة',sat:'السبت'};
   for(const day of DAYS){
@@ -31,9 +41,12 @@ export async function initEditor(){
     for(const day of DAYS){const spans=p?.openingHours?.[day]??(!d&&['sun','mon','tue','wed','thu'].includes(day)?[['09:00','15:00']]:[]);$(`day-${day}`).checked=spans.length>0;
       for(let n=0;n<2;n++)for(const [edge,index] of [['start',0],['end',1]]){const input=$(`${day}-${n}-${edge}`);input.value=spans[n]?.[index]||'';input.disabled=!spans.length;}}
     $('discard-local').disabled=!d||!drafts.some(x=>x.record.id===d.id);dirty=false;status(d?.practices.length>1?'يُعدّل النموذج العنوان الأول فقط؛ تبقى العناوين الإضافية محفوظة.':'');
+    progress(drafts.some(x=>x.record.id===d?.id)?'saved':'editing');
+    submissionState.className='submission-state'+(!SUBMISSION_ENDPOINT?' pending':'');submissionState.lastElementChild.textContent=SUBMISSION_ENDPOINT?'احفظ التغييرات قبل إرسالها للمراجعة.':'الإرسال غير مفعّل حاليًا؛ المسودات محفوظة على هذا الجهاز فقط.';
   }
   async function load(){
     const version=++sequence;const next=$('edit-specialty').value;spec=next;base=[];drafts=[];current=null;$('doctor-editor').hidden=true;$('editor-preview').hidden=true;$('editor-records').replaceChildren();
+    progress();
     for(const id of ['reload-specialty','new-doctor','export-specialty','import-specialty'])$(id).disabled=true;
     if(!spec){$('editor-load-status').textContent='اختر التخصص لتحميل ملفه فقط.';return;}
     $('editor-load-status').textContent='جاري تحميل ملف التخصص…';
@@ -45,7 +58,7 @@ export async function initEditor(){
   $('edit-specialty').addEventListener('change',()=>{if(dirty&&!confirm('هل تريد ترك التعديل غير المحفوظ وتغيير التخصص؟')){$('edit-specialty').value=spec;return;}load();});
   $('reload-specialty').addEventListener('click',()=>{if(!dirty||confirm('هل تريد إعادة التحميل وترك التعديل غير المحفوظ؟'))load();});
   $('new-doctor').addEventListener('click',()=>{if(!dirty||confirm('هل تريد ترك التعديل غير المحفوظ؟'))fill();});
-  $('doctor-editor').addEventListener('input',()=>{dirty=true;});
+  $('doctor-editor').addEventListener('input',()=>{dirty=true;progress('editing');});
   window.addEventListener('beforeunload',event=>{if(dirty){event.preventDefault();event.returnValue='';}});
   $('doctor-editor').addEventListener('submit',event=>{
     event.preventDefault();try{
@@ -58,7 +71,7 @@ export async function initEditor(){
       delete record.verifiedAt;delete record.sourceUrl;if($('doctor-source').value.trim())record.sourceUrl=$('doctor-source').value.trim();
       validateRecord(record,spec,codes);
       const existing=drafts.find(d=>d.record.id===id);const baseline=base.find(d=>d.id===id);const next=drafts.filter(d=>d.record.id!==id);next.push({record,base:existing?.base??(baseline?JSON.stringify(baseline):null)});
-      persist(next);fill(record);renderList();status('حُفظت المسودة على هذا الجهاز. يمكنك الآن إرسالها للمراجعة.');
+      persist(next);fill(record);renderList();status(SUBMISSION_ENDPOINT?'حُفظت المسودة على هذا الجهاز. يمكنك الآن إرسالها للمراجعة.':'حُفظت المسودة على هذا الجهاز. الإرسال للمراجعة غير مفعّل حاليًا.');
       const preview=$('preview-content');preview.replaceChildren(el('h3',record.name),el('span','غير متحقق منها','badge'),el('p',[wilayas.find(w=>w.code===wilaya)?.nameAr,commune,practice.address].join('، ')),el('p',practice.phones.join(' / ')));$('editor-preview').hidden=false;
     }catch(error){status(error.message,true);}
   });
@@ -73,7 +86,8 @@ export async function initEditor(){
       const response=await fetch(SUBMISSION_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({version:SUBMISSION_VERSION,requestId,specialtyId:spec,specialtyName,record:current,website:$('doctor-website').value})});
       if(!response.ok)throw new Error('تعذر الوصول إلى خدمة المراجعة.');const result=await response.json();if(!result.ok)throw new Error(result.error||'لم تقبل خدمة المراجعة الطلب.');
       submissionState.className='submission-state success';submissionState.lastElementChild.textContent=`تم استلام الطلب رقم ${result.requestId||requestId}. سيُراجع قبل النشر.`;status('أُرسل الطلب بنجاح إلى Google Sheets للمراجعة.');
-    }catch(error){submissionState.className='submission-state error';submissionState.lastElementChild.textContent='لم يُرسل الطلب. المسودة ما زالت محفوظة على جهازك.';status(error.message,true);}
+      progress('received');
+    }catch(error){submissionState.className='submission-state error';submissionState.lastElementChild.textContent='تعذر تأكيد استلام الطلب. المسودة محفوظة؛ تحقّق مع المشرف قبل إعادة الإرسال لتجنب التكرار.';status(error.message,true);}
     finally{submitButton.disabled=!SUBMISSION_ENDPOINT;}
   });
   $('discard-local').addEventListener('click',()=>{if(!current)return;try{const id=current.id;persist(drafts.filter(d=>d.record.id!==id));const original=base.find(d=>d.id===id);fill(original);renderList();status(original?'أُلغي التعديل المحلي وعاد السجل المنشور.':'حُذفت المسودة المحلية. لم يتغير الموقع المنشور.');}catch(error){status(error.message,true);}});
