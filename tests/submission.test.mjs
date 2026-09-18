@@ -14,11 +14,22 @@ test('contribution page uses the professional review workflow',async()=>{
 test('Google Apps Script validates submissions and exports one JSON file per specialty',async()=>{
   const script=await readFile(new URL('../tools/google-apps-script/Code.gs',import.meta.url),'utf8');
   assert.match(script,/function doPost\(e\)/);
+  assert.match(script,/body\.type === 'contact'/);
+  assert.match(script,/function saveContact_\(body\)/);
   assert.match(script,/function exportApprovedJson\(\)/);
   assert.match(script,/\['منشور','مقبول'\]/);
   assert.match(script,/folder\.createFile\(id \+ '\.json'/);
   const specialties=JSON.parse(await readFile(new URL('../data/specialties.json',import.meta.url),'utf8'));
   for(const {id} of specialties)assert.match(script,new RegExp(`['"]${id}['"]`));
+});
+
+test('contact page posts a message through the shared intake endpoint',async()=>{
+  const html=await readFile(new URL('../contact.html',import.meta.url),'utf8');
+  const client=await readFile(new URL('../js/contact.js',import.meta.url),'utf8');
+  assert.match(html,/id="contact-form"/);
+  assert.match(html,/js\/contact\.js/);
+  assert.match(client,/type:'contact'/);
+  assert.match(client,/name, email, subject, message/);
 });
 
 test('submission endpoint is isolated in a deploy-time configuration module',async()=>{

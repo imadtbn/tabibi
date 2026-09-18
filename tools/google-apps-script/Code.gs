@@ -18,6 +18,7 @@ function doPost(e) {
     if (body.website) throw new Error('طلب غير صالح');
     if (body.version !== VERSION) throw new Error('إصدار النموذج غير مدعوم');
     if (!/^[0-9a-f-]{20,50}$/i.test(body.requestId || '')) throw new Error('معرّف الطلب غير صالح');
+    if (body.type === 'contact') return saveContact_(body);
     if (!SPECIALTIES.includes(body.specialtyId)) throw new Error('الاختصاص غير صالح');
     validateRecord_(body.record, body.specialtyId);
     lock.waitLock(15000);
@@ -36,6 +37,23 @@ function doPost(e) {
   } finally {
     try { lock.releaseLock(); } catch (_) {}
   }
+}
+
+function saveContact_(body) {
+  const name = String(body.name || '').trim();
+  const email = String(body.email || '').trim();
+  const subject = String(body.subject || '').trim();
+  const message = String(body.message || '').trim();
+  if (name.length < 2 || name.length > 120) throw new Error('الاسم غير صالح');
+  if (email && (email.length > 160 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) throw new Error('البريد الإلكتروني غير صالح');
+  if (subject.length < 3 || subject.length > 180) throw new Error('الموضوع غير صالح');
+  if (message.length < 10 || message.length > 5000) throw new Error('الرسالة غير صالحة');
+  const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
+  const sheet = spreadsheet.getSheetByName('contact') || spreadsheet.insertSheet('contact');
+  if (sheet.getLastRow() === 0) sheet.appendRow(['الحالة', 'التاريخ', 'معرّف الطلب', 'الاسم', 'البريد الإلكتروني', 'الموضوع', 'الرسالة', 'الرابط']);
+  if (sheet.getLastRow() > 1 && sheet.getRange(2, 3, sheet.getLastRow() - 1, 1).createTextFinder(body.requestId).matchEntireCell(true).findNext()) return json_({ok:true, requestId:body.requestId, duplicate:true});
+  sheet.appendRow(['جديدة', new Date(), safe_(body.requestId), safe_(name), safe_(email), safe_(subject), safe_(message), safe_(body.pageUrl || '')]);
+  return json_({ok:true, requestId:body.requestId});
 }
 
 function validateRecord_(record, specialtyId) {
