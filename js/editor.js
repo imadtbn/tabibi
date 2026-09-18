@@ -83,11 +83,13 @@ export async function initEditor(){
     submitButton.disabled=true;submissionState.className='submission-state sending';submissionState.lastElementChild.textContent='جاري إرسال الطلب إلى لوحة المراجعة…';
     try{
       validateRecord(current,spec,codes);const requestId=crypto.randomUUID();const specialtyName=$('edit-specialty').selectedOptions[0]?.textContent?.trim()||spec;
-      const response=await fetch(SUBMISSION_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({version:SUBMISSION_VERSION,requestId,specialtyId:spec,specialtyName,record:current,website:$('doctor-website').value})});
-      if(!response.ok)throw new Error('تعذر الوصول إلى خدمة المراجعة.');const result=await response.json();if(!result.ok)throw new Error(result.error||'لم تقبل خدمة المراجعة الطلب.');
-      submissionState.className='submission-state success';submissionState.lastElementChild.textContent=`تم استلام الطلب رقم ${result.requestId||requestId}. سيُراجع قبل النشر.`;status('أُرسل الطلب بنجاح إلى Google Sheets للمراجعة.');
+      const sender=document.createElement('form');sender.method='post';sender.action=SUBMISSION_ENDPOINT;sender.target='doctor-submit-frame';sender.hidden=true;
+      const fields={version:SUBMISSION_VERSION,type:'doctor',requestId,specialtyId:spec,specialtyName,record:JSON.stringify(current),website:$('doctor-website').value};
+      for(const [name,value] of Object.entries(fields)){const input=document.createElement('input');input.name=name;input.value=value;sender.append(input);}
+      document.body.append(sender);sender.submit();sender.remove();
+      submissionState.className='submission-state success';submissionState.lastElementChild.textContent=`تم إرسال الطلب رقم ${requestId}. سيُراجع قبل النشر.`;status('أُرسل الطلب إلى Google Sheets للمراجعة.');
       progress('received');
-    }catch(error){submissionState.className='submission-state error';submissionState.lastElementChild.textContent='تعذر تأكيد استلام الطلب. المسودة محفوظة؛ تحقّق مع المشرف قبل إعادة الإرسال لتجنب التكرار.';status(error.message,true);}
+    }catch(error){submissionState.className='submission-state error';submissionState.lastElementChild.textContent='تعذر تجهيز الطلب للإرسال. المسودة محفوظة على هذا الجهاز.';status(error.message,true);}
     finally{submitButton.disabled=!SUBMISSION_ENDPOINT;}
   });
   $('discard-local').addEventListener('click',()=>{if(!current)return;try{const id=current.id;persist(drafts.filter(d=>d.record.id!==id));const original=base.find(d=>d.id===id);fill(original);renderList();status(original?'أُلغي التعديل المحلي وعاد السجل المنشور.':'حُذفت المسودة المحلية. لم يتغير الموقع المنشور.');}catch(error){status(error.message,true);}});

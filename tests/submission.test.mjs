@@ -35,6 +35,17 @@ test('contact page posts a message through the shared intake endpoint',async()=>
   assert.match(client,/data\.get\('message'\)/);
 });
 
+test('doctor submissions use a native form target instead of CORS fetch',async()=>{
+  const html=await readFile(new URL('../add-doctor.html',import.meta.url),'utf8');
+  const editor=await readFile(new URL('../js/editor.js',import.meta.url),'utf8');
+  const script=await readFile(new URL('../tools/google-apps-script/Code.gs',import.meta.url),'utf8');
+  assert.match(html,/doctor-submit-frame/);
+  assert.match(editor,/target='doctor-submit-frame'/);
+  assert.match(editor,/type:'doctor'/);
+  assert.match(script,/body\.type === 'doctor'/);
+  assert.doesNotMatch(editor,/fetch\(SUBMISSION_ENDPOINT/);
+});
+
 test('submission endpoint is isolated in a deploy-time configuration module',async()=>{
   const config=await readFile(new URL('../js/submission-config.js',import.meta.url),'utf8');
   assert.match(config,/export const SUBMISSION_ENDPOINT=/);
