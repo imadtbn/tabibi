@@ -164,7 +164,7 @@ for d in doctors:
         schema={'@context':'https://schema.org','@type':'Physician','name':d['name'],'url':BASE+f'doctors/{d["slug"]}.html','address':{'@type':'PostalAddress','streetAddress':p['address'],'addressRegion':wilaya_by[p['wilayaCode']]['nameAr'],'addressCountry':'DZ'}}
         if p.get('phones'):schema['telephone']=p['phones'][0]
         if p.get('coordinates'):schema['geo']={'@type':'GeoCoordinates','latitude':p['coordinates']['lat'],'longitude':p['coordinates']['lng']}
-    page(f'doctors/{d["slug"]}.html',d['name'],'سجل أولي غير متحقق منه، قابل للتحديث اليدوي.' if demo else f'عنوان ووسائل اتصال {d["name"]}',body,'doctors',noindex=unverified,extra_schema=schema)
+    page(f'doctors/{d["slug"]}.html',d['name'],'سجل أولي غير متحقق منه، قابل للتحديث اليدوي.' if unverified else f'عنوان ووسائل اتصال {d["name"]}',body,'doctors',noindex=unverified,extra_schema=schema)
 dump('data/stats.json',{'doctors':len(doctors),'coveredWilayas':covered,'specialties':len(specs),'initialDoctors':len(initial_doctors),'verifiedDoctors':len(verified_doctors),'bySpecialty':{s['id']:sum(s['id'] in d['specialtyIds'] for d in doctors) for s in specs}})
 stats=load('data/stats.json'); groups={}
 for d in doctors:
