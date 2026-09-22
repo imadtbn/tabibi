@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-pediatrics-1",
-    "slug": "demo-pediatrics-1",
+    "id": "pediatrics-1",
+    "slug": "pediatrics-1",
     "name": "د. نموذج طب الأطفال 01",
     "specialtyIds": [
       "pediatrics"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "address": "شارع المثال 05 — عنوان وهمي",
         "coordinates": {
           "lat": 36.365,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-pediatrics-2",
-    "slug": "demo-pediatrics-2",
+    "id": "pediatrics-2",
+    "slug": "pediatrics-2",
     "name": "د. نموذج طب الأطفال 02",
     "specialtyIds": [
       "pediatrics"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "address": "شارع المثال 06 — عنوان وهمي",
         "coordinates": {
           "lat": 36.9,

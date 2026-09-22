@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-dental-1",
-    "slug": "demo-dentistry-1",
+    "id": "dental-1",
+    "slug": "dentistry-1",
     "name": "د. نموذج طب الأسنان 01",
     "specialtyIds": [
       "dental"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "address": "شارع المثال 11 — عنوان وهمي",
         "coordinates": {
           "lat": 35.6971,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-dental-2",
-    "slug": "demo-dentistry-2",
+    "id": "dental-2",
+    "slug": "dentistry-2",
     "name": "د. نموذج طب الأسنان 02",
     "specialtyIds": [
       "dental"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "address": "شارع المثال 12 — عنوان وهمي",
         "coordinates": {
           "lat": 36.365,

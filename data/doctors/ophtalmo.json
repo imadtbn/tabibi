@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-ophtalmo-1",
-    "slug": "demo-ophthalmology-1",
+    "id": "ophtalmo-1",
+    "slug": "ophthalmology-1",
     "name": "د. نموذج طب العيون 01",
     "specialtyIds": [
       "ophtalmo"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "address": "شارع المثال 09 — عنوان وهمي",
         "coordinates": {
           "lat": 36.7538,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-ophtalmo-2",
-    "slug": "demo-ophthalmology-2",
+    "id": "ophtalmo-2",
+    "slug": "ophthalmology-2",
     "name": "د. نموذج طب العيون 02",
     "specialtyIds": [
       "ophtalmo"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "address": "شارع المثال 10 — عنوان وهمي",
         "coordinates": {
           "lat": 35.6971,

@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-gyneco-1",
-    "slug": "demo-gynecology-1",
+    "id": "gyneco-1",
+    "slug": "gynecology-1",
     "name": "د. نموذج نساء وتوليد 01",
     "specialtyIds": [
       "gyneco"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "address": "شارع المثال 13 — عنوان وهمي",
         "coordinates": {
           "lat": 36.365,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-gyneco-2",
-    "slug": "demo-gynecology-2",
+    "id": "gyneco-2",
+    "slug": "gynecology-2",
     "name": "د. نموذج نساء وتوليد 02",
     "specialtyIds": [
       "gyneco"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "address": "شارع المثال 14 — عنوان وهمي",
         "coordinates": {
           "lat": 36.9,

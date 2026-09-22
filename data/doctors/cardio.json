@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-cardio-1",
-    "slug": "demo-cardiology-1",
+    "id": "cardio-1",
+    "slug": "cardiology-1",
     "name": "د. نموذج أمراض القلب 01",
     "specialtyIds": [
       "cardio"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "address": "شارع المثال 03 — عنوان وهمي",
         "coordinates": {
           "lat": 35.6971,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-cardio-2",
-    "slug": "demo-cardiology-2",
+    "id": "cardio-2",
+    "slug": "cardiology-2",
     "name": "د. نموذج أمراض القلب 02",
     "specialtyIds": [
       "cardio"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "address": "شارع المثال 04 — عنوان وهمي",
         "coordinates": {
           "lat": 36.365,

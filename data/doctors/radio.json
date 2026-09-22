@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-radio-1",
-    "slug": "demo-radiology-1",
+    "id": "radio-1",
+    "slug": "radiology-1",
     "name": "د. نموذج أشعة طبية 01",
     "specialtyIds": [
       "radio"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "address": "شارع المثال 39 — عنوان وهمي",
         "coordinates": {
           "lat": 36.9,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-radio-2",
-    "slug": "demo-radiology-2",
+    "id": "radio-2",
+    "slug": "radiology-2",
     "name": "د. نموذج أشعة طبية 02",
     "specialtyIds": [
       "radio"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "address": "شارع المثال 40 — عنوان وهمي",
         "coordinates": {
           "lat": 36.7538,

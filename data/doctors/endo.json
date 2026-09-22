@@ -60,66 +60,6 @@
     "isPlaceholder": true
   },
   {
-    "id": "endo-1",
-    "slug": "endocrinology-1",
-    "name": "د.غدد 000000 وسكري ",
-    "specialtyIds": [
-      "endo"
-    ],
-    "verificationStatus": "unverified",
-    "updatedAt": "2026-09-17",
-    "practices": [
-      {
-        "wilayaCode": "16",
-        "communeId": "algiers",
-        "address": "شارع المثال 33 — عنوان وهمي",
-        "coordinates": {
-          "lat": 36.7538,
-          "lng": 3.0588
-        },
-        "coordinateNote": "نقطة  بمركز المدينة لتجربة المسار، وليست عيادة",
-        "phones": [
-          "+213000555033"
-        ],
-        "openingHours": {
-          "sat": [],
-          "sun": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "mon": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "tue": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "wed": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "thu": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "fri": []
-        }
-      }
-    ],
-    "isPlaceholder": true
-  },
-  {
     "id": "endo-2",
     "slug": "endocrinology-2",
     "name": "د. نموذج غدد صماء وسكري 02",

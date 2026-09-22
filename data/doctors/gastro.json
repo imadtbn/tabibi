@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-gastro-1",
-    "slug": "demo-gastroenterology-1",
+    "id": "gastro-1",
+    "slug": "gastroenterology-1",
     "name": "د. نموذج أمراض الجهاز الهضمي 01",
     "specialtyIds": [
       "gastro"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "address": "شارع المثال 25 — عنوان وهمي",
         "coordinates": {
           "lat": 36.7538,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-gastro-2",
-    "slug": "demo-gastroenterology-2",
+    "id": "gastro-2",
+    "slug": "gastroenterology-2",
     "name": "د. نموذج أمراض الجهاز الهضمي 02",
     "specialtyIds": [
       "gastro"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "address": "شارع المثال 26 — عنوان وهمي",
         "coordinates": {
           "lat": 35.6971,
