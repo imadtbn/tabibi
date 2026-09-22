@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-pneumo-1",
-    "slug": "demo-pulmonology-1",
+    "id": "pneumo-1",
+    "slug": "pulmonology-1",
     "name": "د. نموذج أمراض تنفسية 01",
     "specialtyIds": [
       "pneumo"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "address": "شارع المثال 27 — عنوان وهمي",
         "coordinates": {
           "lat": 35.6971,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-pneumo-2",
-    "slug": "demo-pulmonology-2",
+    "id": "pneumo-2",
+    "slug": "pulmonology-2",
     "name": "د. نموذج أمراض تنفسية 02",
     "specialtyIds": [
       "pneumo"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "address": "شارع المثال 28 — عنوان وهمي",
         "coordinates": {
           "lat": 36.365,
