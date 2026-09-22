@@ -54,7 +54,7 @@ def validate_records(records):
             for spans in (p.get('openingHours') or {}).values():
                 for start,end in spans:assert re.fullmatch(r'(?:[01]\d|2[0-3]):[0-5]\d',start) and re.fullmatch(r'(?:[01]\d|2[0-3]):[0-5]\d',end) and start<end,'Hours must be same-day intervals'
 validate_records(doctors)
-ICON='<svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg>'
+ICON='<i class="fa-solid fa-stethoscope" aria-hidden="true"></i>'
 def spec_cards(prefix='',subset=None):
     return '<div class="specialties-grid">'+''.join(f'<a class="specialty-card" href="{prefix}specialties/{s["slug"]}.html"><span class="spec-symbol">{ICON}</span><h3>{esc(s["nameAr"])}</h3><span class="latin" lang="fr">{esc(s["nameFr"])}</span><span class="specialty-count" data-specialty-count="{s["id"]}" aria-live="polite"><b>{sum(s["id"] in d["specialtyIds"] for d in doctors):02d}</b> طبيب</span></a>' for s in (subset or specs))+'</div>'
 def options(items,key,label):return ''.join(f'<option value="{esc(x[key])}">{esc(x[label])}</option>' for x in items)
@@ -113,7 +113,7 @@ def page(path,title,desc,body,active='',noindex=False,extra_schema=None):
 <meta name="description" content="{esc(desc)}"><meta name="robots" content="{'noindex,follow' if noindex else 'index,follow'}"><link rel="canonical" href="{canonical}">
 <meta name="theme-color" content="#103f3a"><meta name="color-scheme" content="light dark"><meta name="application-name" content="طبيبي"><meta name="apple-mobile-web-app-title" content="طبيبي"><meta name="apple-mobile-web-app-capable" content="yes">
 <meta property="og:type" content="website"><meta property="og:locale" content="ar_DZ"><meta property="og:site_name" content="طبيبي"><meta property="og:title" content="{esc(title)} | طبيبي"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{BASE}assets/social-card.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="طبيبي — دليل الأطباء في الجزائر"><meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="{prefix}assets/icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="{prefix}assets/icons/apple-touch-icon.png"><link rel="manifest" href="{prefix}manifest.webmanifest"><link rel="stylesheet" href="{prefix}css/style.css">
+<link rel="icon" href="{prefix}assets/icons/icon-192.png" type="image/png"><link rel="apple-touch-icon" href="{prefix}assets/icons/apple-touch-icon.png"><link rel="manifest" href="{prefix}manifest.webmanifest"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" referrerpolicy="no-referrer"><link rel="stylesheet" href="{prefix}css/style.css">
 <script src="{prefix}js/theme.js"></script><script type="application/ld+json">{markup}</script><script type="module" src="{prefix}js/app.js"></script>{extra_scripts}</head>
 <body><a class="skip-link" href="#main">تجاوز إلى المحتوى</a><div class="topline">دليل الأطباء في الجزائر <span>بحث أوضح. وصول أسهل.</span></div>
 <header class="site-header"><div class="container header-inner"><a class="brand" href="{prefix}index.html" aria-label="طبيبي — الرئيسية"><span class="brand-icon">{ICON}</span><span>طبيبي<small>TABIBI</small></span></a>
