@@ -10,6 +10,66 @@
     "updatedAt": "2026-09-17",
     "practices": [
       {
+        "wilayaCode": "35",
+        "communeId": "boumerdes",
+        "address": "شارع المثال 03 — boumerdes ",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000003"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  },
+   {
+    "id": "cardio-1",
+    "slug": "cardiology-1",
+    "name": "د. نموذج أمراض القلب 01",
+    "specialtyIds": [
+      "cardio"
+    ],
+    "verificationStatus": "verified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
         "wilayaCode": "31",
         "communeId": "oran",
         "address": "شارع المثال 03 — عنوان وهمي",
