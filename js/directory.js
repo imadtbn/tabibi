@@ -9,7 +9,7 @@ export async function initDirectory(){
   function syncURL(){const p=new URLSearchParams();Object.entries(filters()).forEach(([k,v])=>{if(v&&!(k==='spec'&&locked)&&!(k==='sort'&&v==='name'))p.set(k,v);});history.replaceState(null,'',location.pathname+(p.size?'?'+p:''));}
   function populateCommunes(){const previous=nodes.commune.value;nodes.commune.replaceChildren(new Option('كل البلديات المتاحة',''));for(const c of data?.communes||[])if(!nodes.wilaya.value||c.wilayaCode===nodes.wilaya.value)nodes.commune.add(new Option(c.nameAr,c.id));nodes.commune.value=previous;}
   function card({doctor,practice,km}){
-    const article=el('article',undefined,'doctor-card');article.append(el('span',doctor.verificationStatus==='verified'?'بيانات موثقة المصدر':'بيانات أولية · غير متحقق منها',doctor.verificationStatus==='verified'?'badge':'badge demo-badge'));
+    const article=el('article',undefined,'doctor-card');article.append(el('span',doctor.verificationStatus==='verified'?'بيانات موثقة المصدر':'بيانات أولية · غير متحقق منها',doctor.verificationStatus==='verified'?'badge':'badge unverified-badge'));
     const identity=el('div',undefined,'doctor-identity');const avatar=el('span',undefined,'doctor-avatar');avatar.setAttribute('aria-hidden','true');
     // Clone the site's existing vector stethoscope rather than fetching a font icon.
     const icon=document.querySelector('.brand-icon svg');if(icon)avatar.append(icon.cloneNode(true));
@@ -20,7 +20,7 @@ export async function initDirectory(){
     const hours=scheduleText(practice.openingHours);const dl=el('dl',undefined,'doctor-schedule');
     for(const [label,value] of [['أيام العمل',hours.days],['توقيت العمل',hours.hours]]){const row=el('div');const dd=el('dd');if(label==='توقيت العمل'){const bdi=el('bdi',value);bdi.dir='ltr';dd.append(bdi);}else dd.textContent=value;row.append(el('dt',label),dd);dl.append(row);}article.append(dl);
     for(const phone of practice.phones||[]){const call=el('a',undefined,'phone-link');call.href=`tel:${phone}`;const ico=el('span','☎');ico.setAttribute('aria-hidden','true');const number=el('bdi',phone);number.dir='ltr';call.append(ico,number);article.append(call);}
-    article.append(el('small',doctor.verificationStatus==='verified'?`آخر تحقق: ${doctor.verifiedAt}`:'العنوان والهاتف غير متحقق منهما؛ السجلات المسماة «نموذج» تحتاج استبدالًا.','demo-note'));
+    article.append(el('small',doctor.verificationStatus==='verified'?`آخر تحقق: ${doctor.verifiedAt}`:'العنوان والهاتف غير متحقق منهما؛ السجلات المسماة «نموذج» تحتاج استبدالًا.','verification-note'));
     if(km!==null)article.append(el('p',`${km.toFixed(1)} كم تقريبًا بخط مستقيم`));
     const actions=el('div',undefined,'card-actions');
     if(practice.coordinates){const dir=el('a','⌖ تكوين المسار على Google Maps','btn primary route-button');dir.href=`https://www.google.com/maps/dir/?api=1&destination=${practice.coordinates.lat},${practice.coordinates.lng}&travelmode=driving`;dir.target='_blank';dir.rel='noopener noreferrer';actions.append(dir);}
@@ -33,7 +33,7 @@ export async function initDirectory(){
       const rows=selectDoctors(data,filters(),userLocation,savedOnly?favorites():null);
       const visible=locked?rows.slice(0,limit):await hydrateRows(rows.slice(0,limit));
       if(version!==renderVersion)return;
-      nodes.results.replaceChildren(...visible.map(card));nodes['result-count'].textContent=`${rows.length} نتيجة`;nodes.empty.hidden=rows.length>0;nodes['load-more'].hidden=rows.length<=limit;updateAvailability();
+      nodes.results.replaceChildren(...visible.map(card));nodes['result-count'].textContent=`${rows.length} طبيب`;nodes['result-count'].dataset.count=String(rows.length);nodes.empty.hidden=rows.length>0;nodes['load-more'].hidden=rows.length<=limit;updateAvailability();
       if(!rows.length){nodes.empty.querySelector('h2').textContent='لا توجد نتائج مطابقة';nodes.empty.querySelector('p').textContent='جرّب تغيير الفلاتر أو البحث في تخصص آخر.';}
     }catch{if(version===renderVersion){nodes['data-error'].hidden=false;nodes.results.replaceChildren();nodes['result-count'].textContent='تعذر تحميل النتائج';}}
     finally{if(version===renderVersion)nodes.results.removeAttribute('aria-busy');}
