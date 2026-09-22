@@ -1,8 +1,8 @@
 [
   {
-    "id": "demo-general-1",
+    "id": "general-1",
     "name": "د. نموذج طب عام 01",
-    "slug": "demo-general-1",
+    "slug": "general-1",
     "specialtyIds": [
       "general"
     ],
@@ -14,7 +14,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,
@@ -24,9 +24,9 @@
     ]
   },
   {
-    "id": "demo-general-2",
+    "id": "general-2",
     "name": "د. نموذج طب عام 02",
-    "slug": "demo-general-2",
+    "slug": "general-2",
     "specialtyIds": [
       "general"
     ],
@@ -38,7 +38,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -48,9 +48,9 @@
     ]
   },
   {
-    "id": "demo-cardio-1",
+    "id": "cardio-1",
     "name": "د. نموذج أمراض القلب 01",
-    "slug": "demo-cardiology-1",
+    "slug": "cardiology-1",
     "specialtyIds": [
       "cardio"
     ],
@@ -62,7 +62,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -72,9 +72,9 @@
     ]
   },
   {
-    "id": "demo-cardio-2",
+    "id": "cardio-2",
     "name": "د. نموذج أمراض القلب 02",
-    "slug": "demo-cardiology-2",
+    "slug": "cardiology-2",
     "specialtyIds": [
       "cardio"
     ],
@@ -86,7 +86,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -96,9 +96,9 @@
     ]
   },
   {
-    "id": "demo-pediatrics-1",
+    "id": "pediatrics-1",
     "name": "د. نموذج طب الأطفال 01",
-    "slug": "demo-pediatrics-1",
+    "slug": "pediatrics-1",
     "specialtyIds": [
       "pediatrics"
     ],
@@ -110,7 +110,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -120,9 +120,9 @@
     ]
   },
   {
-    "id": "demo-pediatrics-2",
+    "id": "pediatrics-2",
     "name": "د. نموذج طب الأطفال 02",
-    "slug": "demo-pediatrics-2",
+    "slug": "pediatrics-2",
     "specialtyIds": [
       "pediatrics"
     ],
@@ -134,7 +134,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -144,9 +144,9 @@
     ]
   },
   {
-    "id": "demo-derma-1",
+    "id": "derma-1",
     "name": "د. نموذج أمراض جلدية 01",
-    "slug": "demo-dermatology-1",
+    "slug": "dermatology-1",
     "specialtyIds": [
       "derma"
     ],
@@ -158,7 +158,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -168,9 +168,9 @@
     ]
   },
   {
-    "id": "demo-derma-2",
+    "id": "derma-2",
     "name": "د. نموذج أمراض جلدية 02",
-    "slug": "demo-dermatology-2",
+    "slug": "dermatology-2",
     "specialtyIds": [
       "derma"
     ],
@@ -182,7 +182,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,
@@ -192,9 +192,9 @@
     ]
   },
   {
-    "id": "demo-ophtalmo-1",
+    "id": "ophtalmo-1",
     "name": "د. نموذج طب العيون 01",
-    "slug": "demo-ophthalmology-1",
+    "slug": "ophthalmology-1",
     "specialtyIds": [
       "ophtalmo"
     ],
@@ -206,7 +206,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,
@@ -216,9 +216,9 @@
     ]
   },
   {
-    "id": "demo-ophtalmo-2",
+    "id": "ophtalmo-2",
     "name": "د. نموذج طب العيون 02",
-    "slug": "demo-ophthalmology-2",
+    "slug": "ophthalmology-2",
     "specialtyIds": [
       "ophtalmo"
     ],
@@ -230,7 +230,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -240,9 +240,9 @@
     ]
   },
   {
-    "id": "demo-dental-1",
+    "id": "dental-1",
     "name": "د. نموذج طب الأسنان 01",
-    "slug": "demo-dentistry-1",
+    "slug": "dentistry-1",
     "specialtyIds": [
       "dental"
     ],
@@ -254,7 +254,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -264,9 +264,9 @@
     ]
   },
   {
-    "id": "demo-dental-2",
+    "id": "dental-2",
     "name": "د. نموذج طب الأسنان 02",
-    "slug": "demo-dentistry-2",
+    "slug": "dentistry-2",
     "specialtyIds": [
       "dental"
     ],
@@ -278,7 +278,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -288,9 +288,9 @@
     ]
   },
   {
-    "id": "demo-gyneco-1",
+    "id": "gyneco-1",
     "name": "د. نموذج نساء وتوليد 01",
-    "slug": "demo-gynecology-1",
+    "slug": "gynecology-1",
     "specialtyIds": [
       "gyneco"
     ],
@@ -302,7 +302,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -312,9 +312,9 @@
     ]
   },
   {
-    "id": "demo-gyneco-2",
+    "id": "gyneco-2",
     "name": "د. نموذج نساء وتوليد 02",
-    "slug": "demo-gynecology-2",
+    "slug": "gynecology-2",
     "specialtyIds": [
       "gyneco"
     ],
@@ -326,7 +326,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -336,9 +336,9 @@
     ]
   },
   {
-    "id": "demo-ortho-1",
+    "id": "ortho-1",
     "name": "د. نموذج جراحة العظام 01",
-    "slug": "demo-orthopedics-1",
+    "slug": "orthopedics-1",
     "specialtyIds": [
       "ortho"
     ],
@@ -350,7 +350,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -360,9 +360,9 @@
     ]
   },
   {
-    "id": "demo-ortho-2",
+    "id": "ortho-2",
     "name": "د. نموذج جراحة العظام 02",
-    "slug": "demo-orthopedics-2",
+    "slug": "orthopedics-2",
     "specialtyIds": [
       "ortho"
     ],
@@ -374,7 +374,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,
@@ -384,9 +384,9 @@
     ]
   },
   {
-    "id": "demo-ent-1",
+    "id": "ent-1",
     "name": "د. نموذج أنف وأذن وحنجرة 01",
-    "slug": "demo-ent-1",
+    "slug": "ent-1",
     "specialtyIds": [
       "ent"
     ],
@@ -398,7 +398,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,
@@ -408,9 +408,9 @@
     ]
   },
   {
-    "id": "demo-ent-2",
+    "id": "ent-2",
     "name": "د. نموذج أنف وأذن وحنجرة 02",
-    "slug": "demo-ent-2",
+    "slug": "ent-2",
     "specialtyIds": [
       "ent"
     ],
@@ -422,7 +422,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -432,9 +432,9 @@
     ]
   },
   {
-    "id": "demo-neuro-1",
+    "id": "neuro-1",
     "name": "د. نموذج طب الأعصاب 01",
-    "slug": "demo-neurology-1",
+    "slug": "neurology-1",
     "specialtyIds": [
       "neuro"
     ],
@@ -446,7 +446,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -456,9 +456,9 @@
     ]
   },
   {
-    "id": "demo-neuro-2",
+    "id": "neuro-2",
     "name": "د. نموذج طب الأعصاب 02",
-    "slug": "demo-neurology-2",
+    "slug": "neurology-2",
     "specialtyIds": [
       "neuro"
     ],
@@ -470,7 +470,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -480,9 +480,9 @@
     ]
   },
   {
-    "id": "demo-internal-1",
+    "id": "internal-1",
     "name": "د. نموذج طب باطني 01",
-    "slug": "demo-internal-medicine-1",
+    "slug": "internal-medicine-1",
     "specialtyIds": [
       "internal"
     ],
@@ -494,7 +494,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -504,9 +504,9 @@
     ]
   },
   {
-    "id": "demo-internal-2",
+    "id": "internal-2",
     "name": "د. نموذج طب باطني 02",
-    "slug": "demo-internal-medicine-2",
+    "slug": "internal-medicine-2",
     "specialtyIds": [
       "internal"
     ],
@@ -518,7 +518,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -528,9 +528,9 @@
     ]
   },
   {
-    "id": "demo-psychiatry-1",
+    "id": "psychiatry-1",
     "name": "د. نموذج طب نفسي 01",
-    "slug": "demo-psychiatry-1",
+    "slug": "psychiatry-1",
     "specialtyIds": [
       "psychiatry"
     ],
@@ -542,7 +542,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -552,9 +552,9 @@
     ]
   },
   {
-    "id": "demo-psychiatry-2",
+    "id": "psychiatry-2",
     "name": "د. نموذج طب نفسي 02",
-    "slug": "demo-psychiatry-2",
+    "slug": "psychiatry-2",
     "specialtyIds": [
       "psychiatry"
     ],
@@ -566,7 +566,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,
@@ -576,9 +576,9 @@
     ]
   },
   {
-    "id": "demo-gastro-1",
+    "id": "gastro-1",
     "name": "د. نموذج أمراض الجهاز الهضمي 01",
-    "slug": "demo-gastroenterology-1",
+    "slug": "gastroenterology-1",
     "specialtyIds": [
       "gastro"
     ],
@@ -590,7 +590,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,
@@ -600,9 +600,9 @@
     ]
   },
   {
-    "id": "demo-gastro-2",
+    "id": "gastro-2",
     "name": "د. نموذج أمراض الجهاز الهضمي 02",
-    "slug": "demo-gastroenterology-2",
+    "slug": "gastroenterology-2",
     "specialtyIds": [
       "gastro"
     ],
@@ -614,7 +614,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -624,9 +624,9 @@
     ]
   },
   {
-    "id": "demo-pneumo-1",
+    "id": "pneumo-1",
     "name": "د. نموذج أمراض تنفسية 01",
-    "slug": "demo-pulmonology-1",
+    "slug": "pulmonology-1",
     "specialtyIds": [
       "pneumo"
     ],
@@ -638,7 +638,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -648,9 +648,9 @@
     ]
   },
   {
-    "id": "demo-pneumo-2",
+    "id": "pneumo-2",
     "name": "د. نموذج أمراض تنفسية 02",
-    "slug": "demo-pulmonology-2",
+    "slug": "pulmonology-2",
     "specialtyIds": [
       "pneumo"
     ],
@@ -662,7 +662,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -672,9 +672,9 @@
     ]
   },
   {
-    "id": "demo-uro-1",
+    "id": "uro-1",
     "name": "د. نموذج جراحة المسالك البولية 01",
-    "slug": "demo-urology-1",
+    "slug": "urology-1",
     "specialtyIds": [
       "uro"
     ],
@@ -686,7 +686,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -696,9 +696,9 @@
     ]
   },
   {
-    "id": "demo-uro-2",
+    "id": "uro-2",
     "name": "د. نموذج جراحة المسالك البولية 02",
-    "slug": "demo-urology-2",
+    "slug": "urology-2",
     "specialtyIds": [
       "uro"
     ],
@@ -710,7 +710,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -720,9 +720,9 @@
     ]
   },
   {
-    "id": "demo-onco-1",
+    "id": "onco-1",
     "name": "د. نموذج طب الأورام 01",
-    "slug": "demo-oncology-1",
+    "slug": "oncology-1",
     "specialtyIds": [
       "onco"
     ],
@@ -734,7 +734,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -744,9 +744,9 @@
     ]
   },
   {
-    "id": "demo-onco-2",
+    "id": "onco-2",
     "name": "د. نموذج طب الأورام 02",
-    "slug": "demo-oncology-2",
+    "slug": "oncology-2",
     "specialtyIds": [
       "onco"
     ],
@@ -758,7 +758,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,
@@ -768,9 +768,9 @@
     ]
   },
   {
-    "id": "demo-endo-1",
+    "id": "endo-1",
     "name": "د. نموذج غدد صماء وسكري 01",
-    "slug": "demo-endocrinology-1",
+    "slug": "endocrinology-1",
     "specialtyIds": [
       "endo"
     ],
@@ -782,7 +782,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,
@@ -792,9 +792,9 @@
     ]
   },
   {
-    "id": "demo-endo-2",
+    "id": "endo-2",
     "name": "د. نموذج غدد صماء وسكري 02",
-    "slug": "demo-endocrinology-2",
+    "slug": "endocrinology-2",
     "specialtyIds": [
       "endo"
     ],
@@ -806,7 +806,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -816,9 +816,9 @@
     ]
   },
   {
-    "id": "demo-rhemato-1",
+    "id": "rhemato-1",
     "name": "د. نموذج روماتيزم 01",
-    "slug": "demo-rheumatology-1",
+    "slug": "rheumatology-1",
     "specialtyIds": [
       "rhemato"
     ],
@@ -830,7 +830,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "communeName": "وهران",
         "coordinates": {
           "lat": 35.6971,
@@ -840,9 +840,9 @@
     ]
   },
   {
-    "id": "demo-rhemato-2",
+    "id": "rhemato-2",
     "name": "د. نموذج روماتيزم 02",
-    "slug": "demo-rheumatology-2",
+    "slug": "rheumatology-2",
     "specialtyIds": [
       "rhemato"
     ],
@@ -854,7 +854,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -864,9 +864,9 @@
     ]
   },
   {
-    "id": "demo-nephro-1",
+    "id": "nephro-1",
     "name": "د. نموذج طب الكلى 01",
-    "slug": "demo-nephrology-1",
+    "slug": "nephrology-1",
     "specialtyIds": [
       "nephro"
     ],
@@ -878,7 +878,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "communeName": "قسنطينة",
         "coordinates": {
           "lat": 36.365,
@@ -888,9 +888,9 @@
     ]
   },
   {
-    "id": "demo-nephro-2",
+    "id": "nephro-2",
     "name": "د. نموذج طب الكلى 02",
-    "slug": "demo-nephrology-2",
+    "slug": "nephrology-2",
     "specialtyIds": [
       "nephro"
     ],
@@ -902,7 +902,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -912,9 +912,9 @@
     ]
   },
   {
-    "id": "demo-radio-1",
+    "id": "radio-1",
     "name": "د. نموذج أشعة طبية 01",
-    "slug": "demo-radiology-1",
+    "slug": "radiology-1",
     "specialtyIds": [
       "radio"
     ],
@@ -926,7 +926,7 @@
     "practices": [
       {
         "wilayaCode": "23",
-        "communeId": "demo-annaba",
+        "communeId": "annaba",
         "communeName": "عنابة",
         "coordinates": {
           "lat": 36.9,
@@ -936,9 +936,9 @@
     ]
   },
   {
-    "id": "demo-radio-2",
+    "id": "radio-2",
     "name": "د. نموذج أشعة طبية 02",
-    "slug": "demo-radiology-2",
+    "slug": "radiology-2",
     "specialtyIds": [
       "radio"
     ],
@@ -950,7 +950,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "communeName": "الجزائر الوسطى",
         "coordinates": {
           "lat": 36.7538,

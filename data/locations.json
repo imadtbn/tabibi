@@ -1,21 +1,21 @@
 [
   {
-    "id": "demo-algiers",
+    "id": "algiers",
     "wilayaCode": "16",
     "nameAr": "الجزائر الوسطى"
   },
   {
-    "id": "demo-oran",
+    "id": "oran",
     "wilayaCode": "31",
     "nameAr": "وهران"
   },
   {
-    "id": "demo-constantine",
+    "id": "constantine",
     "wilayaCode": "25",
     "nameAr": "قسنطينة"
   },
   {
-    "id": "demo-annaba",
+    "id": "annaba",
     "wilayaCode": "23",
     "nameAr": "عنابة"
   }
