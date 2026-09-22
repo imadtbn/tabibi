@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-general-1",
-    "slug": "demo-general-1",
+    "id": "general-1",
+    "slug": "general-1",
     "name": "د. نموذج طب عام 01",
     "specialtyIds": [
       "general"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "address": "شارع المثال 01 — عنوان وهمي",
         "coordinates": {
           "lat": 36.7538,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-general-2",
-    "slug": "demo-general-2",
+    "id": "general-2",
+    "slug": "general-2",
     "name": "د. نموذج طب عام 02",
     "specialtyIds": [
       "general"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "address": "شارع المثال 02 — عنوان وهمي",
         "coordinates": {
           "lat": 35.6971,
