@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-ent-1",
-    "slug": "demo-ent-1",
+    "id": "ent-1",
+    "slug": "ent-1",
     "name": "د. نموذج أنف وأذن وحنجرة 01",
     "specialtyIds": [
       "ent"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "16",
-        "communeId": "demo-algiers",
+        "communeId": "algiers",
         "address": "شارع المثال 17 — عنوان وهمي",
         "coordinates": {
           "lat": 36.7538,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-ent-2",
-    "slug": "demo-ent-2",
+    "id": "ent-2",
+    "slug": "ent-2",
     "name": "د. نموذج أنف وأذن وحنجرة 02",
     "specialtyIds": [
       "ent"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "address": "شارع المثال 18 — عنوان وهمي",
         "coordinates": {
           "lat": 35.6971,
