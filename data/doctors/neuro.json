@@ -1,7 +1,7 @@
 [
   {
-    "id": "demo-neuro-1",
-    "slug": "demo-neurology-1",
+    "id": "neuro-1",
+    "slug": "neurology-1",
     "name": "د. نموذج طب الأعصاب 01",
     "specialtyIds": [
       "neuro"
@@ -11,7 +11,7 @@
     "practices": [
       {
         "wilayaCode": "31",
-        "communeId": "demo-oran",
+        "communeId": "oran",
         "address": "شارع المثال 19 — عنوان وهمي",
         "coordinates": {
           "lat": 35.6971,
@@ -60,8 +60,8 @@
     "isPlaceholder": true
   },
   {
-    "id": "demo-neuro-2",
-    "slug": "demo-neurology-2",
+    "id": "neuro-2",
+    "slug": "neurology-2",
     "name": "د. نموذج طب الأعصاب 02",
     "specialtyIds": [
       "neuro"
@@ -71,7 +71,7 @@
     "practices": [
       {
         "wilayaCode": "25",
-        "communeId": "demo-constantine",
+        "communeId": "constantine",
         "address": "شارع المثال 20 — عنوان وهمي",
         "coordinates": {
           "lat": 36.365,
