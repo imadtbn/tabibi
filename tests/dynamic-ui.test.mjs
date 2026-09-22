@@ -26,7 +26,7 @@ test('directory and stats pages use live counter hooks',async()=>{
   const metrics=await readFile(new URL('../js/metrics.js',import.meta.url),'utf8');
   assert.match(doctors,/id="result-count" class="results-count"/);
   for(const key of ['total','specialties','wilayas','open','initial','verified'])assert.match(stats,new RegExp(`data-stat="${key}"`));
-  assert.match(metrics,/data\/search-index\.json/);
+  assert.match(metrics,/data\/doctors\//);
   assert.match(metrics,/data-specialty-heading-count/);
 });
 
@@ -38,4 +38,13 @@ test('technical demo prefix is removed from doctor identifiers and generated pro
   }
   const profiles=await readdir(new URL('../doctors/',import.meta.url));
   assert.ok(profiles.every(name=>!name.startsWith('demo-')));
+});
+
+test('generated UI uses Font Awesome instead of inline SVG icons',async()=>{
+  const build=await readFile(new URL('../tools/build.py',import.meta.url),'utf8');
+  const directory=await readFile(new URL('../js/directory.js',import.meta.url),'utf8');
+  assert.match(build,/font-awesome\/7\.3\.1\/css\/all\.min\.css/);
+  assert.match(build,/fa-solid fa-stethoscope/);
+  assert.doesNotMatch(build,/ICON='<svg/);
+  assert.doesNotMatch(directory,/brand-icon svg/);
 });
