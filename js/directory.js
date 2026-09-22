@@ -12,7 +12,7 @@ export async function initDirectory(){
     const article=el('article',undefined,'doctor-card');article.append(el('span',doctor.verificationStatus==='verified'?'بيانات موثقة المصدر':'بيانات أولية · غير متحقق منها',doctor.verificationStatus==='verified'?'badge':'badge unverified-badge'));
     const identity=el('div',undefined,'doctor-identity');const avatar=el('span',undefined,'doctor-avatar');avatar.setAttribute('aria-hidden','true');
     // Clone the site's existing vector stethoscope rather than fetching a font icon.
-    const icon=document.querySelector('.brand-icon svg');if(icon)avatar.append(icon.cloneNode(true));
+    const icon=el('i',undefined,'fa-solid fa-stethoscope');icon.setAttribute('aria-hidden','true');avatar.append(icon);
     const info=el('div');const h=el('h2');const link=el('a',doctor.name);link.href=url(`doctors/${doctor.slug}.html`);h.append(link);info.append(h,el('span',doctor.specialtyIds.map(id=>data.specialties.find(s=>s.id===id)?.nameAr||'').join(' • '),'specialty-chip'));identity.append(avatar,info);article.append(identity);
     const status=el('span','التوفر حسب توقيت الجزائر','availability unknown');status.dataset.hours=JSON.stringify(practice.openingHours||null);article.append(status);
     const commune=practice.communeName||data.communes.find(c=>c.id===practice.communeId)?.nameAr;
