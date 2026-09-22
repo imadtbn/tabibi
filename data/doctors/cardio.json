@@ -6,6 +6,126 @@
     "specialtyIds": [
       "cardio"
     ],
+    "verificationStatus": "verified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "oran",
+        "address": "شارع المثال 03 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000003"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  },
+  {
+    "id": "cardio-1",
+    "slug": "cardiology-1",
+    "name": "د. أمراض القلب 01",
+    "specialtyIds": [
+      "cardio"
+    ],
+    "verificationStatus": "verified",
+    "updatedAt": "2026-09-17",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "oran",
+        "address": "شارع المثال 03 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000003"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      }
+    ],
+    "isPlaceholder": true
+  },
+  {
+    "id": "cardio-1",
+    "slug": "cardiology-1",
+    "name": "د. أ00مراض القلب 01",
+    "specialtyIds": [
+      "cardio"
+    ],
     "verificationStatus": "unverified",
     "updatedAt": "2026-09-17",
     "practices": [
@@ -66,7 +186,7 @@
     "specialtyIds": [
       "cardio"
     ],
-    "verificationStatus": "unverified",
+    "verificationStatus": "verified",
     "updatedAt": "2026-09-17",
     "practices": [
       {
