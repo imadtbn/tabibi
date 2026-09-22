@@ -8,7 +8,7 @@ test('contribution page uses the professional review workflow',async()=>{
   assert.match(html,/مساهمة مجتمعية خاضعة للمراجعة/);
   assert.match(html,/id="submit-review"/);
   assert.match(html,/من المراجعة إلى النشر/);
-  assert.doesNotMatch(html,/demo-banner|كيف تظهر الإضافة للجميع/);
+  assert.doesNotMatch(html,/legacy-banner|كيف تظهر الإضافة للجميع/);
 });
 
 test('Google Apps Script validates submissions and exports one JSON file per specialty',async()=>{
