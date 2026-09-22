@@ -56,7 +56,7 @@ def validate_records(records):
 validate_records(doctors)
 ICON='<svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M10 7v9a9 9 0 0 0 18 0V7M8 7h4m14 0h4M19 25v3a7 7 0 0 0 14 0v-5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="33" cy="20" r="3" stroke="currentColor" stroke-width="3"/></svg>'
 def spec_cards(prefix='',subset=None):
-    return '<div class="specialties-grid">'+''.join(f'<a class="specialty-card" href="{prefix}specialties/{s["slug"]}.html"><span class="spec-symbol">{ICON}</span><h3>{esc(s["nameAr"])}</h3><span class="latin" lang="fr">{esc(s["nameFr"])}</span><span class="specialty-count" data-specialty-count="{s["id"]}"><b>{sum(s["id"] in d["specialtyIds"] for d in doctors):02d}</b> طبيب</span></a>' for s in (subset or specs))+'</div>'
+    return '<div class="specialties-grid">'+''.join(f'<a class="specialty-card" href="{prefix}specialties/{s["slug"]}.html"><span class="spec-symbol">{ICON}</span><h3>{esc(s["nameAr"])}</h3><span class="latin" lang="fr">{esc(s["nameFr"])}</span><span class="specialty-count" data-specialty-count="{s["id"]}" aria-live="polite"><b>{sum(s["id"] in d["specialtyIds"] for d in doctors):02d}</b> طبيب</span></a>' for s in (subset or specs))+'</div>'
 def options(items,key,label):return ''.join(f'<option value="{esc(x[key])}">{esc(x[label])}</option>' for x in items)
 def filters(spec=None,home=False):
     return f'''<form class="search-panel {'home-search' if home else ''}" {'action="doctors.html"' if home else 'id="filters"'} method="get" role="search">
@@ -71,29 +71,32 @@ def schedule(p):
     spans=list(dict.fromkeys(tuple(span) for intervals in hours.values() for span in intervals))
     return days_text,' / '.join(' – '.join(span) for span in spans) or 'غير محدد'
 def static_doctor(d,prefix='',practice=None):
-    p=practice or d['practices'][0];days,times=schedule(p);demo=d.get('verificationStatus')!='verified'
-    status='بيانات أولية · غير متحقق منها' if demo else 'بيانات موثقة المصدر'
+    p=practice or d['practices'][0];days,times=schedule(p);unverified=d.get('verificationStatus')!='verified'
+    status='بيانات أولية · غير متحقق منها' if unverified else 'بيانات موثقة المصدر'
     address='، '.join([wilaya_by[p['wilayaCode']]['nameAr'],p.get('communeName') or commune_by.get(p.get('communeId'),{}).get('nameAr',''),p['address']])
     phones=''.join(f'<a class="phone-link" href="tel:{esc(n)}"><span aria-hidden="true">☎</span><bdi dir="ltr">{esc(n)}</bdi></a>' for n in p.get('phones',[]))
     geo=p.get('coordinates');route=f'<a class="btn primary route-button" href="https://www.google.com/maps/dir/?api=1&amp;destination={geo["lat"]},{geo["lng"]}&amp;travelmode=driving" target="_blank" rel="noopener noreferrer">⌖ تكوين المسار على Google Maps</a>' if geo else ''
-    return f'''<article class="doctor-card"><span class="badge {'demo-badge' if demo else ''}">{status}</span><div class="doctor-identity"><span class="doctor-avatar">{ICON}</span><div><h2><a href="{prefix}doctors/{d['slug']}.html">{esc(d['name'])}</a></h2><span class="specialty-chip">{esc(' • '.join(spec_by[x]['nameAr'] for x in d['specialtyIds']))}</span></div></div>
-<span class="availability unknown" data-hours="{esc(json.dumps(p.get('openingHours')))}">التوفر حسب توقيت الجزائر</span><p class="doctor-address">⌖ {esc(address)}</p><dl class="doctor-schedule"><div><dt>أيام العمل</dt><dd>{esc(days)}</dd></div><div><dt>توقيت العمل</dt><dd><bdi dir="ltr">{esc(times)}</bdi></dd></div></dl>{phones}{'<small class="demo-note">العنوان والهاتف غير متحقق منهما؛ السجلات المسماة «نموذج» تحتاج استبدالًا.</small>' if demo else '<small>آخر تحقق: '+esc(d['verifiedAt'])+'</small>'}<div class="card-actions">{route}</div></article>'''
+    return f'''<article class="doctor-card"><span class="badge {'unverified-badge' if unverified else ''}">{status}</span><div class="doctor-identity"><span class="doctor-avatar">{ICON}</span><div><h2><a href="{prefix}doctors/{d['slug']}.html">{esc(d['name'])}</a></h2><span class="specialty-chip">{esc(' • '.join(spec_by[x]['nameAr'] for x in d['specialtyIds']))}</span></div></div>
+<span class="availability unknown" data-hours="{esc(json.dumps(p.get('openingHours')))}">التوفر حسب توقيت الجزائر</span><p class="doctor-address">⌖ {esc(address)}</p><dl class="doctor-schedule"><div><dt>أيام العمل</dt><dd>{esc(days)}</dd></div><div><dt>توقيت العمل</dt><dd><bdi dir="ltr">{esc(times)}</bdi></dd></div></dl>{phones}{'<small class="verification-note">العنوان والهاتف غير متحقق منهما؛ السجلات المسماة «نموذج» تحتاج استبدالًا.</small>' if unverified else '<small>آخر تحقق: '+esc(d['verifiedAt'])+'</small>'}<div class="card-actions">{route}</div></article>'''
 def statistics():
     counts=[('total',len(doctors),'سجل طبيب'),('specialties',len({x for d in doctors for x in d['specialtyIds']}),'تخصص به أطباء'),('wilayas',len({p['wilayaCode'] for d in doctors for p in d['practices']}),'ولاية في العرض'),('open','—','متوفر الآن حسب الجدول'),('initial',len(initial_doctors),'سجل بانتظار التحقق'),('verified',len(verified_doctors),'سجل حقيقي موثق')]
     return '<section class="stats-grid section" aria-label="إحصائيات عامة">'+''.join(f'<article><span data-stat="{key}">{value}</span><h2>{label}</h2></article>' for key,value,label in counts)+'</section><p class="muted">تشمل الإحصائيات السجلات الأولية والموثقة كلًا على حدة. يُحدّث التوفر كل 30 ثانية بتوقيت الجزائر.</p>'
 def listing(spec=None,favorites=False):
     records=[d for d in doctors if not spec or spec in d['specialtyIds']]
     initial=''.join(static_doctor(d,'../' if spec else '') for d in records[:12]) if not favorites else ''
+    count_text=f'{len(records)} طبيب' if not favorites else '0 طبيب'
     return f'''<section class="section" data-directory="true" data-spec="{spec or ''}" data-favorites="{'true' if favorites else 'false'}">
 {filters(spec)}<div class="filter-tools"><label class="field compact">البلدية<select id="commune"><option value="">كل البلديات المتاحة</option></select></label><label class="field compact">الترتيب<select id="sort"><option value="name">حسب الاسم</option><option value="recent">آخر تحديث</option><option value="distance">الأقرب إليّ</option></select></label><button class="btn secondary" id="locate" type="button">⌖ الأقرب إليّ</button><button class="text-button" id="reset" type="button">مسح الفلاتر</button></div>
 <p class="muted" id="location-note">يمكنك البحث بالولاية دون مشاركة موقعك. المسافة المعروضة تقديرية بخط مستقيم.</p>
-<div class="results-heading"><h2>{'الأطباء المحفوظون' if favorites else 'نتائج البحث'}</h2><span id="result-count" role="status" aria-live="polite">{len(records) if not favorites else ''}</span></div>
+<div class="results-heading"><h2>{'الأطباء المحفوظون' if favorites else 'نتائج البحث'}</h2><span id="result-count" class="results-count" role="status" aria-live="polite">{count_text}</span></div>
 <div id="results" class="doctors-grid">{initial}</div>
 <div id="empty" class="empty-state" {'hidden' if initial else ''}><span class="empty-icon" aria-hidden="true">⌕</span><h2>{'مفضلتك تبدأ من هنا' if favorites else 'نعمل على تجهيز الدليل الموثّق'}</h2><p>{'احفظ الطبيب من نتائج البحث لتصل إلى بياناته بسهولة لاحقًا.' if favorites else 'لا توجد سجلات أطباء موثقة منشورة حاليًا. ستظهر البيانات بعد التحقق من مصادرها، دون أرقام أو عناوين تجريبية.'}</p></div>
 <p id="data-error" class="notice" role="alert" hidden>تعذر تحميل بيانات البحث. <button type="button" class="text-button" id="retry">إعادة المحاولة</button></p><button class="btn secondary load-more" id="load-more" hidden type="button">عرض 12 طبيبًا إضافيًا</button>
 <noscript><p class="notice">المعلومات المنشورة متاحة للقراءة. فعّل JavaScript لاستخدام الفلاتر والمفضلة.</p></noscript></section>'''
-def heading(title,desc,kicker='دليل طبيبي'):
-    return f'<section class="page-heading"><span class="eyebrow">{kicker}</span><h1>{title}</h1><p>{desc}</p></section>'
+def heading(title,desc,kicker='دليل طبيبي',specialty_id=None):
+    count=sum(specialty_id in d['specialtyIds'] for d in doctors) if specialty_id else None
+    counter=f'<span class="page-heading-count" data-specialty-heading-count="{esc(specialty_id)}" aria-live="polite"><b>{count}</b> طبيب في هذا التخصص</span>' if specialty_id else ''
+    return f'<section class="page-heading"><span class="eyebrow">{kicker}</span><h1>{title}</h1><p>{desc}</p>{counter}</section>'
 pages={}
 def page(path,title,desc,body,active='',noindex=False,extra_schema=None):
     prefix=BASE if path=='404.html' else ('../' if '/' in path else '')
@@ -128,7 +131,7 @@ home=f'''<section class="hero"><div class="hero-copy"><span class="eyebrow"><spa
 page('index.html','دليل الأطباء في الجزائر','ابحث في دليل طبيبي حسب التخصص والولاية. معلومات اتصال وعناوين موثقة المصدر، بحث بالقرب منك، ومفضلة على جهازك دون إنشاء حساب.',home,'home')
 page('specialties/index.html','التخصصات الطبية','تصفح التخصصات الطبية في دليل طبيبي، واختر تخصصًا للبحث عن الأطباء حسب الولاية والبلدية.',heading('التخصصات الطبية','اختر التخصص المناسب لبحثك، ثم حدّد الولاية أو البلدية.')+spec_cards('../'),'specialties')
 for s in specs:
-    body=f'<nav class="breadcrumbs" aria-label="مسار التصفح"><a href="../index.html">الرئيسية</a><span>/</span><a href="index.html">التخصصات</a><span>/</span><span>{esc(s["nameAr"])}</span></nav>'+heading(f'أطباء {s["nameAr"]}',esc(s['description']),esc(s['nameFr']))+listing(s['id'])
+    body=f'<nav class="breadcrumbs" aria-label="مسار التصفح"><a href="../index.html">الرئيسية</a><span>/</span><a href="index.html">التخصصات</a><span>/</span><span>{esc(s["nameAr"])}</span></nav>'+heading(f'أطباء {s["nameAr"]}',esc(s['description']),esc(s['nameFr']),s['id'])+listing(s['id'])
     related=[x for x in specs if x['id']!=s['id']][:4]
     body+='<section class="section"><div class="section-head"><h2>تصفح تخصصات أخرى</h2><a class="text-link" href="index.html">جميع التخصصات ←</a></div>'+spec_cards('../',related)+'</section>'
     page(f'specialties/{s["slug"]}.html',f'أطباء {s["nameAr"]} في الجزائر',s['description'],body,'specialties')
@@ -152,16 +155,16 @@ page('specialty.html','اختيار التخصص','انتقل إلى الصفح�
 # Remove obsolete generated doctor profiles before rebuilding.
 for p in (R/'doctors').glob('*.html'):p.unlink()
 for d in doctors:
-    demo=d.get('verificationStatus')!='verified'
+    unverified=d.get('verificationStatus')!='verified'
     body=heading(esc(d['name']),esc(' • '.join(spec_by[x]['nameAr'] for x in d['specialtyIds'])))+'<div class="section profile-cards">'+''.join(static_doctor(d,'../',p) for p in d['practices'])+'</div>'
     schema=None
-    if not demo:
+    if not unverified:
         p=d['practices'][0]
         body+=f'<a class="text-link" href="{esc(d["sourceUrl"])}" target="_blank" rel="noopener noreferrer">مصدر المعلومات ↗</a>'
         schema={'@context':'https://schema.org','@type':'Physician','name':d['name'],'url':BASE+f'doctors/{d["slug"]}.html','address':{'@type':'PostalAddress','streetAddress':p['address'],'addressRegion':wilaya_by[p['wilayaCode']]['nameAr'],'addressCountry':'DZ'}}
         if p.get('phones'):schema['telephone']=p['phones'][0]
         if p.get('coordinates'):schema['geo']={'@type':'GeoCoordinates','latitude':p['coordinates']['lat'],'longitude':p['coordinates']['lng']}
-    page(f'doctors/{d["slug"]}.html',d['name'],'سجل أولي غير متحقق منه، قابل للتحديث اليدوي.' if demo else f'عنوان ووسائل اتصال {d["name"]}',body,'doctors',noindex=demo,extra_schema=schema)
+    page(f'doctors/{d["slug"]}.html',d['name'],'سجل أولي غير متحقق منه، قابل للتحديث اليدوي.' if demo else f'عنوان ووسائل اتصال {d["name"]}',body,'doctors',noindex=unverified,extra_schema=schema)
 dump('data/stats.json',{'doctors':len(doctors),'coveredWilayas':covered,'specialties':len(specs),'initialDoctors':len(initial_doctors),'verifiedDoctors':len(verified_doctors),'bySpecialty':{s['id']:sum(s['id'] in d['specialtyIds'] for d in doctors) for s in specs}})
 stats=load('data/stats.json'); groups={}
 for d in doctors:
