@@ -93,3 +93,30 @@
 @media(prefers-reduced-motion:reduce){
   .specialty-stat-card,.specialty-stat-fill{transition:none!important}
 }
+
+/* Unified footer links: local SVG icons, comfortable touch targets, RTL and dark-theme tokens. */
+footer .footer-grid{grid-template-columns:minmax(0,1.65fr) repeat(2,minmax(0,1fr));gap:clamp(20px,4vw,48px);align-items:start}
+footer .footer-grid>div{min-width:0}
+footer .footer-grid .brand{display:inline-flex;align-items:center;gap:12px;width:fit-content;color:var(--ink)}
+footer .footer-grid .footer-brand-mark{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:14px;background:var(--accent-soft);border:1px solid var(--line);color:var(--accent)}
+footer .footer-grid .footer-brand-mark svg{width:26px;height:26px;display:block}
+footer .footer-grid>div>a:not(.brand){display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 8px;border-radius:11px;line-height:1.45;overflow-wrap:anywhere;transition:background-color .18s ease,color .18s ease}
+footer .footer-grid .footer-link-icon{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:10px;background:var(--accent-soft);color:var(--accent)}
+footer .footer-grid .footer-link-icon svg{display:block;width:18px;height:18px}
+footer .footer-grid>div>a:not(.brand):hover,footer .footer-grid>div>a:not(.brand):focus-visible{color:var(--accent);background:var(--accent-soft)}
+footer .footer-grid>div>a:not(.brand):hover .footer-link-icon,footer .footer-grid>div>a:not(.brand):focus-visible .footer-link-icon{background:var(--surface)}
+footer .footer-grid p{max-width:40ch;overflow-wrap:anywhere}
+@media(max-width:880px){
+  footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 18px}
+  footer .footer-grid>div:first-child{grid-column:1/-1}
+}
+@media(max-width:440px){
+  footer{padding-top:32px}
+  footer .footer-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+  footer .footer-grid>div:first-child{grid-column:auto}
+  footer .footer-grid h2{margin-bottom:8px}
+  footer .footer-bottom{margin-top:25px}
+}
+@media(prefers-reduced-motion:reduce){
+  footer .footer-grid>div>a:not(.brand){transition:none}
+}
