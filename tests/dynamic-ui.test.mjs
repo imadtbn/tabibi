@@ -48,3 +48,19 @@ test('generated UI uses Font Awesome instead of inline SVG icons',async()=>{
   assert.doesNotMatch(build,/ICON='<svg/);
   assert.doesNotMatch(directory,/brand-icon svg/);
 });
+
+test('statistics page renders dynamic specialty distribution with responsive controls',async()=>{
+  const stats=await readFile(new URL('../stats.html',import.meta.url),'utf8');
+  const build=await readFile(new URL('../tools/build.py',import.meta.url),'utf8');
+  const css=await readFile(new URL('../css/style.css',import.meta.url),'utf8');
+  const metrics=await readFile(new URL('../js/metrics.js',import.meta.url),'utf8');
+  assert.match(stats,/id="specialty-stats-list"/);
+  assert.match(stats,/id="specialty-stats-order"/);
+  assert.match(stats,/id="specialty-stats-status"/);
+  assert.match(build,/statistics\(\)\+specialty_statistics\(\)/);
+  assert.match(css,/\.specialty-stats-list\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(css,/@media\(max-width:700px\)\{[\s\S]*?\.specialty-stats-list\{grid-template-columns:minmax\(0,1fr\)/);
+  assert.match(metrics,/renderSpecialtyBreakdown/);
+  assert.match(metrics,/loadSourceGroups\(\)/);
+  assert.match(metrics,/new Set\(doctor\.specialtyIds/);
+});
