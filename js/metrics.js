@@ -78,6 +78,10 @@ function fallbackSummary(index,summary,now,online){
   for(const d of index)for(const id of new Set(d.specialtyIds||[]))
     if(Object.hasOwn(bySpecialty,id))bySpecialty[id]++;
   stats.bySpecialty=bySpecialty;
+  // The compact index has a validated verification flag/date, but intentionally
+  // omits source URLs. Do not treat all indexed doctors as unverified.
+  stats.verified=index.filter(d=>d.verificationStatus==='verified'&&!d.isPlaceholder&&d.verifiedAt).length;
+  stats.initial=stats.total-stats.verified;
   stats.specialties=Object.values(bySpecialty).filter(n=>n>0).length;
   stats.open=online&&summary?.schedules?summary.schedules.reduce((n,g)=>
     n+(g.hours.some(hours=>availability(hours,now,true).state==='open')?g.count:0),0):'—';
@@ -125,7 +129,7 @@ export function initMetrics(){
   if(!document.querySelector('[data-stat],[data-specialty-count],[data-specialty-heading-count]')){
     updateAvailability();return;
   }
-  let groups=null,specialties=null,catalog=null,index=null,summary=null,lastRequested=0,loading=null;
+  let groups=null,specialties=null,catalog=null,index=null,summary=null,lastRequested=0,loading=null,sourceError=false;
   const breakdown=document.getElementById('specialty-stats-list');
   const status=document.getElementById('specialty-stats-status');
   const order=document.getElementById('specialty-stats-order');
@@ -155,6 +159,7 @@ export function initMetrics(){
       }
       if(status)status.textContent=!online?'بيانات محفوظة دون اتصال؛ قد تكون أحدث التعديلات غير ظاهرة.':
         groups?'الأعداد محسوبة من ملفات الأطباء حسب الاختصاص، مع استبعاد تكرار المعرّف.':
+        sourceError?'أعداد مأخوذة من الفهرس المحفوظ؛ تعذر جلب ملفات الاختصاصات الآن.':
         'أعداد مبدئية من الفهرس المحفوظ؛ جارٍ التحقق من ملفات الاختصاصات.';
     }
   }
@@ -163,9 +168,11 @@ export function initMetrics(){
     if(loading)return loading;
     lastRequested=Date.now();
     loading=loadSourceGroups().then(result=>{
-      groups=result.groups;specialties=result.specialties;catalog=result.specialties;refresh();
+      sourceError=false;groups=result.groups;specialties=result.specialties;catalog=result.specialties;refresh();
     }).catch(error=>{
+      sourceError=true;
       console.warn('تعذر تحديث العدادات من ملفات التخصصات؛ تُعرض البيانات المحفوظة إن وُجدت.',error);
+      refresh();
     }).finally(()=>{
       loading=null;
       if(breakdown&&!groups&&!index&&!summary&&status)
