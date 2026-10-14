@@ -1,4 +1,4 @@
-import {getJSON,availability} from './core.js';
+import {getJSON,availability,url} from './core.js';
 
 export function updateAvailability(now=new Date()){
   for(const node of document.querySelectorAll('[data-hours]')){
@@ -84,11 +84,52 @@ function fallbackSummary(index,summary,now,online){
   return stats;
 }
 
+/* Specialty distribution uses the same unique-doctor summary as the headline
+   counters. Build DOM nodes safely; do not insert database strings as HTML. */
+export function renderSpecialtyBreakdown(root,stats,catalog,order='most'){
+  if(!root||!stats||!Array.isArray(catalog))return;
+  const entries=catalog.filter(s=>s&&s.id&&s.slug).map((s,i)=>({
+    ...s,index:i,count:stats.bySpecialty?.[s.id]||0
+  }));
+  if(order==='most')entries.sort((a,b)=>b.count-a.count||a.index-b.index);
+  const max=Math.max(1,...entries.map(s=>s.count));
+  const fragment=document.createDocumentFragment();
+  for(const specialty of entries){
+    const card=document.createElement('a');
+    card.className='specialty-stat-card';
+    card.href=url('specialties/'+specialty.slug+'.html');
+    card.setAttribute('aria-label',specialty.nameAr+': '+specialty.count+' طبيب. عرض الأطباء');
+    const top=document.createElement('div');top.className='specialty-stat-top';
+    const names=document.createElement('div');names.className='specialty-stat-names';
+    const title=document.createElement('strong');title.textContent=specialty.nameAr;
+    const latin=document.createElement('small');latin.lang='fr';latin.textContent=specialty.nameFr||'';
+    names.append(title,latin);
+    const number=document.createElement('span');number.className='specialty-stat-number';
+    const digit=document.createElement('b');digit.textContent=String(specialty.count);
+    number.append(digit,document.createTextNode(' طبيب'));
+    top.append(names,number);
+    const track=document.createElement('span');track.className='specialty-stat-track';
+    track.setAttribute('aria-hidden','true');
+    const fill=document.createElement('span');fill.className='specialty-stat-fill';
+    fill.style.width=(specialty.count/max*100).toFixed(2)+'%';
+    track.append(fill);
+    const action=document.createElement('span');action.className='specialty-stat-action';
+    action.textContent='عرض أطباء التخصص ←';
+    card.append(top,track,action);fragment.append(card);
+  }
+  root.replaceChildren(fragment);
+  root.setAttribute('aria-busy','false');
+}
+
 export function initMetrics(){
   if(!document.querySelector('[data-stat],[data-specialty-count],[data-specialty-heading-count]')){
     updateAvailability();return;
   }
-  let groups=null,specialties=null,index=null,summary=null,lastRequested=0,loading=null;
+  let groups=null,specialties=null,catalog=null,index=null,summary=null,lastRequested=0,loading=null;
+  const breakdown=document.getElementById('specialty-stats-list');
+  const status=document.getElementById('specialty-stats-status');
+  const order=document.getElementById('specialty-stats-order');
+  let lastBreakdown='';
   function refresh(){
     const now=new Date(),online=navigator.onLine;
     updateAvailability(now);
@@ -106,23 +147,40 @@ export function initMetrics(){
       node.setAttribute('aria-label',count+' طبيب في هذا التخصص');
     }
     for(const node of document.querySelectorAll('[data-stat]'))setCounter(node,stats[node.dataset.stat]);
+    if(breakdown&&catalog){
+      const signature=JSON.stringify([stats.bySpecialty,order?.value||'most',!!groups]);
+      if(signature!==lastBreakdown){
+        renderSpecialtyBreakdown(breakdown,stats,catalog,order?.value||'most');
+        lastBreakdown=signature;
+      }
+      if(status)status.textContent=!online?'بيانات محفوظة دون اتصال؛ قد تكون أحدث التعديلات غير ظاهرة.':
+        groups?'الأعداد محسوبة من ملفات الأطباء حسب الاختصاص، مع استبعاد تكرار المعرّف.':
+        'أعداد مبدئية من الفهرس المحفوظ؛ جارٍ التحقق من ملفات الاختصاصات.';
+    }
   }
+  order?.addEventListener('change',()=>{lastBreakdown='';refresh();});
   function loadOriginals(){
     if(loading)return loading;
     lastRequested=Date.now();
     loading=loadSourceGroups().then(result=>{
-      groups=result.groups;specialties=result.specialties;refresh();
+      groups=result.groups;specialties=result.specialties;catalog=result.specialties;refresh();
     }).catch(error=>{
       console.warn('تعذر تحديث العدادات من ملفات التخصصات؛ تُعرض البيانات المحفوظة إن وُجدت.',error);
-    }).finally(()=>{loading=null;});
+    }).finally(()=>{
+      loading=null;
+      if(breakdown&&!groups&&!index&&!summary&&status)
+        status.textContent='تعذر تحميل بيانات الإحصائيات حاليًا. أعد تحميل الصفحة عند عودة الاتصال.';
+    });
     return loading;
   }
   Promise.allSettled([
     getJSON('data/search-index.json',true),
-    getJSON('data/stats.json',true)
+    getJSON('data/stats.json',true),
+    ...(breakdown?[getJSON('data/specialties.json')]:[])
   ]).then(results=>{
     if(results[0].status==='fulfilled')index=results[0].value;
     if(results[1].status==='fulfilled')summary=results[1].value;
+    if(results[2]?.status==='fulfilled'&&!catalog)catalog=results[2].value;
     refresh();
   });
   loadOriginals();
