@@ -28,6 +28,27 @@ nav?.querySelectorAll('a').forEach(link=>{
   link.insertAdjacentHTML('afterbegin',svg(NAV_ICONS[kind]));
   link.classList.add('has-nav-icon');
 });
+// Decorative footer icons: preserve the original link text for accessibility and SEO.
+// The links remain functional when JavaScript or external icon fonts are unavailable.
+const FOOTER_ICONS={
+  'specialties/index.html':'<rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 7v10M7 12h10"/>',
+  'index.html':'<path d="M7 3v7a5 5 0 0 0 10 0V3M5 3h4m6 0h4M12 15v2a4 4 0 0 0 8 0v-2"/><circle cx="20" cy="13" r="2"/>',
+  'map.html':'<path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z"/><path d="M9 3v15M15 6v15"/>',
+  'stats.html':'<path d="M4 20v-9h4v9M10 20V4h4v16M16 20v-7h4v7"/>',
+  'about.html':'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>',
+  'contact.html':'<path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 9 9 0 0 1-4-.9L3 21l1.9-5.5A9 9 0 1 1 21 11.5Z"/><path d="M8.5 10h7M8.5 14h5"/>',
+  'privacy.html':'<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1"/>',
+  'terms.html':'<path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v6h5M9 14h6M9 18h6"/>'
+};
+const footer=document.querySelector('footer');
+footer?.querySelectorAll('.footer-grid a[href]').forEach(link=>{
+  const pathname=new URL(link.href).pathname;
+  const kind=Object.keys(FOOTER_ICONS).find(path=>pathname.endsWith('/'+path));
+  if(!kind||link.querySelector('.footer-link-icon,.footer-brand-mark'))return;
+  const iconClass=link.classList.contains('brand')?'footer-brand-mark':'footer-link-icon';
+  link.insertAdjacentHTML('afterbegin',`<span class="${iconClass}" aria-hidden="true">${svg(FOOTER_ICONS[kind])}</span>`);
+  link.classList.add('has-footer-icon');
+});
 const MENU_ICONS={
   open:'<path d="M4 7h16M4 12h16M4 17h16"/>',
   close:'<path d="M6 6l12 12M18 6 6 18"/>'
