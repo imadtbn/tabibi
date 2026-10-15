@@ -1,12 +1,12 @@
 {
-  "doctors": 40,
-  "coveredWilayas": 4,
+  "doctors": 42,
+  "coveredWilayas": 5,
   "specialties": 20,
-  "initialDoctors": 40,
+  "initialDoctors": 42,
   "verifiedDoctors": 0,
   "bySpecialty": {
     "general": 2,
-    "cardio": 2,
+    "cardio": 4,
     "pediatrics": 2,
     "derma": 2,
     "ophtalmo": 2,
@@ -64,7 +64,80 @@
           ]
         }
       ],
-      "count": 40
+      "count": 41
+    },
+    {
+      "hours": [
+        {
+          "fri": [],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ]
+        },
+        {
+          "fri": [],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ]
+        }
+      ],
+      "count": 1
     }
   ]
 }

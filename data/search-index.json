@@ -58,7 +58,7 @@
     "isPlaceholder": true,
     "updatedAt": "2026-09-17",
     "verifiedAt": "",
-    "text": "د. نموذج امراض القلب 01 امراض القلب cardiologie cardio cardiology cardiologie شارع المثال 03 — عنوان وهمي وهران وهران",
+    "text": "د. نموذج امراض القلب 01 امراض القلب cardiologie cardio cardiology cardiologie شارع المثال 03 — عنوان وهمي وهران وهران شارع المثال 03 — boumerdes  بومرداس بومرداس",
     "practices": [
       {
         "wilayaCode": "31",
@@ -68,6 +68,12 @@
           "lat": 35.6971,
           "lng": -0.6308
         }
+      },
+      {
+        "wilayaCode": "35",
+        "communeId": "boumerdes",
+        "communeName": "بومرداس",
+        "coordinates": null
       }
     ]
   },
@@ -91,6 +97,54 @@
         "coordinates": {
           "lat": 36.365,
           "lng": 6.6147
+        }
+      }
+    ]
+  },
+  {
+    "id": "cardio-3",
+    "name": "د. أمراض القلب 01",
+    "slug": "cardiology-3",
+    "specialtyIds": [
+      "cardio"
+    ],
+    "verificationStatus": "unverified",
+    "isPlaceholder": true,
+    "updatedAt": "2026-09-17",
+    "verifiedAt": "",
+    "text": "د. امراض القلب 01 امراض القلب cardiologie cardio cardiology cardiologie شارع المثال 03 — عنوان وهمي وهران وهران",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "oran",
+        "communeName": "وهران",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        }
+      }
+    ]
+  },
+  {
+    "id": "cardio-4",
+    "name": "د. أ00مراض القلب 01",
+    "slug": "cardiology-4",
+    "specialtyIds": [
+      "cardio"
+    ],
+    "verificationStatus": "unverified",
+    "isPlaceholder": true,
+    "updatedAt": "2026-09-17",
+    "verifiedAt": "",
+    "text": "د. ا00مراض القلب 01 امراض القلب cardiologie cardio cardiology cardiologie شارع المثال 03 — عنوان وهمي وهران وهران",
+    "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "oran",
+        "communeName": "وهران",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
         }
       }
     ]

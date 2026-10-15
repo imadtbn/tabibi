@@ -18,5 +18,10 @@
     "id": "annaba",
     "wilayaCode": "23",
     "nameAr": "عنابة"
+  },
+  {
+    "id": "boumerdes",
+    "wilayaCode": "35",
+    "nameAr": "بومرداس"
   }
 ]

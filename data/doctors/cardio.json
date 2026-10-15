@@ -6,17 +6,61 @@
     "specialtyIds": [
       "cardio"
     ],
-    "verificationStatus": "verified",
+    "verificationStatus": "unverified",
     "updatedAt": "2026-09-17",
     "practices": [
+      {
+        "wilayaCode": "31",
+        "communeId": "oran",
+        "address": "شارع المثال 03 — عنوان وهمي",
+        "coordinates": {
+          "lat": 35.6971,
+          "lng": -0.6308
+        },
+        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
+        "phones": [
+          "+213000000003"
+        ],
+        "openingHours": {
+          "sat": [],
+          "sun": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "mon": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "tue": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "wed": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "thu": [
+            [
+              "09:00",
+              "15:00"
+            ]
+          ],
+          "fri": []
+        }
+      },
       {
         "wilayaCode": "35",
         "communeId": "boumerdes",
         "address": "شارع المثال 03 — boumerdes ",
-        "coordinates": {
-          "lat": 35.6971,
-          "lng": -0.6308
-        },
+        "coordinates": null,
         "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
         "phones": [
           "+213000000003"
@@ -54,32 +98,33 @@
             ]
           ],
           "fri": []
-        }
+        },
+        "communeName": "بومرداس"
       }
     ],
     "isPlaceholder": true
   },
-   {
-    "id": "cardio-1",
-    "slug": "cardiology-1",
-    "name": "د. نموذج أمراض القلب 01",
+  {
+    "id": "cardio-2",
+    "slug": "cardiology-2",
+    "name": "د. نموذج أمراض القلب 02",
     "specialtyIds": [
       "cardio"
     ],
-    "verificationStatus": "verified",
+    "verificationStatus": "unverified",
     "updatedAt": "2026-09-17",
     "practices": [
       {
-        "wilayaCode": "31",
-        "communeId": "oran",
-        "address": "شارع المثال 03 — عنوان وهمي",
+        "wilayaCode": "25",
+        "communeId": "constantine",
+        "address": "شارع المثال 04 — عنوان وهمي",
         "coordinates": {
-          "lat": 35.6971,
-          "lng": -0.6308
+          "lat": 36.365,
+          "lng": 6.6147
         },
         "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
         "phones": [
-          "+213000000003"
+          "+213000000004"
         ],
         "openingHours": {
           "sat": [],
@@ -120,69 +165,9 @@
     "isPlaceholder": true
   },
   {
-    "id": "cardio-1",
-    "slug": "cardiology-1",
+    "id": "cardio-3",
+    "slug": "cardiology-3",
     "name": "د. أمراض القلب 01",
-    "specialtyIds": [
-      "cardio"
-    ],
-    "verificationStatus": "verified",
-    "updatedAt": "2026-09-17",
-    "practices": [
-      {
-        "wilayaCode": "31",
-        "communeId": "oran",
-        "address": "شارع المثال 03 — عنوان وهمي",
-        "coordinates": {
-          "lat": 35.6971,
-          "lng": -0.6308
-        },
-        "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
-        "phones": [
-          "+213000000003"
-        ],
-        "openingHours": {
-          "sat": [],
-          "sun": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "mon": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "tue": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "wed": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "thu": [
-            [
-              "09:00",
-              "15:00"
-            ]
-          ],
-          "fri": []
-        }
-      }
-    ],
-    "isPlaceholder": true
-  },
-  {
-    "id": "cardio-1",
-    "slug": "cardiology-1",
-    "name": "د. أ00مراض القلب 01",
     "specialtyIds": [
       "cardio"
     ],
@@ -240,26 +225,26 @@
     "isPlaceholder": true
   },
   {
-    "id": "cardio-2",
-    "slug": "cardiology-2",
-    "name": "د. نموذج أمراض القلب 02",
+    "id": "cardio-4",
+    "slug": "cardiology-4",
+    "name": "د. أ00مراض القلب 01",
     "specialtyIds": [
       "cardio"
     ],
-    "verificationStatus": "verified",
+    "verificationStatus": "unverified",
     "updatedAt": "2026-09-17",
     "practices": [
       {
-        "wilayaCode": "25",
-        "communeId": "constantine",
-        "address": "شارع المثال 04 — عنوان وهمي",
+        "wilayaCode": "31",
+        "communeId": "oran",
+        "address": "شارع المثال 03 — عنوان وهمي",
         "coordinates": {
-          "lat": 36.365,
-          "lng": 6.6147
+          "lat": 35.6971,
+          "lng": -0.6308
         },
         "coordinateNote": "نقطة تقريبية بمركز المدينة لتجربة المسار، وليست عيادة",
         "phones": [
-          "+213000000004"
+          "+213000000003"
         ],
         "openingHours": {
           "sat": [],
